@@ -1,5 +1,4 @@
 package users;
-import java.util.ArrayList;
 import java.util.*;
 
 public class topics {
@@ -7,7 +6,7 @@ public class topics {
 	public static void main(String[] args) 
 	{	
 		ArrayList<String> myTopics = new ArrayList<String>(10);
-        HashMap<Integer, String> user_topics = new HashMap<>(); 
+        	HashMap<Integer, String> user_topics = new HashMap<>(); 
         
 		String[] firstList = new String[] {"History", "Economics", "Animals", "Geography","Maths"};
 		myTopics.addAll(Arrays.asList(firstList));
