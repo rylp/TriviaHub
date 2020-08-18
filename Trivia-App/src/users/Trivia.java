@@ -1,5 +1,6 @@
 package users;
 
+import java.sql.*;
 import java.util.*;
 
 
@@ -42,12 +43,39 @@ public class Trivia
 			newUser.register_user();
 			newUser.show_details();
 			
-			//get topics of choice
-			System.out.println("Select Topics of your choice");
+			try
+			{
+				String url="jdbc:mysql://localhost:3306/trivia-db";
+				String uname="root";
+				String pass="temp123";
+				
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				Connection con=DriverManager.getConnection(url,uname,pass);
+				
+				ResultSet rs;
+				CallableStatement statement = con.prepareCall("{call getUserId()}");
+				
+				rs=statement.executeQuery();
+				
+				rs.next();
+				int userId=rs.getInt(1);
+				
+				sess.setMyid(userId);
+				
+				statement.close();
+				con.close();
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
 			
-			TopicSelection ts=new TopicSelection();	
-			String userKey=ts.SelectTopic(newUser.userName,newUser.userId);
-			sess.setMykey(userKey);
+			//get topics of choice
+//			System.out.println("Select Topics of your choice");
+//			
+//			TopicSelection ts=new TopicSelection();	
+//			String userKey=ts.SelectTopic();
+//			sess.setMykey(userKey);
 			
 		}
 		

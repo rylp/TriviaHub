@@ -3,6 +3,15 @@ package users;
 public class MySession {
 	
 	private String mykey;
+	private int myid;
+
+	public int getMyid() {
+		return myid;
+	}
+
+	public void setMyid(int myid) {
+		this.myid = myid;
+	}
 
 	public String getMykey() {
 		return mykey;
