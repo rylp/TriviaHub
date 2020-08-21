@@ -24,24 +24,24 @@ public class Trivia
 		
 		if(ch==1) //Log In
 		{
-          LogIn cur_user=new LogIn();
+          LogIn curUser=new LogIn();
 			
-          cur_user.login_user();
-          cur_user.show_details();
+          curUser.loginUser();
+          curUser.showDetails();
           
-          //set the userKey for now statically
-          String userKey="123";
-          
-          sess.setMykey(userKey);
-			
-          //display topics of choice
+//          //set the userKey for now statically
+//          String userKey="123";
+//          
+//          sess.setMykey(userKey);
+//			
+//          //display topics of choice
 		}
 		else //Register
 		{	
 			RegisterUser newUser = new RegisterUser(); 
 			
-			newUser.register_user();
-			newUser.show_details();
+			newUser.registerUser();
+			newUser.showDetails();
 			
 			try
 			{
@@ -60,6 +60,8 @@ public class Trivia
 				rs.next();
 				int userId=rs.getInt(1);
 				
+				System.out.println("User Id: "+userId);
+				
 				sess.setMyid(userId);
 				
 				statement.close();
@@ -71,12 +73,11 @@ public class Trivia
 			}
 			
 			//get topics of choice
-//			System.out.println("Select Topics of your choice");
-//			
-//			TopicSelection ts=new TopicSelection();	
-//			String userKey=ts.SelectTopic();
-//			sess.setMykey(userKey);
+			System.out.println("Select Topics of your choice");
 			
+			TopicSelection ts=new TopicSelection();	
+			String userKey=ts.SelectTopic(sess.getMyid());
+			sess.setMykey(userKey);	
 		}
 		
 		int opt;

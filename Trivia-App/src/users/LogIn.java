@@ -4,23 +4,25 @@ import java.util.*;
 
 public class LogIn {
 	
-	public String userName;
+	public String email;
 	public String password;
 	
-	void login_user()
+	void loginUser()
 	{
-		System.out.println("Enter userName");
-		Scanner uname=new Scanner(System.in);
-		this.userName=uname.nextLine();
+		System.out.println("Enter your email ID");
+		Scanner sc=new Scanner(System.in);
+		this.email=sc.nextLine();
 		
 		System.out.println("Enter password");
 		Scanner pass=new Scanner(System.in);
 		this.password=pass.nextLine();
+		
+		//later
 	}
 	
-	void show_details()
+	void showDetails()
 	{
-		System.out.println("UserName : "+this.userName);
+		System.out.println("UserName : "+this.email);
 		System.out.println("Password : "+this.password);
 	}
 

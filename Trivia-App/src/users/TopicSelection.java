@@ -1,5 +1,6 @@
 package users;
 
+import java.sql.*;
 import java.util.*;
 
 public class TopicSelection 
@@ -15,11 +16,8 @@ public class TopicSelection
 		userTopics=new HashMap<Integer,String>(); 
 	}
 
-	String SelectTopic(String userName,int userId)
-	{
-		System.out.println("UserID : "+userId);
-		System.out.println("UserName : "+userName);
-		
+	String SelectTopic(int userID)
+	{	
 		System.out.println("Choose 3 topics of your interests");
 		
 		String key="";
@@ -46,15 +44,41 @@ public class TopicSelection
 		
 		System.out.println("Key: "+key);
 		
-		userTopics.put(userId,key);
+		userTopics.put(userID,key);
 		
 		System.out.println("Topics Choosen:");
 		for(int i=0;i<3;i++)
 		{
-			char value=userTopics.get(userId).charAt(i);
+			char value=userTopics.get(userID).charAt(i);
 			int index=Character.getNumericValue(value);
 			System.out.println(i+" "+myTopics.get(index));
 		}
+		
+		//add key into database userdetails
+		
+		try
+		{
+			String url="jdbc:mysql://localhost:3306/trivia-db";
+			String uname="root";
+			String pass="temp123";
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con=DriverManager.getConnection(url,uname,pass);
+
+			CallableStatement statement = con.prepareCall("{call addTopicKey(?,?)}");
+			statement.setString(1, key);
+			statement.setInt(2, userID);
+			
+			statement.execute();
+			
+			statement.close();
+			con.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
 		return key;
 	}
 	

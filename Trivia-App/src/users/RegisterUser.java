@@ -9,10 +9,14 @@ public class RegisterUser
 	public String lname;
 	public int age;
 	public String password;
+	public String email;
 	
-	void register_user()
-	{		
+	void registerUser()
+	{	
 		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter Your Email ID");
+		this.email=sc.nextLine();
 		
 		System.out.println("Enter Your First Name");
 		this.fname=sc.nextLine();
@@ -37,11 +41,12 @@ public class RegisterUser
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(url,uname,pass);
 			
-			CallableStatement statement = con.prepareCall("{call registerNewUser(?,?,?,?)}");
+			CallableStatement statement = con.prepareCall("{call registerNewUser(?,?,?,?,?)}");
 			statement.setString(1, this.fname);
 			statement.setString(2, this.lname);
-			statement.setInt(3, this.age);
-			statement.setString(4, this.password);
+			statement.setString(3, this.email);
+			statement.setInt(4, this.age);
+			statement.setString(5, this.password);
 			
 			statement.execute();
 			
@@ -54,7 +59,7 @@ public class RegisterUser
 		}
 	}
 	
-	void show_details()
+	void showDetails()
 	{
 		System.out.println("Welcome "+this.fname+" "+this.lname);
 	}
