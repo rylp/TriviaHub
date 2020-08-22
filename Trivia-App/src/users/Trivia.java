@@ -3,11 +3,11 @@ package users;
 import java.sql.*;
 import java.util.*;
 
-
 import users.LogIn;
 import users.TopicSelection.*;
 import users.AddTrivia.*;
 import users.RegisterUser.*;
+import users.ViewTrivia.*;
 
 public class Trivia 
 {	
@@ -98,15 +98,14 @@ public class Trivia
 			{
 				case 1:
 				{
-					String userKey=sess.getMykey();
-					int userID=sess.getMyid();
 					AddTrivia at=new AddTrivia();
-					at.InsertTrivia(userKey,userID);
+					at.InsertTrivia(sess.getMykey(),sess.getMyid());
 					break;
 				}
 				case 2:
 				{
-					
+					ViewTrivia vt=new ViewTrivia();
+					vt.DisplayTrivia(sess.getMykey(),sess.getMyid());
 					
 					break;
 				}
