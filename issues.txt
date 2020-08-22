@@ -1,0 +1,5 @@
+-> Creating different parameter arguements in Stored Procedure than Column Name in MySQL-Database.
+
+-> Making sure that ResultSet is used when returning something.
+
+-> Proper use of exceute() , executeQuery() and executeUpdate().
