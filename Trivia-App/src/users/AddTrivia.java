@@ -6,7 +6,7 @@ import users.TopicSelection.*;
 
 public class AddTrivia 
 {		
-	void InsertTrivia(String userKey)
+	void InsertTrivia(String userKey,int userID)
 	{
 		Constants constant=new Constants();
 		
@@ -48,12 +48,13 @@ public class AddTrivia
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(url,uname,pass);
 			
-			CallableStatement statement = con.prepareCall("{call addTrivia(?,?,?)}");
+			CallableStatement statement = con.prepareCall("{call addTrivia(?,?,?,?)}");
 			statement.setString(1, trivia);
 			statement.setInt(2, topic_key);
 			statement.setInt(3, likes);
+			statement.setInt(4, userID);
 			
-			statement.execute();
+			statement.executeUpdate();
 			
 			statement.close();
 			con.close();

@@ -48,7 +48,7 @@ public class RegisterUser
 			statement.setInt(4, this.age);
 			statement.setString(5, this.password);
 			
-			statement.execute();
+			statement.executeUpdate();
 			
 			statement.close();
 			con.close();

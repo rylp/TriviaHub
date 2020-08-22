@@ -99,8 +99,9 @@ public class Trivia
 				case 1:
 				{
 					String userKey=sess.getMykey();
+					int userID=sess.getMyid();
 					AddTrivia at=new AddTrivia();
-					at.InsertTrivia(userKey);
+					at.InsertTrivia(userKey,userID);
 					break;
 				}
 				case 2:

@@ -69,7 +69,7 @@ public class TopicSelection
 			statement.setString(1, key);
 			statement.setInt(2, userID);
 			
-			statement.execute();
+			statement.executeUpdate();
 			
 			statement.close();
 			con.close();
