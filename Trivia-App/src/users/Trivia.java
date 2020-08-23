@@ -1,6 +1,7 @@
 package users;
 
 import java.sql.*;
+
 import java.util.*;
 
 import users.LogIn;
@@ -8,6 +9,9 @@ import users.TopicSelection.*;
 import users.AddTrivia.*;
 import users.RegisterUser.*;
 import users.ViewTrivia.*;
+import users.ChooseTriviaforDeletion.*;
+import users.DeleteTrivia.*;
+
 
 public class Trivia 
 {	
@@ -111,6 +115,12 @@ public class Trivia
 				}
 				case 3:
 				{
+					ChooseTriviaforDeletion ctfd=new ChooseTriviaforDeletion();
+					int triviaId=ctfd.GetTriviaId(sess.getMykey(),sess.getMyid());
+					
+					DeleteTrivia dt=new DeleteTrivia();
+					dt.RemoveTrivia(triviaId);
+					
 					break;
 				}
 				case 4:
