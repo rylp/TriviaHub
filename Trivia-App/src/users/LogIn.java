@@ -73,13 +73,12 @@ public class LogIn {
 		
 		return this.userId;
 		
-		//later
+		//later verification part TBD
 	}
 	
 	String showDetails()
 	{
 		System.out.println("UserName : "+this.email);
-		System.out.println("Password : "+this.password);
 		
 		return this.topicKey;
 	}
