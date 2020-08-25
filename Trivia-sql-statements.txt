@@ -1,0 +1,60 @@
+CREATE TABLE `userdetails` (
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  `fname` varchar(45) NOT NULL,
+  `lname` varchar(45) NOT NULL,
+  `email` varchar(320) NOT NULL,
+  `age` int NOT NULL,
+  `password` varchar(320) NOT NULL,
+  `topic_key` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+);
+
+CREATE TABLE `trivia-db`.`triviadetails` (
+  `trivia_id` INT NOT NULL AUTO_INCREMENT,
+  `trivia_content` VARCHAR(45) NOT NULL,
+  `topic_id` INT NOT NULL,
+  `likes` INT NOT NULL,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`trivia_id`));
+
+CREATE PROCEDURE `addTopicKey` (IN topic_key varchar(45),user_id INT)
+BEGIN
+UPDATE userdetails SET topic_key=topic_key WHERE user_id=user_id;
+END$$
+  
+CREATE DEFINER=`root`@`localhost` PROCEDURE `registerNewUser`(IN fname VARCHAR(45),lname VARCHAR(45),email VARCHAR(320),age INT,pass VARCHAR(320))
+BEGIN
+INSERT INTO userdetails(fname,lname,email,age,pass) VALUES(fname,lname,email,age,pass);
+END
+
+
+CREATE PROCEDURE `getUserId` ()
+BEGIN
+select MAX(user_id) from userdetails;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addTrivia`(IN trivia_content VARCHAR(255),topic_id INT,likes INT,user_id INT)
+BEGIN
+INSERT INTO triviadetails(trivia_content,topic_id,likes,user_id) VALUES(trivia_content,topic_id,likes,user_id);
+END
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `displayTrivia`(IN topicid INT)
+BEGIN
+select trivia_content,likes from triviadetails WHERE topic_id=topicid;
+END
+
+
+CREATE PROCEDURE `deleteTriviaById` (IN triviaid INT)
+BEGIN
+delete from triviadetails where trivia_id=triviaid;
+END
+
+CREATE PROCEDURE `showTriviaByUser` (IN userid int)
+BEGIN
+SELECT trivia_id,trivia_content from triviadetails where user_id=userid;
+END
+
+CREATE PROCEDURE `loginUser` (IN emailid varchar(320))
+BEGIN
+SELECT user_id,pass,topic_key from userdetails where email=emailid;
+END
