@@ -12,7 +12,6 @@ import users.ViewTrivia.*;
 import users.ChooseTriviaforDeletion.*;
 import users.DeleteTrivia.*;
 
-
 public class Trivia 
 {	
 	public static void main(String[] args) 
@@ -30,15 +29,27 @@ public class Trivia
 		{
           LogIn curUser=new LogIn();
 			
-          curUser.loginUser();
-          curUser.showDetails();
+          int userId=curUser.loginUser();
+          String topicKey=curUser.showDetails();
           
-//          //set the userKey for now statically
-//          String userKey="123";
-//          
-//          sess.setMykey(userKey);
-//			
-//          //display topics of choice
+          sess.setMyid(userId);
+          sess.setMykey(topicKey);
+          
+          Constants constant=new Constants();
+          
+          System.out.println("Topics Choosen:");
+          
+          for(int i=0;i<3;i++)
+          {
+        	  try
+        	  {
+        		  System.out.println(i+" "+constant.getFirstList().get(Integer.parseInt(String.valueOf(sess.getMykey().charAt(i)))));
+        	  }
+        	  catch(Exception e)
+        	  {
+        		  e.printStackTrace();
+        	  }
+          }
 		}
 		else //Register
 		{	
@@ -92,8 +103,8 @@ public class Trivia
 			System.out.print("\n\t1.Add Trivia");
 			System.out.print("\n\t2.View Trivia");
 			System.out.print("\n\t3.Delete Trivia");
-			System.out.print("\n\t4.Add Topic of Choice");
-			System.out.print("\n\t5.Like Trivia");
+			System.out.print("\n\t4.Like Trivia");
+			System.out.print("\n\t5.Add Topic of Choice");
 			System.out.print("\n\t6.Log Out");
 			Scanner option=new Scanner(System.in);
 			opt=option.nextInt();
@@ -118,9 +129,12 @@ public class Trivia
 					ChooseTriviaforDeletion ctfd=new ChooseTriviaforDeletion();
 					int triviaId=ctfd.GetTriviaId(sess.getMykey(),sess.getMyid());
 					
-					DeleteTrivia dt=new DeleteTrivia();
-					dt.RemoveTrivia(triviaId);
-					
+					if(triviaId!=-1)
+					{	
+						DeleteTrivia dt=new DeleteTrivia();
+						dt.RemoveTrivia(triviaId);
+					}
+
 					break;
 				}
 				case 4:

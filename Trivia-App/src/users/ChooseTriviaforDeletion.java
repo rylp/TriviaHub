@@ -32,6 +32,7 @@ public class ChooseTriviaforDeletion {
 			if(myTrivia.size()==0)
 			{
 				System.out.println("No Trivia Added Yet!!!");
+				return -1;
 			}
 			
 			else
@@ -51,6 +52,7 @@ public class ChooseTriviaforDeletion {
 		{
 			e.printStackTrace();
 		}
+		
 		
 		System.out.println("Choose the triviaId of the trivia to delete");
 		Scanner ch=new Scanner(System.in);
