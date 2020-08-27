@@ -58,3 +58,13 @@ CREATE PROCEDURE `loginUser` (IN emailid varchar(320))
 BEGIN
 SELECT user_id,pass,topic_key from userdetails where email=emailid;
 END
+
+CREATE PROCEDURE `displayTriviaByTopic` (IN topicid int)
+BEGIN
+select trivia_id,trivia_content,likes from triviadetails WHERE topic_id=topicid order by likes desc;
+END
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addLikeByTopicId`(IN triviaid int)
+BEGIN
+update triviadetails set likes=likes+1 where trivia_id=triviaid;
+END
