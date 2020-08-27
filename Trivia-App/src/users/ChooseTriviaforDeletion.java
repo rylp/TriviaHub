@@ -8,7 +8,7 @@ public class ChooseTriviaforDeletion {
 	int GetTriviaId(String userKey,int userId)
 	{
 		HashMap<Integer, String> myTrivia=new HashMap<Integer,String>();
-		
+
 		try
 		{
 			String url="jdbc:mysql://localhost:3306/trivia-db";

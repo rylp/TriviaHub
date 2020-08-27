@@ -2,6 +2,7 @@ package users;
 
 import java.sql.*;
 
+
 import java.util.*;
 
 import users.LogIn;
@@ -11,6 +12,8 @@ import users.RegisterUser.*;
 import users.ViewTrivia.*;
 import users.ChooseTriviaforDeletion.*;
 import users.DeleteTrivia.*;
+import users.ChooseTriviaToLike.*;
+import users.LikeTrivia.*;
 
 public class Trivia 
 {	
@@ -139,8 +142,17 @@ public class Trivia
 				}
 				case 4:
 				{
+					ChooseTriviaToLike cttl=new ChooseTriviaToLike();
+					int triviaId=cttl.GetTriviaId(sess.getMykey(),sess.getMyid());
+					
+					if(triviaId!=-1)
+					{
+						LikeTrivia lt=new LikeTrivia();
+						lt.LikeSelectedTrivia(triviaId);
+						
+					}
+					
 					break;
-				
 				}
 				case 5:
 				{

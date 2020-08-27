@@ -28,7 +28,5 @@ public class DeleteTrivia {
 		{
 			e.printStackTrace();
 		}
-		
 	}
-
 }
