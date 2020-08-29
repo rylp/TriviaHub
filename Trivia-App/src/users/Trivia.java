@@ -1,5 +1,4 @@
 package users;
-
 import java.sql.*;
 
 
@@ -19,10 +18,16 @@ public class Trivia
 {	
 	public static void main(String[] args) 
 	{
+		System.out.println("---------------------------");
+		System.out.println("");
 		System.out.println("---WELCOME TO Trivia-Hub---");
-		System.out.print("Choose your option");
+		System.out.println("");
+		System.out.println("---------------------------");
+		
+		System.out.print("\n\tChoose your option");
 		System.out.print("\n\t1.Log In");
 		System.out.print("\n\t2.Register");
+		System.out.println();
 		Scanner sc=new Scanner(System.in);
 		int ch=sc.nextInt();
 		
@@ -33,6 +38,14 @@ public class Trivia
           LogIn curUser=new LogIn();
 			
           int userId=curUser.loginUser();
+          if(userId==-1)
+          {
+        	  System.out.println("");
+        	  System.out.println("----Exiting!!!---");
+        	  System.out.println("");
+        	  System.out.println("\n\tREASON:Wrong Passcode");
+        	  return;
+          }
           String topicKey=curUser.showDetails();
           
           sess.setMyid(userId);
@@ -102,13 +115,17 @@ public class Trivia
 		
 		do
 		{
-			System.out.println("Enter ur choice");
+			System.out.println("-----------------------");
+			System.out.println("");
+			System.out.println("\n\tEnter ur choice");
 			System.out.print("\n\t1.Add Trivia");
 			System.out.print("\n\t2.View Trivia");
 			System.out.print("\n\t3.Delete Trivia");
 			System.out.print("\n\t4.Like Trivia");
 			System.out.print("\n\t5.Add Topic of Choice");
 			System.out.print("\n\t6.Log Out");
+			System.out.println("");
+			System.out.println("-------------------------");
 			Scanner option=new Scanner(System.in);
 			opt=option.nextInt();
 			
@@ -157,7 +174,6 @@ public class Trivia
 				case 5:
 				{
 					break;
-				
 				}
 				case 6:
 				{
@@ -166,8 +182,6 @@ public class Trivia
 				}
 				default:System.out.println("Invalid Choice");
 			}
-			
 		}while(opt!=6);
-
 	}
 }

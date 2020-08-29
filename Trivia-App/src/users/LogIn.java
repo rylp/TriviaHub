@@ -60,6 +60,7 @@ public class LogIn {
 			else
 			{
 				System.out.println("Passwords don't match!");
+				return -1;
 			}
 
 			statement.close();
