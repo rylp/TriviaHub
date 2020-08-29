@@ -42,8 +42,9 @@ public class ChooseTriviaToLike {
 			Connection con=DriverManager.getConnection(url,uname,pass);
 			
 			ResultSet rs;
-			CallableStatement statement = con.prepareCall("{call displayTriviaByTopic(?)}");
+			CallableStatement statement = con.prepareCall("{call displayTriviaByTopic(?,?)}");
 			statement.setInt(1, topic_key);
+			statement.setInt(2, userId);
 			
 			rs=statement.executeQuery();
 			

@@ -66,7 +66,8 @@ public class Trivia
         	  }
           }
 		}
-		else //Register
+		
+		else if(ch==2) //Register
 		{	
 			RegisterUser newUser = new RegisterUser(); 
 			
@@ -108,6 +109,13 @@ public class Trivia
 			TopicSelection ts=new TopicSelection();	
 			String userKey=ts.SelectTopic(sess.getMyid());
 			sess.setMykey(userKey);	
+		}
+		
+		else
+		{
+			System.out.println("Invalid Choice!!!");
+			System.out.println("Exiting");
+			return;
 		}
 		
 		int opt;

@@ -55,6 +55,7 @@ public class ChooseTriviaforDeletion {
 		
 		
 		System.out.println("Choose the triviaId of the trivia to delete");
+		System.out.println("Enter -1 is you don't want to delete any");
 		Scanner ch=new Scanner(System.in);
 		int choice=ch.nextInt();
 		
