@@ -43,7 +43,6 @@ public class Trivia
         	  System.out.println("");
         	  System.out.println("----Exiting!!!---");
         	  System.out.println("");
-        	  System.out.println("\n\tREASON:Wrong Passcode");
         	  return;
           }
           String topicKey=curUser.showDetails();

@@ -38,6 +38,14 @@ public class LogIn {
 			String topicKey="";
 			int userId=0;
 			
+			if(!rs.next())
+			{
+				System.out.println("ERROR!");
+				System.out.println("Email ID DNE!");
+				return -1;
+			}
+			
+			
 			while(rs.next())
 			{
 				userId=rs.getInt("user_id");
@@ -59,6 +67,7 @@ public class LogIn {
 			}
 			else
 			{
+				System.out.println("ERROR!");
 				System.out.println("Passwords don't match!");
 				return -1;
 			}
