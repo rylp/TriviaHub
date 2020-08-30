@@ -38,20 +38,6 @@ public class LogIn {
 			String topicKey="";
 			int userId=0;
 			
-//			if(!rs.next())
-//			{
-//				System.out.println("ERROR!");
-//				System.out.println("Email ID DNE!");
-//				return -1;
-//			}
-			
-//			while(rs.next())
-//			{
-//				userId=rs.getInt("user_id");
-//				topicKey=rs.getString("topic_key");
-//				verify_pass=rs.getString("pass");
-//			}
-			
 			if(!rs.next())
 			{
 				System.out.println("ERROR!");
@@ -96,8 +82,6 @@ public class LogIn {
 		}
 		
 		return this.userId;
-		
-		//later verification part TBD
 	}
 	
 	String showDetails()

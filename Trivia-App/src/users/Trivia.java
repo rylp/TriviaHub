@@ -54,7 +54,7 @@ public class Trivia
           
           System.out.println("Topics Choosen:");
           
-          for(int i=0;i<3;i++)
+          for(int i=0;i<sess.getMykey().length();i++)
           {
         	  try
         	  {
@@ -190,5 +190,10 @@ public class Trivia
 				default:System.out.println("Invalid Choice");
 			}
 		}while(opt!=6);
+	}
+
+	private static int len(String mykey) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
