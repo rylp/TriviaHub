@@ -17,6 +17,13 @@ CREATE TABLE `trivia-db`.`triviadetails` (
   `user_id` INT NOT NULL,
   PRIMARY KEY (`trivia_id`));
 
+CREATE TABLE `trivia-db`.`likedetails` (
+  `like_id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `trivia_id` INT NOT NULL,
+  `status` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`like_id`));
+
 CREATE PROCEDURE `addTopicKey` (IN topic_key varchar(45),user_id INT)
 BEGIN
 UPDATE userdetails SET topic_key=topic_key WHERE user_id=user_id;
@@ -67,4 +74,14 @@ END
 CREATE DEFINER=`root`@`localhost` PROCEDURE `displayTriviaByTopic`(IN topicid int,userid int)
 BEGIN
 select trivia_id,trivia_content from triviadetails WHERE topic_id=topicid and not(user_id=userid) order by likes desc;
+END
+
+CREATE PROCEDURE `checkIfValidLike` (IN triviaid INT,userid INT)
+BEGIN
+select like_status from likedetails where (trivia_id=triviaid and user_id=userid);
+END
+
+CREATE PROCEDURE `addLikeInDB` (IN triviaid int,userid int,likestatus varchar(45))
+BEGIN
+INSERT INTO likedetails(user_id,trivia_id,like_status) VALUES(userid,triviaid,likestatus);
 END
