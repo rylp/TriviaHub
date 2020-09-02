@@ -82,8 +82,13 @@ public class ChooseTriviaToLike {
 		Scanner sc=new Scanner(System.in);
 		int triviaKey=sc.nextInt();
 		
-		return triviaKey;
+		if(!TriviaIds.contains(triviaKey))
+		{
+			System.out.println("Invalid Trivia Key");
+			return -1;
+		}
 		
+		return triviaKey;	
 	}
 
 }

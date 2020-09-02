@@ -3,9 +3,9 @@ package users;
 import java.util.*;
 import java.sql.*;
 
-public class LikeTrivia {
+public class CheckIfAlreadyLiked {
 	
-	void LikeSelectedTrivia(int triviaId)
+	int verifyLike(int userId,int triviaId)
 	{
 		try
 		{
@@ -15,20 +15,31 @@ public class LikeTrivia {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(url,uname,pass);
-
-			CallableStatement statement = con.prepareCall("{call addLikeByTopicId(?)}");
-			statement.setInt(1, triviaId);
 			
-			statement.executeUpdate();
+			ResultSet rs;
+			CallableStatement statement = con.prepareCall("{call checkIfValidLike(?,?)}");
+			statement.setInt(1, triviaId);
+			statement.setInt(2, userId);
+			
+			rs=statement.executeQuery();
+			
+			if(!rs.next())
+			{
+				//No match for like
+				System.out.println("Liking Trivia...");
+				return 1;
+			}
 			
 			statement.close();
 			con.close();
+			
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
 		
+		System.out.println("Already Liked!!!");
+		return -1;
 	}
-
 }

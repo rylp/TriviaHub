@@ -1,10 +1,11 @@
 package users;
+
 import java.sql.*;
-
-
 import java.util.*;
 
-import users.LogIn;
+import users.CheckIfAlreadyLiked.*;
+import users.UpdateLike.*;
+import users.LogIn.*;
 import users.TopicSelection.*;
 import users.AddTrivia.*;
 import users.RegisterUser.*;
@@ -45,6 +46,7 @@ public class Trivia
         	  System.out.println("");
         	  return;
           }
+          
           String topicKey=curUser.showDetails();
           
           sess.setMyid(userId);
@@ -171,9 +173,22 @@ public class Trivia
 					
 					if(triviaId!=-1)
 					{
-						LikeTrivia lt=new LikeTrivia();
-						lt.LikeSelectedTrivia(triviaId);
+						CheckIfAlreadyLiked cial=new CheckIfAlreadyLiked();
+						int check=cial.verifyLike(sess.getMyid(),triviaId);
 						
+						if(check==1)//can add like
+						{
+							LikeTrivia lt=new LikeTrivia();
+							lt.LikeSelectedTrivia(triviaId);
+							
+							UpdateLike ul=new UpdateLike();
+							ul.updateLikedTrivia(sess.getMyid(),triviaId);
+						}
+						
+						else
+						{
+							System.out.println("Trivia Already Liked!");
+						}
 					}
 					
 					break;
@@ -192,8 +207,4 @@ public class Trivia
 		}while(opt!=6);
 	}
 
-	private static int len(String mykey) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

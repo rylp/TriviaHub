@@ -1,11 +1,11 @@
 package users;
 
-import java.util.*;
 import java.sql.*;
+import java.util.*;
 
-public class LikeTrivia {
+public class UpdateLike {
 	
-	void LikeSelectedTrivia(int triviaId)
+	void updateLikedTrivia(int userId,int triviaId)
 	{
 		try
 		{
@@ -15,9 +15,11 @@ public class LikeTrivia {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection(url,uname,pass);
-
-			CallableStatement statement = con.prepareCall("{call addLikeByTopicId(?)}");
+			
+			CallableStatement statement = con.prepareCall("{call addLikeInDB(?,?,?)}");
 			statement.setInt(1, triviaId);
+			statement.setInt(2, userId);
+			statement.setString(3, "Yes");
 			
 			statement.executeUpdate();
 			
@@ -28,7 +30,6 @@ public class LikeTrivia {
 		{
 			e.printStackTrace();
 		}
-		
 	}
 
 }
