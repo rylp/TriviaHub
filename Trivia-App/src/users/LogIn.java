@@ -12,7 +12,7 @@ public class LogIn {
 	public String password;
 	public String topicKey;
 	public int userId;
-	
+
 	int loginUser()
 	{
 		System.out.println("Enter your email ID");

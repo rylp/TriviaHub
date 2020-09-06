@@ -131,6 +131,7 @@ public class Trivia
 			System.out.print("\n\t2.View Trivia");
 			System.out.print("\n\t3.Delete Trivia");
 			System.out.print("\n\t4.Like Trivia");
+//			System.out.println("\n\t5.Unlike Trivia");
 			System.out.print("\n\t5.Add Topic of Choice");
 			System.out.print("\n\t6.Log Out");
 			System.out.println("");
