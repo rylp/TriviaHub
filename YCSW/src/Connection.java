@@ -7,25 +7,25 @@ public class Connection implements Runnable
 	@Override
 	public void run()
 	{
+		ServerSocket ss=null;
+		
 		try
 		{
+			int port=9997;
+			ss=new ServerSocket(port);
+			
 			while(!Thread.currentThread().isInterrupted()) 
 			{
-				int port=9997;
-				ServerSocket ss=new ServerSocket(port);
-				
 				Socket s=ss.accept();
 				
+				String clientIpAddr=s.getInetAddress().getHostAddress();
+				String clientPort= String.valueOf(s.getPort());
+				
+				Constants.clientQueue.put(Constants.generateClientKey(clientIpAddr, clientPort), s);
 				
 				System.out.println("Connection Class:");
-				System.out.println(s.getInetAddress().getHostAddress());
-				System.out.println(s.getPort());
-				System.out.println(s.getInputStream());
-				System.out.println(s.getOutputStream());
 				
 				Communication comm=new Communication(s);
-				
-				ss.close();
 			}	
 		}
 		catch(Exception e)
