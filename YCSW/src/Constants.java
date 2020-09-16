@@ -10,9 +10,5 @@ public class Constants {
 	{
 		return clientIpAddr+"$"+clientPort;
 	}
-	
-	
-	
-	
 
 }

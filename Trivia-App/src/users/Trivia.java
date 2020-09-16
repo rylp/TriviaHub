@@ -3,6 +3,7 @@ package users;
 import java.sql.*;
 import java.util.*;
 
+import client.Client;
 import users.CheckIfAlreadyLiked.*;
 import users.UpdateLike.*;
 import users.LogIn.*;
@@ -19,6 +20,12 @@ public class Trivia
 {	
 	public static void main(String[] args) 
 	{
+		Client.communicationEndpoint();
+		triviaStarter();
+	}
+
+	public static void triviaStarter() {
+		
 		System.out.println("---------------------------");
 		System.out.println("");
 		System.out.println("---WELCOME TO Trivia-Hub---");
@@ -39,6 +46,8 @@ public class Trivia
           LogIn curUser=new LogIn();
 			
           int userId=curUser.loginUser();
+          
+          
           if(userId==-1)
           {
         	  System.out.println("");
@@ -47,26 +56,26 @@ public class Trivia
         	  return;
           }
           
-          String topicKey=curUser.showDetails();
+//          String topicKey=curUser.showDetails();
           
-          sess.setMyid(userId);
-          sess.setMykey(topicKey);
-          
-          Constants constant=new Constants();
-          
-          System.out.println("Topics Choosen:");
-          
-          for(int i=0;i<sess.getMykey().length();i++)
-          {
-        	  try
-        	  {
-        		  System.out.println(i+" "+constant.getFirstList().get(Integer.parseInt(String.valueOf(sess.getMykey().charAt(i)))));
-        	  }
-        	  catch(Exception e)
-        	  {
-        		  e.printStackTrace();
-        	  }
-          }
+//          sess.setMyid(userId);
+//          sess.setMykey(topicKey);
+//          
+//          Constants constant=new Constants();
+//          
+//          System.out.println("Topics Choosen:");
+//          
+//          for(int i=0;i<sess.getMykey().length();i++)
+//          {
+//        	  try
+//        	  {
+//        		  System.out.println(i+" "+constant.getFirstList().get(Integer.parseInt(String.valueOf(sess.getMykey().charAt(i)))));
+//        	  }
+//        	  catch(Exception e)
+//        	  {
+//        		  e.printStackTrace();
+//        	  }
+//          }
 		}
 		
 		else if(ch==2) //Register

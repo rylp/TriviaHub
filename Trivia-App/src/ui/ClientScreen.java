@@ -126,5 +126,6 @@ public class ClientScreen {
 		});
 		btnLogin.setBounds(159, 172, 89, 23);
 		frame.getContentPane().add(btnLogin);
+
 	}
 }

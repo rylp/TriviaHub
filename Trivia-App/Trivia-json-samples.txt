@@ -4,7 +4,9 @@
 	String Age="";
 	String Password="";
 	String Email="";
+	String ErrorValue="";
+	String ClientIp="";
 	
 	{"MessageType":"REGISTER","ClientIP":"192.168.0.27","FirstName":"Rohan","LastName":"Limaye","Age":"20","Password":"12345","Email":"abc@gmail.com"}
 	
-	{"MessageType":"LOGIN","ClientIP":"192.168.0.27","Password":"1234","Email":"xyz@gmail.com"}
+	{"MessageType":"LOGIN","ClientIP":"192.168.0.27","Password":"12345","Email":"abc@gmail.com"}

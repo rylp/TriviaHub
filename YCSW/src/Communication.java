@@ -3,6 +3,7 @@ import java.util.*;
 import com.google.gson.Gson;
 
 import java.net.*;
+import java.nio.charset.StandardCharsets;
 import java.io.*;
 
 public class Communication {
@@ -40,19 +41,19 @@ public class Communication {
 		}
 		
 		@Override
-		public void run() {
-			
+		public void run() 
+		{	
 			System.out.println("Receiver Class: ");
 			
 			try {
 				
-				while(soc.isConnected())
+				while(soc.isConnected())//Socket closed when it comes back here
 				{
 					int expectedBytes=in.available();
 					
 					if(expectedBytes>0)
 					{
-						byte[] buffer=new byte[expectedBytes];
+						byte[] buffer=new byte[expectedBytes];//in.read() demands byte buffer.
 						
 						in.read(buffer);
 						
@@ -84,6 +85,7 @@ public class Communication {
 							}
 							else if(loginStatus==-2)
 							{
+								System.out.println("Sending msg!");
 								sendData(jdc.getEmail()+" Password is wrong!");
 							}
 							else if(loginStatus>0)
@@ -94,6 +96,7 @@ public class Communication {
 							{
 								sendData("Failure to Login");
 							}
+							break;
 						}
 					}
 				}
@@ -109,9 +112,10 @@ public class Communication {
 			String clientIpAddr=s.getInetAddress().getHostAddress();
 			String clientPort= String.valueOf(s.getPort());
 			
+			System.out.println("Transmitting to Client");
+			
 			tr=new Transmitter();
 			tr.sendDataToClient(data,Constants.generateClientKey(clientIpAddr, clientPort));
-			
 		}
 		
 
@@ -130,18 +134,31 @@ public class Communication {
 		{
 			if(Constants.clientQueue.containsKey(clientKey))
 			{
-				try
+				Socket soc=Constants.clientQueue.get(clientKey);
+				
+				try (OutputStreamWriter out = new OutputStreamWriter(
+				        soc.getOutputStream(), StandardCharsets.UTF_8)) {
+				    out.write(data);
+				} 
+				catch (IOException e1) 
 				{
-					Socket soc=Constants.clientQueue.get(clientKey);
-					DataOutputStream out= new DataOutputStream(soc.getOutputStream());
-					out.writeBytes(data);
-					out.flush();
-					
+					e1.printStackTrace();
 				}
-				catch(Exception e)
-				{
-					e.printStackTrace();
-				}
+				
+				
+//				try
+//				{	
+//					Socket soc=Constants.clientQueue.get(clientKey);
+//					DataOutputStream out= new DataOutputStream(soc.getOutputStream());
+//					out.writeBytes(data);//issue
+//					out.flush();
+//					
+//					System.out.println("Written to client");
+//				}
+//				catch(Exception e)
+//				{
+//					e.printStackTrace();
+//				}
 			}
 		}
 		
