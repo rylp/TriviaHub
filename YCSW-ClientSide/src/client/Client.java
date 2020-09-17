@@ -15,12 +15,9 @@ public class Client {
 		
 		System.out.println("Connecting to Server");
 		
-		ClientConnection clientConn=new ClientConnection();
-		
-		if(clientConn.connect())
-		{
-			System.out.println("Connected server n client");
-		}
+		Runnable clientConn=new ClientConnection();
+		Thread tc=new Thread(clientConn,"ClientConnectionThread");
+		tc.start();
 	}
 
 }

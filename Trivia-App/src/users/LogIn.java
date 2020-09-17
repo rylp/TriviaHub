@@ -51,9 +51,9 @@ public class LogIn {
 	
 	public void sendData(String data)
 	{	
-		ClientCommunication clComm=new ClientCommunication(); 
+		client.ClientCommunication clComm=new client.ClientCommunication(); 
 		
-		ClientCommunication.Transmitter tr=clComm.new Transmitter();//class within class
+		client.ClientCommunication.Transmitter tr=clComm.new Transmitter();//class within class
 		
 		client.JsonDataContract jdc1=tr.sendDataToServer(data,client.Constants.socket);
 		

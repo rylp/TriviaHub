@@ -47,7 +47,6 @@ public class Trivia
 			
           int userId=curUser.loginUser();
           
-          
           if(userId==-1)
           {
         	  System.out.println("");

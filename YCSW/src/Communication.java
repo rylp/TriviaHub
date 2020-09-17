@@ -132,33 +132,34 @@ public class Communication {
 	{
 		public void sendDataToClient(String data,String clientKey)
 		{
+			
 			if(Constants.clientQueue.containsKey(clientKey))
 			{
-				Socket soc=Constants.clientQueue.get(clientKey);
+//				Socket soc=Constants.clientQueue.get(clientKey);
 				
-				try (OutputStreamWriter out = new OutputStreamWriter(
-				        soc.getOutputStream(), StandardCharsets.UTF_8)) {
-				    out.write(data);
-				} 
-				catch (IOException e1) 
-				{
-					e1.printStackTrace();
-				}
-				
-				
-//				try
-//				{	
-//					Socket soc=Constants.clientQueue.get(clientKey);
-//					DataOutputStream out= new DataOutputStream(soc.getOutputStream());
-//					out.writeBytes(data);//issue
-//					out.flush();
-//					
-//					System.out.println("Written to client");
-//				}
-//				catch(Exception e)
+//				try (OutputStreamWriter out = new OutputStreamWriter(
+//				        soc.getOutputStream(), StandardCharsets.UTF_8)) {
+//				    out.write(data);
+//				} 
+//				catch (IOException e1) 
 //				{
-//					e.printStackTrace();
+//					e1.printStackTrace();
 //				}
+				
+				
+				try
+				{	
+					Socket soc=Constants.clientQueue.get(clientKey);
+					DataOutputStream out= new DataOutputStream(soc.getOutputStream());
+					out.writeBytes(data);//issue
+					out.flush();
+					
+					System.out.println("Written to client");
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
 			}
 		}
 		

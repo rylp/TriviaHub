@@ -1,13 +1,12 @@
 package client;
 import java.net.*;
 
-public class ClientConnection
+public class ClientConnection implements Runnable
 {
-	public boolean connect() 
-	{
-		Socket socket=null;
+	@Override
+	public void run() {
 		
-		boolean isConnected=false;
+		Socket socket=null;
 		
 		try
 		{
@@ -27,14 +26,11 @@ public class ClientConnection
 			
 			ClientCommunication clientComm=new ClientCommunication(socket);
 			
-			isConnected=true;
-			
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		
-		return isConnected;
 	}
+
 }

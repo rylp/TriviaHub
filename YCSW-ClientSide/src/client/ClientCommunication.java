@@ -14,10 +14,6 @@ public class ClientCommunication {
 	public ClientCommunication(Socket s) {
 		this.setS(s);
 		
-//		Runnable rec=new Receiver(s);
-//		Thread t1=new Thread(rec,"Receiver Thread");
-//		t1.start();
-		
 		System.out.println("Alive Threads "+Thread.activeCount());
 	}
 	
@@ -108,55 +104,21 @@ public class ClientCommunication {
 			JsonDataContract jdc=new JsonDataContract();
 			
 			System.out.println(data);
-			
-			try
-			{
+
 				try (OutputStreamWriter out = new OutputStreamWriter(
-				        soc.getOutputStream(), StandardCharsets.UTF_8)) {
+				        soc.getOutputStream(), StandardCharsets.UTF_8)) 
+				{
 				    out.write(data);
 				    out.flush();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+				    
+					Runnable rec=new Receiver(s);
+					Thread t1=new Thread(rec,"Receiver Thread");
+					t1.start();
+				} 
+				catch (IOException e1) 
+				{
 					e1.printStackTrace();
 				}
-
-				//TODO:Add receiving logic here.
-				while(soc.isConnected())
-				{
-					int expectedBytes=in.available();
-					
-					if(expectedBytes>0)
-					{
-						System.out.println("Got here expected bytes");
-						
-						byte[] buffer=new byte[expectedBytes];//in.read() demands byte buffer.
-						
-						in.read(buffer);
-						
-						String serverData=new String(buffer);//String is a object
-						
-						Gson gson=new Gson();
-						
-						jdc=gson.fromJson(serverData, JsonDataContract.class);
-						
-						System.out.println(serverData);
-						
-						switch(jdc.getMessageType().toUpperCase())
-						{
-						case "REGISTER":
-							
-							break;
-						case "LOGIN":
-							
-							break;
-						}
-					}
-				}
-			}
-			catch(Exception e)
-			{
-				e.printStackTrace();
-			}
 			
 			return jdc;
 		}
