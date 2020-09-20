@@ -40,7 +40,11 @@ public class LogIn {
 		jdc.setEmail(this.email);
 		jdc.setPassword(this.password);
 		
+		System.out.println(client.Constants.clientIp);
+		
 		jdc.setClientIp(client.Constants.clientIp);
+		
+		jdc.setClientPort(String.valueOf(client.Constants.clientPort));
 		
 		String clientData=gson.toJson(jdc,JsonDataContract.class);
 		
@@ -59,6 +63,7 @@ public class LogIn {
 		
 		System.out.println("Got back JSON");
 		
+		System.out.println(jdc1.getStatus());
 	}
 	
 

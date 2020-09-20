@@ -12,8 +12,27 @@ public class JsonDataContract {
 	String TopicsKey="";
 	String TriviaContent="";
 	String Topic="";
-
+	String Status="";
+	String clientPort="";
 	
+	public String getClientPort() {
+		return clientPort;
+	}
+	public void setClientPort(String clientPort) {
+		this.clientPort = clientPort;
+	}
+	public String getStatus() {
+		return Status;
+	}
+	public void setStatus(String status) {
+		Status = status;
+	}
+	public String getTopic() {
+		return Topic;
+	}
+	public void setTopic(String topic) {
+		Topic = topic;
+	}
 	public String getTriviaContent() {
 		return TriviaContent;
 	}

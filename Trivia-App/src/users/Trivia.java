@@ -54,27 +54,6 @@ public class Trivia
         	  System.out.println("");
         	  return;
           }
-          
-//          String topicKey=curUser.showDetails();
-          
-//          sess.setMyid(userId);
-//          sess.setMykey(topicKey);
-//          
-//          Constants constant=new Constants();
-//          
-//          System.out.println("Topics Choosen:");
-//          
-//          for(int i=0;i<sess.getMykey().length();i++)
-//          {
-//        	  try
-//        	  {
-//        		  System.out.println(i+" "+constant.getFirstList().get(Integer.parseInt(String.valueOf(sess.getMykey().charAt(i)))));
-//        	  }
-//        	  catch(Exception e)
-//        	  {
-//        		  e.printStackTrace();
-//        	  }
-//          }
 		}
 		
 		else if(ch==2) //Register

@@ -90,7 +90,15 @@ public class Communication {
 							int loginStatus=User.loginUser();
 							if(loginStatus==-1)
 							{
-								sendData(jdc.getEmail()+" is not registered!");
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setStatus(Constants.FAILURE);
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setErrorValue(Constants.WRONG_EMAIL);
+								responseJdc.setMessageType(Constants.LOGIN);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
 							}
 							else if(loginStatus==-2)
 							{
@@ -99,7 +107,27 @@ public class Communication {
 							}
 							else if(loginStatus>0)
 							{
-								sendData(loginStatus+" User Succesfully Logged In");
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setStatus(Constants.SUCCESS);
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setMessageType("LOGIN");
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								ClientDetails client=Constants.clientQueue.get(Constants.generateClientKey(jdc.getClientIp(), jdc.getClientPort()));
+								
+								if(client==null)
+								{
+									System.out.println("Client Not Found!");
+									break;
+								}
+								
+								client.setEmail(jdc.getEmail());
+								client.setPassword(jdc.getPassword());
+								
+								
+								System.out.println("Response Json sent to Client"+responseJSON);
+								sendData(responseJSON);
 							}
 							else
 							{
@@ -119,8 +147,9 @@ public class Communication {
 							}
 							break;
 						case "ADD":
-							AddTrivia addTrivia=new AddTrivia(jdc);
-							
+//							AddTrivia addTrivia=new AddTrivia(jdc);
+//							addTrivia.insertTrivia();
+							break;	
 						}
 					}
 				}
@@ -159,16 +188,9 @@ public class Communication {
 			
 			if(Constants.clientQueue.containsKey(clientKey))
 			{
-				Socket soc=Constants.clientQueue.get(clientKey);
+				ClientDetails clientDetails=Constants.clientQueue.get(clientKey);
 				
-//				try (OutputStreamWriter out = new OutputStreamWriter(
-//				        soc.getOutputStream(), StandardCharsets.UTF_8)) {
-//				    out.write(data);
-//				} 
-//				catch (IOException e1) 
-//				{
-//					e1.printStackTrace();
-//				}
+				Socket soc=clientDetails.getSoc();
 				
 				OutputStreamWriter os = null;
 				try {
@@ -184,20 +206,6 @@ public class Communication {
 				out.flush();
 				
 				System.out.println("Sent data to client");
-				
-//				try
-//				{	
-//					Socket soc=Constants.clientQueue.get(clientKey);
-//					DataOutputStream out= new DataOutputStream(soc.getOutputStream());
-//					out.writeBytes(data);//issue
-//					out.flush();
-//					
-//					System.out.println("Written to client");
-//				}
-//				catch(Exception e)
-//				{
-//					e.printStackTrace();
-//				}
 			}
 		}
 		

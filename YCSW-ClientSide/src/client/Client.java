@@ -15,9 +15,8 @@ public class Client {
 		
 		System.out.println("Connecting to Server");
 		
-		Runnable clientConn=new ClientConnection();
-		Thread tc=new Thread(clientConn,"ClientConnectionThread");
-		tc.start();
+		ClientConnection clientConn=new ClientConnection();
+		clientConn.connect();
 	}
 
 }

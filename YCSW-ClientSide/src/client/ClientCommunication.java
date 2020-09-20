@@ -53,6 +53,8 @@ public class ClientCommunication {
 					
 					if(expectedBytes>0)
 					{
+						System.out.println("Idhar!!!");
+						
 						byte[] buffer=new byte[expectedBytes];//in.read() demands byte buffer.
 						
 						in.read(buffer);
@@ -104,21 +106,58 @@ public class ClientCommunication {
 			JsonDataContract jdc=new JsonDataContract();
 			
 			System.out.println(data);
+			
+			try {
+				in=new DataInputStream(soc.getInputStream());
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 
-				try (OutputStreamWriter out = new OutputStreamWriter(
+			try (OutputStreamWriter out = new OutputStreamWriter(
 				        soc.getOutputStream(), StandardCharsets.UTF_8)) 
+			{	
+				out.write(data);
+				out.flush();
+				
+				//TODO:ADD recieving logic.
+				while(soc.isConnected())
 				{
-				    out.write(data);
-				    out.flush();
-				    
-					Runnable rec=new Receiver(s);
-					Thread t1=new Thread(rec,"Receiver Thread");
-					t1.start();
-				} 
-				catch (IOException e1) 
-				{
-					e1.printStackTrace();
+					int expectedBytes=in.available();
+					
+					if(expectedBytes>0)
+					{
+						System.out.println("idhar!!!");
+						
+						byte[] buffer=new byte[expectedBytes];//in.read() demands byte buffer.
+						
+						in.read(buffer);
+						
+						String serverData=new String(buffer);//String is a object
+						
+						System.out.println(serverData);
+						
+						Gson gson=new Gson();
+						
+						jdc=gson.fromJson(serverData, JsonDataContract.class);
+						
+						switch(jdc.getMessageType().toUpperCase())
+						{
+						case "REGISTER":
+							break;
+						case "LOGIN":
+							System.out.println("Client Side Reciever");
+							break;
+						}
+						break;
+					}
 				}
+				
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
 			
 			return jdc;
 		}

@@ -1,10 +1,9 @@
 package client;
 import java.net.*;
 
-public class ClientConnection implements Runnable
+public class ClientConnection
 {
-	@Override
-	public void run() {
+	public void connect() {
 		
 		Socket socket=null;
 		

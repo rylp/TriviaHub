@@ -10,8 +10,43 @@ public class JsonDataContract {
 	String Email="";
 	String ErrorValue="";
 	String ClientIp="";
+	String TopicsKey="";
+	String TriviaContent="";
+	String Topic="";
+	String Status="";
+	String clientPort="";
 	
 	
+	public String getTopicsKey() {
+		return TopicsKey;
+	}
+	public void setTopicsKey(String topicsKey) {
+		TopicsKey = topicsKey;
+	}
+	public String getTriviaContent() {
+		return TriviaContent;
+	}
+	public void setTriviaContent(String triviaContent) {
+		TriviaContent = triviaContent;
+	}
+	public String getTopic() {
+		return Topic;
+	}
+	public void setTopic(String topic) {
+		Topic = topic;
+	}
+	public String getStatus() {
+		return Status;
+	}
+	public void setStatus(String status) {
+		Status = status;
+	}
+	public String getClientPort() {
+		return clientPort;
+	}
+	public void setClientPort(String clientPort) {
+		this.clientPort = clientPort;
+	}
 	public String getClientIp() {
 		return ClientIp;
 	}

@@ -6,7 +6,16 @@
 	String Email="";
 	String ErrorValue="";
 	String ClientIp="";
+	String TopicsKey="";
+	String TriviaContent="";
+	String Topic="";
+	String Status="";
+	String clientPort="";
 	
 	{"MessageType":"REGISTER","ClientIP":"192.168.0.27","FirstName":"Rohan","LastName":"Limaye","Age":"20","Password":"12345","Email":"abc@gmail.com"}
 	
 	{"MessageType":"LOGIN","ClientIP":"192.168.0.27","Password":"12345","Email":"abc@gmail.com"}
+	
+	{"MessageType":"REGISTER","ClientIP":"192.168.0.13","FirstName":"Rohit","LastName":"Kumar","Age":"32","Password":"12","Email":"def@gmail.com"}
+	
+	{"MessageType":"SELECT","ClientIP":"192.168.0.13","TopicsKey":"345","Email":"abc@gmail.com"}
