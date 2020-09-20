@@ -66,14 +66,23 @@ public class Communication {
 						switch(jdc.getMessageType().toUpperCase())
 						{
 						case "REGISTER":
-							RegisterUser newUser=new RegisterUser(jdc);
-							if(newUser.registerUser())
+							CheckEmailExistence newUserEmail=new CheckEmailExistence(jdc);
+							boolean checkEmail=newUserEmail.checkEmail();
+							if(!checkEmail)
 							{
-								sendData(jdc.getEmail()+" Registered Successfully!");
+								RegisterUser newUser=new RegisterUser(jdc);
+								if(newUser.registerUser())
+								{
+									sendData(jdc.getEmail()+" Registered Successfully!");
+								}
+								else
+								{
+									sendData(jdc.getEmail()+" Not Registered!");
+								}
 							}
 							else
 							{
-								sendData(jdc.getEmail()+" Not Registered!");
+								sendData(jdc.getEmail()+" Already Exists!");
 							}
 							break;
 						case "LOGIN":
@@ -97,6 +106,21 @@ public class Communication {
 								sendData("Failure to Login");
 							}
 							break;
+						case "SELECT":
+							SelectTopics userTopics=new SelectTopics(jdc);
+							boolean success=userTopics.updateTopicsinDB();
+							if(success)
+							{
+								sendData("Successfully updated Topics of Interest");
+							}
+							else
+							{
+								sendData("Error in Topic Selection!");
+							}
+							break;
+						case "ADD":
+							AddTrivia addTrivia=new AddTrivia(jdc);
+							
 						}
 					}
 				}
@@ -135,7 +159,7 @@ public class Communication {
 			
 			if(Constants.clientQueue.containsKey(clientKey))
 			{
-//				Socket soc=Constants.clientQueue.get(clientKey);
+				Socket soc=Constants.clientQueue.get(clientKey);
 				
 //				try (OutputStreamWriter out = new OutputStreamWriter(
 //				        soc.getOutputStream(), StandardCharsets.UTF_8)) {
@@ -146,20 +170,34 @@ public class Communication {
 //					e1.printStackTrace();
 //				}
 				
-				
-				try
-				{	
-					Socket soc=Constants.clientQueue.get(clientKey);
-					DataOutputStream out= new DataOutputStream(soc.getOutputStream());
-					out.writeBytes(data);//issue
-					out.flush();
+				OutputStreamWriter os = null;
+				try {
 					
-					System.out.println("Written to client");
-				}
-				catch(Exception e)
+					os = new OutputStreamWriter(soc.getOutputStream());
+				} 
+				catch (IOException e) 
 				{
 					e.printStackTrace();
 				}
+				PrintWriter out=new PrintWriter(os);
+				out.println(data);
+				out.flush();
+				
+				System.out.println("Sent data to client");
+				
+//				try
+//				{	
+//					Socket soc=Constants.clientQueue.get(clientKey);
+//					DataOutputStream out= new DataOutputStream(soc.getOutputStream());
+//					out.writeBytes(data);//issue
+//					out.flush();
+//					
+//					System.out.println("Written to client");
+//				}
+//				catch(Exception e)
+//				{
+//					e.printStackTrace();
+//				}
 			}
 		}
 		

@@ -9,8 +9,24 @@ public class JsonDataContract {
 	String Email="";
 	String ErrorValue="";
 	String ClientIp="";
+	String TopicsKey="";
+	String TriviaContent="";
+	String Topic="";
+
 	
+	public String getTriviaContent() {
+		return TriviaContent;
+	}
+	public void setTriviaContent(String triviaContent) {
+		TriviaContent = triviaContent;
+	}
 	
+	public String getTopicsKey() {
+		return TopicsKey;
+	}
+	public void setTopicsKey(String topicsKey) {
+		TopicsKey = topicsKey;
+	}
 	public String getClientIp() {
 		return ClientIp;
 	}
