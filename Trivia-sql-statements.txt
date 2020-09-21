@@ -24,10 +24,10 @@ CREATE TABLE `trivia-db`.`likedetails` (
   `status` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`like_id`));
 
-CREATE PROCEDURE `addTopicKey` (IN topic_key varchar(45),user_id INT)
+CREATE PROCEDURE `addTopicKey` (IN topic_key varchar(45),email_id varchar(50))
 BEGIN
-UPDATE userdetails SET topic_key=topic_key WHERE user_id=user_id;
-END$$
+UPDATE userdetails SET topic_key=topickey WHERE email=email_id;
+END
   
 CREATE DEFINER=`root`@`localhost` PROCEDURE `registerNewUser`(IN fname VARCHAR(45),lname VARCHAR(45),email VARCHAR(320),age INT,pass VARCHAR(320))
 BEGIN
@@ -84,4 +84,9 @@ END
 CREATE PROCEDURE `addLikeInDB` (IN triviaid int,userid int,likestatus varchar(45))
 BEGIN
 INSERT INTO likedetails(user_id,trivia_id,like_status) VALUES(userid,triviaid,likestatus);
+END
+
+CREATE PROCEDURE `checkIfEmailExists` (IN email_id VARCHAR(50))
+BEGIN
+select user_id from userdetails where email=email_id;
 END
