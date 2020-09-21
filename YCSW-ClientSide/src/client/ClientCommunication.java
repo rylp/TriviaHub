@@ -127,7 +127,7 @@ public class ClientCommunication {
 					
 					if(expectedBytes>0)
 					{
-						System.out.println("idhar!!!");
+						System.out.println("Recieved Confirmation from server side at client side!");
 						
 						byte[] buffer=new byte[expectedBytes];//in.read() demands byte buffer.
 						

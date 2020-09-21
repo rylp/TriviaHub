@@ -63,7 +63,11 @@ public class LogIn {
 		
 		System.out.println("Got back JSON");
 		
-		System.out.println(jdc1.getStatus());
+		System.out.println("Status: "+jdc1.getStatus());
+		
+		System.out.println("Message Type: "+jdc1.getMessageType());
+		
+		System.out.println("Error Value: "+jdc1.getErrorValue());
 	}
 	
 

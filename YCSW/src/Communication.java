@@ -102,8 +102,15 @@ public class Communication {
 							}
 							else if(loginStatus==-2)
 							{
-								System.out.println("Sending msg!");
-								sendData(jdc.getEmail()+" Password is wrong!");
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setStatus(Constants.FAILURE);
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setErrorValue(Constants.WRONG_PASSWORD);
+								responseJdc.setMessageType(Constants.LOGIN);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
 							}
 							else if(loginStatus>0)
 							{
