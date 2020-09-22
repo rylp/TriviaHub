@@ -107,6 +107,7 @@ public class ClientCommunication {
 			
 			System.out.println(data);
 			
+			//set up the input stream 'in' of Transmitter
 			try {
 				in=new DataInputStream(soc.getInputStream());
 			} catch (IOException e1) {
@@ -144,9 +145,10 @@ public class ClientCommunication {
 						switch(jdc.getMessageType().toUpperCase())
 						{
 						case "REGISTER":
+							System.out.println("Client side REGISTER Reciever");
 							break;
 						case "LOGIN":
-							System.out.println("Client Side Reciever");
+							System.out.println("Client Side LOGIN Reciever");
 							break;
 						}
 						break;

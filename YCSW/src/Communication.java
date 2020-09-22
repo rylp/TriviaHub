@@ -73,16 +73,39 @@ public class Communication {
 								RegisterUser newUser=new RegisterUser(jdc);
 								if(newUser.registerUser())
 								{
-									sendData(jdc.getEmail()+" Registered Successfully!");
+									JsonDataContract responseJdc=new JsonDataContract();
+									responseJdc.setStatus(Constants.SUCCESS);
+									responseJdc.setEmail(jdc.getEmail());
+									responseJdc.setMessageType(Constants.REGISTER);
+									
+									String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+									
+									sendData(responseJSON);
 								}
 								else
 								{
-									sendData(jdc.getEmail()+" Not Registered!");
+									JsonDataContract responseJdc=new JsonDataContract();
+									responseJdc.setStatus(Constants.FAILURE);
+									responseJdc.setEmail(jdc.getEmail());
+									responseJdc.setErrorValue(Constants.ISSUE);
+									responseJdc.setMessageType(Constants.REGISTER);
+									
+									String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+									
+									sendData(responseJSON);
 								}
 							}
 							else
 							{
-								sendData(jdc.getEmail()+" Already Exists!");
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setStatus(Constants.FAILURE);
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setErrorValue(Constants.EMAIL_EXISTS);
+								responseJdc.setMessageType(Constants.REGISTER);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
 							}
 							break;
 						case "LOGIN":
@@ -117,10 +140,11 @@ public class Communication {
 								JsonDataContract responseJdc=new JsonDataContract();
 								responseJdc.setStatus(Constants.SUCCESS);
 								responseJdc.setEmail(jdc.getEmail());
-								responseJdc.setMessageType("LOGIN");
+								responseJdc.setMessageType(Constants.LOGIN);
 								
 								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
 								
+								//SET CLIENT DETAILS
 								ClientDetails client=Constants.clientQueue.get(Constants.generateClientKey(jdc.getClientIp(), jdc.getClientPort()));
 								
 								if(client==null)
@@ -138,7 +162,15 @@ public class Communication {
 							}
 							else
 							{
-								sendData("Failure to Login");
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setStatus(Constants.FAILURE);
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setErrorValue(Constants.ISSUE);
+								responseJdc.setMessageType(Constants.REGISTER);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
 							}
 							break;
 						case "SELECT":

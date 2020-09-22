@@ -45,9 +45,9 @@ public class Trivia
 		{
           LogIn curUser=new LogIn();
 			
-          int userId=curUser.loginUser();
+          boolean Status=curUser.loginUser();
           
-          if(userId==-1)
+          if(!Status)
           {
         	  System.out.println("");
         	  System.out.println("----Exiting!!!---");
@@ -58,46 +58,51 @@ public class Trivia
 		
 		else if(ch==2) //Register
 		{	
-			RegisterUser newUser = new RegisterUser(); 
+			RegisterUser newUser = new RegisterUser();
 			
-			newUser.registerUser();
-			newUser.showDetails();
+			boolean Status=newUser.registerUser();
 			
-			try
-			{
-				String url="jdbc:mysql://localhost:3306/trivia-db";
-				String uname="root";
-				String pass="temp123";
-				
-				Class.forName("com.mysql.cj.jdbc.Driver");
-				Connection con=DriverManager.getConnection(url,uname,pass);
-				
-				ResultSet rs;
-				CallableStatement statement = con.prepareCall("{call getUserId()}");
-				
-				rs=statement.executeQuery();
-				
-				rs.next();
-				int userId=rs.getInt(1);
-				
-				System.out.println("User Id: "+userId);
-				
-				sess.setMyid(userId);
-				
-				statement.close();
-				con.close();
-			}
-			catch(Exception e)
-			{
-				e.printStackTrace();
-			}
 			
-			//get topics of choice
-			System.out.println("Select Topics of your choice");
 			
-			TopicSelection ts=new TopicSelection();	
-			String userKey=ts.SelectTopic(sess.getMyid());
-			sess.setMykey(userKey);	
+			
+//			newUser.registerUser();
+//			newUser.showDetails();
+//			
+//			try
+//			{
+//				String url="jdbc:mysql://localhost:3306/trivia-db";
+//				String uname="root";
+//				String pass="temp123";
+//				
+//				Class.forName("com.mysql.cj.jdbc.Driver");
+//				Connection con=DriverManager.getConnection(url,uname,pass);
+//				
+//				ResultSet rs;
+//				CallableStatement statement = con.prepareCall("{call getUserId()}");
+//				
+//				rs=statement.executeQuery();
+//				
+//				rs.next();
+//				int userId=rs.getInt(1);
+//				
+//				System.out.println("User Id: "+userId);
+//				
+//				sess.setMyid(userId);
+//				
+//				statement.close();
+//				con.close();
+//			}
+//			catch(Exception e)
+//			{
+//				e.printStackTrace();
+//			}
+//			
+//			//get topics of choice
+//			System.out.println("Select Topics of your choice");
+//			
+//			TopicSelection ts=new TopicSelection();	
+//			String userKey=ts.SelectTopic(sess.getMyid());
+//			sess.setMykey(userKey);	
 		}
 		
 		else
