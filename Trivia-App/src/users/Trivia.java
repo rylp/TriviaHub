@@ -62,47 +62,28 @@ public class Trivia
 			
 			boolean Status=newUser.registerUser();
 			
+			if(!Status)
+			{
+				System.out.println("");
+		      	System.out.println("----Exiting!!!---");
+		      	System.out.println("");
+		      	return;
+			}
 			
-			
-			
-//			newUser.registerUser();
-//			newUser.showDetails();
-//			
-//			try
-//			{
-//				String url="jdbc:mysql://localhost:3306/trivia-db";
-//				String uname="root";
-//				String pass="temp123";
-//				
-//				Class.forName("com.mysql.cj.jdbc.Driver");
-//				Connection con=DriverManager.getConnection(url,uname,pass);
-//				
-//				ResultSet rs;
-//				CallableStatement statement = con.prepareCall("{call getUserId()}");
-//				
-//				rs=statement.executeQuery();
-//				
-//				rs.next();
-//				int userId=rs.getInt(1);
-//				
-//				System.out.println("User Id: "+userId);
-//				
-//				sess.setMyid(userId);
-//				
-//				statement.close();
-//				con.close();
-//			}
-//			catch(Exception e)
-//			{
-//				e.printStackTrace();
-//			}
-//			
-//			//get topics of choice
-//			System.out.println("Select Topics of your choice");
-//			
-//			TopicSelection ts=new TopicSelection();	
-//			String userKey=ts.SelectTopic(sess.getMyid());
-//			sess.setMykey(userKey);	
+			else //Go into Topic Selection if Register is Successful
+			{
+				TopicSelection chooseTopics=new TopicSelection();
+				
+				boolean status=chooseTopics.SelectTopic();
+				
+				if(!status)
+				{
+					System.out.println("");
+			      	System.out.println("----Exiting!!!---");
+			      	System.out.println("");
+			      	return;
+				}
+			}
 		}
 		
 		else
@@ -116,6 +97,10 @@ public class Trivia
 		
 		do
 		{
+			System.out.println("Email: "+users.Constants.myEmail);
+			System.out.println("Topic Key: "+users.Constants.myKey);
+			
+			
 			System.out.println("-----------------------");
 			System.out.println("");
 			System.out.println("\n\tEnter ur choice");
@@ -177,7 +162,6 @@ public class Trivia
 							UpdateLike ul=new UpdateLike();
 							ul.updateLikedTrivia(sess.getMyid(),triviaId);
 						}
-						
 						else
 						{
 							System.out.println("Trivia Already Liked!");

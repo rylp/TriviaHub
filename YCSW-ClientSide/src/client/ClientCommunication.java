@@ -53,8 +53,6 @@ public class ClientCommunication {
 					
 					if(expectedBytes>0)
 					{
-						System.out.println("Idhar!!!");
-						
 						byte[] buffer=new byte[expectedBytes];//in.read() demands byte buffer.
 						
 						in.read(buffer);
@@ -121,7 +119,7 @@ public class ClientCommunication {
 				out.write(data);
 				out.flush();
 				
-				//TODO:ADD recieving logic.
+				//TODO:ADD receiving logic.
 				while(soc.isConnected())
 				{
 					int expectedBytes=in.available();
@@ -150,7 +148,12 @@ public class ClientCommunication {
 						case "LOGIN":
 							System.out.println("Client Side LOGIN Reciever");
 							break;
+						case "SELECT":
+							System.out.println("Client Side SELECT Reciever");
+							break;
 						}
+						
+						System.out.println("Closed: "+soc.isClosed());
 						break;
 					}
 				}
@@ -161,6 +164,7 @@ public class ClientCommunication {
 				e.printStackTrace();
 			}
 			
+			System.out.println("Closed: "+soc.isClosed());
 			return jdc;
 		}
 	}

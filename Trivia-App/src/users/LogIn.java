@@ -54,7 +54,7 @@ public class LogIn {
 		return Result;
 	}
 	
-	public boolean sendData(String data)
+	public boolean sendData(String clientData)
 	{	
 		boolean Success=true;
 		
@@ -62,7 +62,7 @@ public class LogIn {
 		
 		client.ClientCommunication.Transmitter tr=clComm.new Transmitter();//class within class
 		
-		client.JsonDataContract jdc1=tr.sendDataToServer(data,client.Constants.socket);
+		client.JsonDataContract jdc1=tr.sendDataToServer(clientData,client.Constants.socket);
 		
 		System.out.println("Got back JSON");
 		
@@ -71,6 +71,9 @@ public class LogIn {
 		System.out.println("Message Type: "+jdc1.getMessageType());
 		
 		System.out.println("Error Value: "+jdc1.getErrorValue());
+		
+		//may set userId latter thru changes in JsonDataContract and Server-Side Modules
+		users.Constants.myEmail=jdc1.getEmail();
 		
 		return Success;
 	}

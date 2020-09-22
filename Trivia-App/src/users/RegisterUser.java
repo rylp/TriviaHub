@@ -77,57 +77,11 @@ public class RegisterUser
 		
 		System.out.println("Error Value: "+jdc1.getErrorValue());
 		
+		//Set up email. May set up UserId latter in JsonDataContract & Server-Side
+		users.Constants.myEmail=jdc1.getEmail();
+		
 		return Success;
 	}
-	
-	
-//	public boolean registerUser()
-//	{	
-//		Scanner sc=new Scanner(System.in);
-//		
-//		System.out.println("Enter Your Email ID");
-//		this.email=sc.nextLine();
-//		
-//		System.out.println("Enter Your First Name");
-//		this.fname=sc.nextLine();
-//		
-//		System.out.println("Enter Your Last Name");
-//		this.lname=sc.nextLine();
-//		
-//		System.out.println("Enter Your Age");
-//		this.age=sc.nextInt();
-//		
-//		sc.nextLine();
-//		
-//		System.out.println("Enter Your Password");
-//		this.password=sc.nextLine();
-//		
-//		try
-//		{
-//			String url="jdbc:mysql://localhost:3306/trivia-db";
-//			String uname="root";
-//			String pass="temp123";
-//			
-//			Class.forName("com.mysql.cj.jdbc.Driver");
-//			Connection con=DriverManager.getConnection(url,uname,pass);
-//			
-//			CallableStatement statement = con.prepareCall("{call registerNewUser(?,?,?,?,?)}");
-//			statement.setString(1, this.fname);
-//			statement.setString(2, this.lname);
-//			statement.setString(3, this.email);
-//			statement.setInt(4, this.age);
-//			statement.setString(5, this.password);
-//			
-//			statement.executeUpdate();
-//			
-//			statement.close();
-//			con.close();
-//		}
-//		catch(Exception e)
-//		{
-//			e.printStackTrace();
-//		}
-//	}
 	
 	void showDetails()
 	{

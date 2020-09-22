@@ -4,6 +4,16 @@ public class MySession {
 	
 	private String mykey;
 	private int myid;
+	
+	public static String myEmail=null;
+	
+	public static String getMyEmail() {
+		return myEmail;
+	}
+
+	public static void setMyEmail(String myEmail) {
+		MySession.myEmail = myEmail;
+	}
 
 	public int getMyid() {
 		return myid;
@@ -20,5 +30,4 @@ public class MySession {
 	public void setMykey(String mykey) {
 		this.mykey = mykey;
 	}
-
 }

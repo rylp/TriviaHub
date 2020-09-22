@@ -9,7 +9,8 @@ public class Constants {
 	public static final String SUCCESS="SUCCESS"; 
 	public static final String FAILURE="FAILURE"; 
 	public static final String LOGIN="LOGIN"; 
-	public static final String REGISTER="REGISTER"; 
+	public static final String REGISTER="REGISTER";
+	public static final String SELECT="SELECT";
 	public static final String WRONG_EMAIL="INCORRECT-EMAIL";
 	public static final String WRONG_PASSWORD="INCORRECT-PASSWORD";
 	public static final String EMAIL_EXISTS="EMAIL-ALREADY-EXISTS";

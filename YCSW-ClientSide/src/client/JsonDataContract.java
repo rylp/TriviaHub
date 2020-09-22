@@ -1,7 +1,7 @@
 package client;
 
 public class JsonDataContract {
-
+	
 	String MessageType="";
 	String FirstName="";
 	String LastName="";
@@ -10,6 +10,9 @@ public class JsonDataContract {
 	String Email="";
 	String ErrorValue="";
 	String ClientIp="";
+	String TopicsKey="";
+	String TriviaContent="";
+	String Topic="";
 	String Status="";
 	String clientPort="";
 	
@@ -19,14 +22,31 @@ public class JsonDataContract {
 	public void setClientPort(String clientPort) {
 		this.clientPort = clientPort;
 	}
-	
 	public String getStatus() {
 		return Status;
 	}
 	public void setStatus(String status) {
 		Status = status;
 	}
+	public String getTopic() {
+		return Topic;
+	}
+	public void setTopic(String topic) {
+		Topic = topic;
+	}
+	public String getTriviaContent() {
+		return TriviaContent;
+	}
+	public void setTriviaContent(String triviaContent) {
+		TriviaContent = triviaContent;
+	}
 	
+	public String getTopicsKey() {
+		return TopicsKey;
+	}
+	public void setTopicsKey(String topicsKey) {
+		TopicsKey = topicsKey;
+	}
 	public String getClientIp() {
 		return ClientIp;
 	}
@@ -75,5 +95,4 @@ public class JsonDataContract {
 	public void setEmail(String email) {
 		Email = email;
 	}
-
 }

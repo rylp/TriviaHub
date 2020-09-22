@@ -78,6 +78,8 @@ public class Communication {
 									responseJdc.setEmail(jdc.getEmail());
 									responseJdc.setMessageType(Constants.REGISTER);
 									
+									System.out.println("Closed: "+soc.isClosed());
+									
 									String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
 									
 									sendData(responseJSON);
@@ -104,6 +106,8 @@ public class Communication {
 								responseJdc.setMessageType(Constants.REGISTER);
 								
 								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								System.out.println("Closed"+soc.isClosed());
 								
 								sendData(responseJSON);
 							}
@@ -178,11 +182,27 @@ public class Communication {
 							boolean success=userTopics.updateTopicsinDB();
 							if(success)
 							{
-								sendData("Successfully updated Topics of Interest");
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.SUCCESS);
+								responseJdc.setMessageType(Constants.SELECT);
+								responseJdc.setTopicsKey(jdc.getTopicsKey());
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
 							}
 							else
 							{
-								sendData("Error in Topic Selection!");
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.FAILURE);
+								responseJdc.setMessageType(Constants.SELECT);
+								responseJdc.setErrorValue(Constants.ISSUE);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
 							}
 							break;
 						case "ADD":
