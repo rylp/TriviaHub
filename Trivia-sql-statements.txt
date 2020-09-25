@@ -90,3 +90,8 @@ CREATE PROCEDURE `checkIfEmailExists` (IN email_id VARCHAR(50))
 BEGIN
 select user_id from userdetails where email=email_id;
 END
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addTrivia`(IN email_id VARCHAR(255),trivia_content VARCHAR(255),topic_id INT,likes INT)
+BEGIN
+INSERT INTO triviadetails(trivia_content,topic_id,likes,user_id) VALUES(trivia_content,topic_id,likes,(select user_id from userdetails where email=email_id));
+END
