@@ -15,6 +15,14 @@ public class JsonDataContract {
 	String Topic="";
 	String Status="";
 	String clientPort="";
+	String likes="";
+	
+	public String getLikes() {
+		return likes;
+	}
+	public void setLikes(String likes) {
+		this.likes = likes;
+	}
 	
 	public String getClientPort() {
 		return clientPort;

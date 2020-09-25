@@ -1,4 +1,4 @@
-package json;
+package serverModules;
 
 public class JsonDataContract {
 	
@@ -23,25 +23,11 @@ public class JsonDataContract {
 	public void setLikes(String likes) {
 		this.likes = likes;
 	}
-	
-	
-	public String getTopicsKey() {
-		return TopicsKey;
+	public String getClientPort() {
+		return clientPort;
 	}
-	public void setTopicsKey(String topicsKey) {
-		TopicsKey = topicsKey;
-	}
-	public String getTriviaContent() {
-		return TriviaContent;
-	}
-	public void setTriviaContent(String triviaContent) {
-		TriviaContent = triviaContent;
-	}
-	public String getTopic() {
-		return Topic;
-	}
-	public void setTopic(String topic) {
-		Topic = topic;
+	public void setClientPort(String clientPort) {
+		this.clientPort = clientPort;
 	}
 	public String getStatus() {
 		return Status;
@@ -49,11 +35,24 @@ public class JsonDataContract {
 	public void setStatus(String status) {
 		Status = status;
 	}
-	public String getClientPort() {
-		return clientPort;
+	public String getTopic() {
+		return Topic;
 	}
-	public void setClientPort(String clientPort) {
-		this.clientPort = clientPort;
+	public void setTopic(String topic) {
+		Topic = topic;
+	}
+	public String getTriviaContent() {
+		return TriviaContent;
+	}
+	public void setTriviaContent(String triviaContent) {
+		TriviaContent = triviaContent;
+	}
+	
+	public String getTopicsKey() {
+		return TopicsKey;
+	}
+	public void setTopicsKey(String topicsKey) {
+		TopicsKey = topicsKey;
 	}
 	public String getClientIp() {
 		return ClientIp;

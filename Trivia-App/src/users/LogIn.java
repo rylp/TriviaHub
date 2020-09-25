@@ -73,6 +73,7 @@ public class LogIn {
 		System.out.println("Error Value: "+jdc1.getErrorValue());
 		
 		//may set userId latter thru changes in JsonDataContract and Server-Side Modules
+		//TODO: Fix users.Constants.myEmail if wrong email/password.
 		users.Constants.myEmail=jdc1.getEmail();
 		
 		return Success;

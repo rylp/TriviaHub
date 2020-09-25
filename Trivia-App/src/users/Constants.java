@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 public class Constants {
 	
-	public static String myEmail=null;
-	public static String myKey=null;
+	public static String myEmail="abc@gmail.com";
+	public static String myKey="345";
 
 	private ArrayList<String> firstList = new ArrayList<String>(Arrays.asList("History", "Economics", "Animals",
 			"Geography", "Maths", "Chemistry", "Physics", "Biology", "Music", "Sports"));
