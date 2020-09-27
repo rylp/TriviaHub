@@ -1,11 +1,16 @@
 package serverModules;
 import java.net.Socket;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Constants {
 	
 	static Map<String,ClientDetails> clientQueue=new HashMap<String,ClientDetails>();
+	
+	public static ExecutorService threadPool=Executors.newFixedThreadPool(20);
 	
 	public static final String SUCCESS="SUCCESS"; 
 	public static final String FAILURE="FAILURE"; 

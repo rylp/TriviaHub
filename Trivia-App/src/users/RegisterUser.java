@@ -5,6 +5,10 @@ import com.google.gson.Gson;
 
 import json.JsonDataContract;
 
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.sql.*;
 
 public class RegisterUser 
@@ -63,11 +67,27 @@ public class RegisterUser
 	{
 		boolean Success=true;
 		
+		client.SocketDetails socketDetails=new client.SocketDetails();
+		
+		try {
+			socketDetails.setIn(new DataInputStream(client.Constants.socket.getInputStream()));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			socketDetails.setOut(new OutputStreamWriter(client.Constants.socket.getOutputStream(), StandardCharsets.UTF_8));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		client.ClientCommunication clientComm=new client.ClientCommunication();
 		
 		client.ClientCommunication.Transmitter tr=clientComm.new Transmitter();
 		
-		client.JsonDataContract jdc1=tr.sendDataToServer(clientData, client.Constants.socket);
+		client.JsonDataContract jdc1=tr.sendDataToServer(clientData,socketDetails);
 		
 		System.out.println("Got back JSON");
 		

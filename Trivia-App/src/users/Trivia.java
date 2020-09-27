@@ -43,47 +43,47 @@ public class Trivia
 		
 		if(ch==1) //Log In
 		{
-//          LogIn curUser=new LogIn();
-//			
-//          boolean Status=curUser.loginUser();
-//          
-//          if(!Status)
-//          {
-//        	  System.out.println("");
-//        	  System.out.println("----Exiting!!!---");
-//        	  System.out.println("");
-//        	  return;
-//          }
+          LogIn curUser=new LogIn();
+			
+          boolean Status=curUser.loginUser();
+          
+          if(!Status)
+          {
+        	  System.out.println("");
+        	  System.out.println("----Exiting!!!---");
+        	  System.out.println("");
+        	  return;
+          }
 		}
 		
 		else if(ch==2) //Register
 		{	
-//			RegisterUser newUser = new RegisterUser();
-//			
-//			boolean Status=newUser.registerUser();
-//			
-//			if(!Status)
-//			{
-//				System.out.println("");
-//		      	System.out.println("----Exiting!!!---");
-//		      	System.out.println("");
-//		      	return;
-//			}
-//			
-//			else //Go into Topic Selection if Register is Successful
-//			{
-//				TopicSelection chooseTopics=new TopicSelection();
-//				
-//				boolean status=chooseTopics.SelectTopic();
-//				
-//				if(!status)
-//				{
-//					System.out.println("");
-//			      	System.out.println("----Exiting!!!---");
-//			      	System.out.println("");
-//			      	return;
-//				}
-//			}
+			RegisterUser newUser = new RegisterUser();
+			
+			boolean Status=newUser.registerUser();
+			
+			if(!Status)
+			{
+				System.out.println("");
+		      	System.out.println("----Exiting!!!---");
+		      	System.out.println("");
+		      	return;
+			}
+			
+			else //Go into Topic Selection if Register is Successful
+			{
+				TopicSelection chooseTopics=new TopicSelection();
+				
+				boolean status=chooseTopics.SelectTopic();
+				
+				if(!status)
+				{
+					System.out.println("");
+			      	System.out.println("----Exiting!!!---");
+			      	System.out.println("");
+			      	return;
+				}
+			}
 		}
 		
 		else

@@ -8,5 +8,4 @@ public class Constants {
 	public static int clientPort;
 	
 	public static Socket socket=null;
-	
 }

@@ -14,9 +14,10 @@ public class Communication {
 	public Communication(Socket s) {
 		this.setS(s);
 		
-		Runnable rec=new Receiver(s);
-		Thread t1=new Thread(rec,"Receiver Thread");
-		t1.start();
+		Receiver rec=new Receiver(s);
+		Constants.threadPool.submit(rec);
+//		Thread t1=new Thread(rec,"Receiver Thread");
+//		t1.start();
 		
 		System.out.println("Alive Threads "+Thread.activeCount());
 	}

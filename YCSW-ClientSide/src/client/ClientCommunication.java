@@ -80,10 +80,10 @@ public class ClientCommunication {
 			}
 		}
 		
-		public void sendData(String data)
+		public void sendData(String data,SocketDetails socDetails)
 		{	
 			tr=new Transmitter();
-			tr.sendDataToServer(data,soc);
+			tr.sendDataToServer(data,socDetails);
 		}
 
 		public Socket getSoc() {
@@ -99,28 +99,34 @@ public class ClientCommunication {
 	{
 		private DataInputStream in=null;
 		
-		public JsonDataContract sendDataToServer(String data,Socket soc)
+		public JsonDataContract sendDataToServer(String data,SocketDetails socDetails)
 		{
 			JsonDataContract jdc=new JsonDataContract();
 			
 			System.out.println(data);
 			
 			//set up the input stream 'in' of Transmitter
-			try {
-				in=new DataInputStream(soc.getInputStream());
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+//			try {
+//				in=new DataInputStream(client.Constants.socket.getInputStream());
+//			} catch (IOException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
+			
+			in=socDetails.getIn();
+			
+			OutputStreamWriter out=socDetails.getOut();
 
-			try (OutputStreamWriter out = new OutputStreamWriter(
-				        soc.getOutputStream(), StandardCharsets.UTF_8)) 
+//			try (OutputStreamWriter out = new OutputStreamWriter(
+//					client.Constants.socket.getOutputStream(), StandardCharsets.UTF_8)) 
+			
+			try
 			{	
 				out.write(data);
 				out.flush();
 				
 				//TODO:ADD receiving logic.
-				while(soc.isConnected())
+				while(client.Constants.socket.isConnected())
 				{
 					int expectedBytes=in.available();
 					
@@ -159,8 +165,8 @@ public class ClientCommunication {
 							break;
 						}
 						
-						System.out.println("Closed: "+soc.isClosed());
-						break;
+						System.out.println("Closed: "+client.Constants.socket.isClosed());
+						return jdc;
 					}
 				}
 				
@@ -169,8 +175,8 @@ public class ClientCommunication {
 			{
 				e.printStackTrace();
 			}
-			
-			System.out.println("Closed: "+soc.isClosed());
+
+			System.out.println("Closed: "+client.Constants.socket.isClosed());
 			return jdc;
 		}
 	}
