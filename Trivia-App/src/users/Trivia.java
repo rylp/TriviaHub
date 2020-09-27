@@ -135,9 +135,16 @@ public class Trivia
 				}
 				case 2:
 				{
-					ViewTrivia vt=new ViewTrivia();
-					vt.DisplayTrivia(sess.getMykey(),sess.getMyid());
-					
+					ViewTrivia viewTrivia=new ViewTrivia();
+					boolean Success=viewTrivia.DisplayTrivia();
+					if(!Success)
+					{
+						System.out.println("Unsuccessful Viewing of Trivia");
+					}
+					else
+					{
+						System.out.println("Successfully Viewed Trivia");
+					}
 					break;
 				}
 				case 3:

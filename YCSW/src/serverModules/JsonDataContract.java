@@ -16,7 +16,14 @@ public class JsonDataContract {
 	String Status="";
 	String clientPort="";
 	String likes="";
+	String TriviaData="";
 	
+	public String getTriviaData() {
+		return TriviaData;
+	}
+	public void setTriviaData(String triviaData) {
+		TriviaData = triviaData;
+	}
 	public String getLikes() {
 		return likes;
 	}

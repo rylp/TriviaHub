@@ -154,6 +154,9 @@ public class ClientCommunication {
 						case "ADD":
 							System.out.println("Client Side ADD Receiver");
 							break;
+						case "VIEW":
+							System.out.println("Client Side VIEW Receiver");
+							break;
 						}
 						
 						System.out.println("Closed: "+soc.isClosed());

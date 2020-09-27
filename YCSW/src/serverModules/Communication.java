@@ -231,7 +231,36 @@ public class Communication {
 								
 								sendData(responseJSON);
 							}
-							break;	
+							break;
+						case "VIEW":
+							ViewTriviaServerSide viewTrivia=new ViewTriviaServerSide(jdc);
+							String Content=viewTrivia.displayTrivia();
+
+							if(Content.isEmpty())//Empty
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.FAILURE);
+								responseJdc.setMessageType(Constants.VIEW);
+								responseJdc.setErrorValue(Constants.EMPTY_TRIVIA);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							else //Success
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.SUCCESS);
+								responseJdc.setMessageType(Constants.VIEW);
+								responseJdc.setTriviaData(Content);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							break;
 						}
 					}
 				}
@@ -267,7 +296,6 @@ public class Communication {
 	{
 		public void sendDataToClient(String data,String clientKey)
 		{
-			
 			if(Constants.clientQueue.containsKey(clientKey))
 			{
 				ClientDetails clientDetails=Constants.clientQueue.get(clientKey);
@@ -276,7 +304,6 @@ public class Communication {
 				
 				OutputStreamWriter os = null;
 				try {
-					
 					os = new OutputStreamWriter(soc.getOutputStream());
 				} 
 				catch (IOException e) 
@@ -290,7 +317,6 @@ public class Communication {
 				System.out.println("Sent data to client");
 			}
 		}
-		
 	}
 	
 	public Socket getS() {
