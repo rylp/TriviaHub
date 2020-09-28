@@ -94,6 +94,8 @@ public class LogIn {
 		
 		//may set userId latter thru changes in JsonDataContract and Server-Side Modules
 		//TODO: Fix users.Constants.myEmail if wrong email/password.
+		//TODO: Considering correct working now.
+		//If incorrect email, don't save or go back or redirect someplace else
 		users.Constants.myEmail=jdc1.getEmail();
 		
 		return Success;

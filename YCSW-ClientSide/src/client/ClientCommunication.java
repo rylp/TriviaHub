@@ -157,6 +157,9 @@ public class ClientCommunication {
 						case "SELECT":
 							System.out.println("Client Side SELECT Reciever");
 							break;
+						case "KEY":
+							System.out.println("Client Side KEY Reciever");
+							break;
 						case "ADD":
 							System.out.println("Client Side ADD Receiver");
 							break;

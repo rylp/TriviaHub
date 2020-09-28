@@ -54,6 +54,36 @@ public class Trivia
         	  System.out.println("");
         	  return;
           }
+          else //set TopicKey if login is Successful
+          {
+        	  GetTopicKey loggedinUser=new GetTopicKey();
+        	  boolean Result=loggedinUser.extractKey();
+        	  
+        	  if(Result)
+        	  {
+        		  //Create cons object
+        		  Constants cons=new Constants();
+        		  
+        		  System.out.println("Successfull Retrived Topic Key");
+        		  System.out.println("Your Topics: ");
+        		  
+        		  for(int i=1;i<=3;i++)
+        		  {
+        			  try
+        			  {
+        				  System.out.println(i+": "+cons.getFirstList().get(Integer.parseInt(String.valueOf(Constants.myKey.charAt(i-1)))));
+        			  }
+        			  catch(Exception e)
+        			  {
+        				  e.printStackTrace();
+        			  }
+        		  }
+        	  }
+        	  else//Cud not retrieve topics
+        	  {
+        		  System.out.println("Could not retrieve ur topics");
+        	  }
+          }
 		}
 		
 		else if(ch==2) //Register

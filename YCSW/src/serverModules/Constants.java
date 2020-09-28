@@ -20,6 +20,7 @@ public class Constants {
 	public static final String SELECT="SELECT";
 	public static final String ADD="ADD";
 	public static final String VIEW="VIEW";
+	public static final String KEY="KEY";
 	
 	
 	public static final String WRONG_EMAIL="INCORRECT-EMAIL";
@@ -27,6 +28,7 @@ public class Constants {
 	public static final String EMAIL_EXISTS="EMAIL-ALREADY-EXISTS";
 	public static final String ISSUE="NETWORK-ISSUE-PLEASE-RETRY";
 	public static final String EMPTY_TRIVIA="NO-TRIVIA-AVAILABLE-CURRENTLY";
+	public static final String EMPTY_TOPIC_KEY="NO-TOPIC-KEY-AVAILABLE-CURRENTLY";
 	
 	
 	public static String generateClientKey(String clientIpAddr,String clientPort)

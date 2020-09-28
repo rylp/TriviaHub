@@ -42,7 +42,7 @@ public class AddTrivia
 		{
 			try
 			{
-				System.out.println(i+" "+constant.getFirstList().get(Integer.parseInt(String.valueOf(this.userKey.charAt(i)))));
+				System.out.println(i+1+" "+constant.getFirstList().get(Integer.parseInt(String.valueOf(this.userKey.charAt(i)))));
 			}
 			catch(Exception e)
 			{
@@ -53,7 +53,7 @@ public class AddTrivia
 		Scanner sc=new Scanner(System.in);
 		
 		System.out.println("Choose a topic");
-		this.topic=Integer.parseInt(String.valueOf(this.userKey.charAt(Integer.parseInt(sc.nextLine()))));
+		this.topic=Integer.parseInt(String.valueOf(this.userKey.charAt(Integer.parseInt(sc.nextLine())-1)));
 		
 		System.out.println("Enter trivia");
 		this.triviaContent=sc.nextLine();

@@ -13,6 +13,5 @@ public class Server {
 		
 //		Thread t=new Thread(con,"Connection Thread");
 //		t.start();
-		
 	}
 }

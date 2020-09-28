@@ -233,6 +233,35 @@ public class Communication {
 								sendData(responseJSON);
 							}
 							break;
+						case "KEY":
+							GetTopicKeyServerSide curUser=new GetTopicKeyServerSide(jdc);
+							String TopicKey=curUser.extractKey();
+							
+							if(TopicKey.isEmpty())//No key uptil now
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.FAILURE);
+								responseJdc.setMessageType(Constants.KEY);
+								responseJdc.setErrorValue(Constants.EMPTY_TOPIC_KEY);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							else
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.SUCCESS);
+								responseJdc.setMessageType(Constants.KEY);
+								responseJdc.setTopicsKey(TopicKey);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							break;
 						case "VIEW":
 							ViewTriviaServerSide viewTrivia=new ViewTriviaServerSide(jdc);
 							String Content=viewTrivia.displayTrivia();
