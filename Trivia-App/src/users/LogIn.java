@@ -92,11 +92,23 @@ public class LogIn {
 		
 		System.out.println("Error Value: "+jdc1.getErrorValue());
 		
-		//may set userId latter thru changes in JsonDataContract and Server-Side Modules
-		//TODO: Fix users.Constants.myEmail if wrong email/password.
-		//TODO: Considering correct working now.
-		//If incorrect email, don't save or go back or redirect someplace else
-		users.Constants.myEmail=jdc1.getEmail();
+		//TODO:may set userId latter thru changes in JsonDataContract and Server-Side Module
+		//TODO:If incorrect email, don't save or go back or redirect someplace else
+		
+		if(jdc1.getErrorValue().isEmpty())//CORRECT CREDENTIALS
+		{
+			users.Constants.myEmail=jdc1.getEmail();
+		}
+		else if(jdc1.getErrorValue().equals(users.Constants.WRONG_EMAIL))
+		{
+			System.out.println("Incorrect Email");
+			return false;
+		}
+		else if(jdc1.getErrorValue().equals(users.Constants.WRONG_PASSWORD))
+		{
+			System.out.println("Incorrect Password");
+			return false;
+		}
 		
 		return Success;
 	}

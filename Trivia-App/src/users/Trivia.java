@@ -54,7 +54,7 @@ public class Trivia
         	  System.out.println("");
         	  return;
           }
-          else //set TopicKey if login is Successful
+          else //set TopicKey in Constants if login is Successful
           {
         	  GetTopicKey loggedinUser=new GetTopicKey();
         	  boolean Result=loggedinUser.extractKey();
@@ -102,17 +102,23 @@ public class Trivia
 			
 			else //Go into Topic Selection if Register is Successful
 			{
-				TopicSelection chooseTopics=new TopicSelection();
+				boolean result=false;
 				
-				boolean status=chooseTopics.SelectTopic();
-				
-				if(!status)
+				do
 				{
-					System.out.println("");
-			      	System.out.println("----Exiting!!!---");
-			      	System.out.println("");
-			      	return;
-				}
+					TopicSelection chooseTopics=new TopicSelection();
+					
+					result=chooseTopics.SelectTopic();
+					
+//					if(!status)
+//					{
+//						System.out.println("");
+//				      	System.out.println("----Exiting!!!---");
+//				      	System.out.println("");
+//				      	return;
+//					}
+					
+				}while(!result);
 			}
 		}
 		

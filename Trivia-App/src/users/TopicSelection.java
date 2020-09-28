@@ -39,14 +39,30 @@ public class TopicSelection
 			System.out.println("List of Topics => ");
 			for(int j=0;j<myTopics.size();j++)
 			{
-				System.out.println(j+" "+ myTopics.get(j));
+				System.out.println(j+1+" "+ myTopics.get(j));
 			}
 			
 			Scanner t=new Scanner(System.in);
 			System.out.println("Enter Topic index");
 			int topic=t.nextInt();
-			key+=Integer.toString(topic);
-			System.out.println("Topic choosen => "+myTopics.get(topic));
+			if(topic>=1 && topic<=10)
+			{
+				key+=Integer.toString(topic-1);
+				System.out.println("Topic choosen => "+myTopics.get(topic-1));
+			}
+			else
+			{
+				System.out.println("----------------");
+				System.out.println("Invaid choice");
+				System.out.println("----------------");
+				System.out.println("---*****--------");
+				System.out.println();
+				System.out.println("RE-choose 3 topics of choice");
+				System.out.println();
+				System.out.println("---****---------");
+				
+				return false;
+			}
 		}
 		
 		this.userKey=key;

@@ -84,10 +84,19 @@ public class GetTopicKey {
 		System.out.println("Topic Key Recieved: "+jdc1.getTopicsKey());
 		
 		//set up the key retrived from server-side
-		users.Constants.myKey=jdc1.getTopicsKey();
-		
-		return Success;
-		
-	}
+		if(jdc1.getErrorValue().isEmpty())
+		{
+			users.Constants.myKey=jdc1.getTopicsKey();
+		}
+		else if(jdc1.getErrorValue().equals(users.Constants.EMPTY_TOPIC_KEY))
+		{
+			System.out.println("No Key Available");
+			
+			//TODO:Give option of adding topic key
+			
+			return false;
+		}
 
+		return Success;		
+	}
 }

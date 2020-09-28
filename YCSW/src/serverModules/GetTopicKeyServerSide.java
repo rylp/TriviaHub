@@ -40,7 +40,12 @@ public class GetTopicKeyServerSide {
 			
 			do
 			{
-				Content=Content.concat(rs.getString("topic_key"));
+				String topicExists=rs.getString("topic_key");
+				if(topicExists==null)
+				{
+					return Content;
+				}
+				Content=Content.concat(topicExists);
 				
 			}while(rs.next());
 				

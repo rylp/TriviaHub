@@ -98,14 +98,21 @@ public class RegisterUser
 		System.out.println("Error Value: "+jdc1.getErrorValue());
 		
 		//Set up email. May set up UserId latter in JsonDataContract & Server-Side
-		users.Constants.myEmail=jdc1.getEmail();
+		
+		if(jdc1.getErrorValue().isEmpty())//CORRECT CREDENTIALS
+		{
+			users.Constants.myEmail=jdc1.getEmail();
+		}
+		else if(jdc1.getErrorValue().equals(users.Constants.EMAIL_EXISTS))
+		{
+			System.out.println("Email Already Exists");
+			
+			//TODO: Give login option here if wanted
+			
+			return false;
+		}
 		
 		return Success;
-	}
-	
-	void showDetails()
-	{
-		System.out.println("Welcome "+this.fname+" "+this.lname);
 	}
 
 }

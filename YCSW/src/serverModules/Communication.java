@@ -73,7 +73,7 @@ public class Communication {
 							if(!checkEmail)
 							{
 								RegisterUser newUser=new RegisterUser(jdc);
-								if(newUser.registerUser())
+								if(newUser.registerUser())//Correct Credentials
 								{
 									JsonDataContract responseJdc=new JsonDataContract();
 									responseJdc.setStatus(Constants.SUCCESS);
@@ -99,7 +99,7 @@ public class Communication {
 									sendData(responseJSON);
 								}
 							}
-							else
+							else//EMAIL already Exists
 							{
 								JsonDataContract responseJdc=new JsonDataContract();
 								responseJdc.setStatus(Constants.FAILURE);
@@ -117,7 +117,7 @@ public class Communication {
 						case "LOGIN":
 							LogIn User=new LogIn(jdc);
 							int loginStatus=User.loginUser();
-							if(loginStatus==-1)
+							if(loginStatus==-1)//WRONG EMAIL
 							{
 								JsonDataContract responseJdc=new JsonDataContract();
 								responseJdc.setStatus(Constants.FAILURE);
@@ -129,7 +129,7 @@ public class Communication {
 								
 								sendData(responseJSON);
 							}
-							else if(loginStatus==-2)
+							else if(loginStatus==-2)//WRONG PASSWORD
 							{
 								JsonDataContract responseJdc=new JsonDataContract();
 								responseJdc.setStatus(Constants.FAILURE);
@@ -141,7 +141,7 @@ public class Communication {
 								
 								sendData(responseJSON);
 							}
-							else if(loginStatus>0)
+							else if(loginStatus>0)//CORRECT CREDENTIALS
 							{
 								JsonDataContract responseJdc=new JsonDataContract();
 								responseJdc.setStatus(Constants.SUCCESS);
