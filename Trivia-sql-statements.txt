@@ -56,9 +56,9 @@ BEGIN
 delete from triviadetails where trivia_id=triviaid;
 END
 
-CREATE PROCEDURE `showTriviaByUser` (IN userid int)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `showTriviaByUser`(IN emailid varchar(255))
 BEGIN
-SELECT trivia_id,trivia_content from triviadetails where user_id=userid;
+SELECT trivia_id,trivia_content from triviadetails where user_id=(select user_id from userdetails where email=emailid);
 END
 
 CREATE PROCEDURE `loginUser` (IN emailid varchar(320))
@@ -94,4 +94,9 @@ END
 CREATE DEFINER=`root`@`localhost` PROCEDURE `addTrivia`(IN email_id VARCHAR(255),trivia_content VARCHAR(255),topic_id INT,likes INT)
 BEGIN
 INSERT INTO triviadetails(trivia_content,topic_id,likes,user_id) VALUES(trivia_content,topic_id,likes,(select user_id from userdetails where email=email_id));
+END
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getTopicKey`(IN emailid varchar(50))
+BEGIN
+select topic_key from userdetails where email=email_id;
 END

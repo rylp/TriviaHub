@@ -17,7 +17,21 @@ public class JsonDataContract {
 	String clientPort="";
 	String likes="";
 	String TriviaData="";
+	String TriviaIds="";
+	String TriviaIdtoDelete="";
 	
+	public String getTriviaIdtoDelete() {
+		return TriviaIdtoDelete;
+	}
+	public void setTriviaIdtoDelete(String triviaIdtoDelete) {
+		TriviaIdtoDelete = triviaIdtoDelete;
+	}
+	public String getTriviaIds() {
+		return TriviaIds;
+	}
+	public void setTriviaIds(String triviaIds) {
+		TriviaIds = triviaIds;
+	}
 	public String getTriviaData() {
 		return TriviaData;
 	}

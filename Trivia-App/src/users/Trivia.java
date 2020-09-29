@@ -87,7 +87,8 @@ public class Trivia
 		}
 		
 		else if(ch==2) //Register
-		{	
+		{
+			//TODO: fIX ISSUE of choosing same topic like key-> 333 or 223
 			RegisterUser newUser = new RegisterUser();
 			
 			boolean Status=newUser.registerUser();
@@ -185,15 +186,32 @@ public class Trivia
 				}
 				case 3:
 				{
-					ChooseTriviaforDeletion ctfd=new ChooseTriviaforDeletion();
-					int triviaId=ctfd.GetTriviaId(sess.getMykey(),sess.getMyid());
+					ChooseTriviaforDeletion curUser=new ChooseTriviaforDeletion();
+					int triviaId=curUser.showTrivia();
 					
-					if(triviaId!=-1)
-					{	
-						DeleteTrivia dt=new DeleteTrivia();
-						dt.RemoveTrivia(triviaId);
+					if(triviaId==-2)//Empty
+					{
+						System.out.println("No Trivia Added Yet!");
 					}
-
+					else if(triviaId==-1)
+					{
+						System.out.println("No Trivia Deleted!");
+					}
+					else
+					{
+						//TODO: User enters trivia id which is not his. Need to be verified.
+						//TODO: check some corner cases.
+						DeleteTrivia delTrivia=new DeleteTrivia(triviaId);
+						boolean ans=delTrivia.RemoveTrivia();
+						if(ans)
+						{
+							System.out.println("Successfully deleted");
+						}
+						else
+						{
+							System.out.println("Unsuccessful Deletion");
+						}
+					}
 					break;
 				}
 				case 4:
