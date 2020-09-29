@@ -291,6 +291,64 @@ public class Communication {
 								sendData(responseJSON);
 							}
 							break;
+						case "VIEWMY":
+							ViewMyTriviaServerSide viewMyTrivia=new ViewMyTriviaServerSide(jdc);
+							boolean Res=viewMyTrivia.displayMyTrivia();
+							//SUCCESS
+							if(Res)
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.SUCCESS);
+								responseJdc.setMessageType(Constants.VIEWMY);
+								responseJdc.setTriviaData(viewMyTrivia.getMyTriviaData());
+								responseJdc.setTriviaIds(viewMyTrivia.getMyTriviaIds());
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							else//No TriviaADded yet
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.FAILURE);
+								responseJdc.setMessageType(Constants.VIEWMY);
+								responseJdc.setErrorValue(Constants.EMPTY_MY_TRIVIA);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							break;
+						case "DELETE":
+							DeleteMyTriviaServerSide delTrivia=new DeleteMyTriviaServerSide(jdc);
+							boolean result=delTrivia.removeTrivia();
+							
+							if(result)
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.SUCCESS);
+								responseJdc.setMessageType(Constants.DELETE);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							else
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.FAILURE);
+								responseJdc.setMessageType(Constants.DELETE);
+								responseJdc.setErrorValue(Constants.UNABLE_TO_DELETE);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							break;
 						}
 					}
 				}

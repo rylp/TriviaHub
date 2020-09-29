@@ -11,12 +11,28 @@ public class JsonDataContract {
 	String ErrorValue="";
 	String ClientIp="";
 	String TopicsKey="";
-	String TriviaContent="";
+	String TriviaContent="";//For single trivia while adding
 	String Topic="";
 	String Status="";
 	String clientPort="";
 	String likes="";
-	String TriviaData="";
+	String TriviaData="";//for bulk of trivia seperated by '#'
+	String TriviaIds="";
+	String TriviaIdtoDelete="";
+	
+	public String getTriviaIdtoDelete() {
+		return TriviaIdtoDelete;
+	}
+	public void setTriviaIdtoDelete(String triviaIdtoDelete) {
+		TriviaIdtoDelete = triviaIdtoDelete;
+	}
+	
+	public String getTriviaIds() {
+		return TriviaIds;
+	}
+	public void setTriviaIds(String triviaIds) {
+		TriviaIds = triviaIds;
+	}
 	
 	public String getTriviaData() {
 		return TriviaData;

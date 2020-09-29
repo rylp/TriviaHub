@@ -166,6 +166,12 @@ public class ClientCommunication {
 						case "VIEW":
 							System.out.println("Client Side VIEW Receiver");
 							break;
+						case "VIEWMY":
+							System.out.println("Client Side VIEWMY Receiver");
+							break;
+						case "DELETE":
+							System.out.println("Client Side DELETE Receiver");
+							break;
 						}
 						
 						System.out.println("Closed: "+client.Constants.socket.isClosed());
