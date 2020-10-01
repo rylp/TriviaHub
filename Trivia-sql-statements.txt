@@ -81,9 +81,9 @@ BEGIN
 select like_status from likedetails where (trivia_id=triviaid and user_id=userid);
 END
 
-CREATE PROCEDURE `addLikeInDB` (IN triviaid int,userid int,likestatus varchar(45))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addLikeInDB`(IN triviaid int,emailid varchar(320),likestatus varchar(45))
 BEGIN
-INSERT INTO likedetails(user_id,trivia_id,like_status) VALUES(userid,triviaid,likestatus);
+INSERT INTO likedetails(user_id,trivia_id,like_status) VALUES((select user_id from userdetails where email=emailid),triviaid,likestatus);
 END
 
 CREATE PROCEDURE `checkIfEmailExists` (IN email_id VARCHAR(50))
@@ -99,4 +99,9 @@ END
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getTopicKey`(IN emailid varchar(50))
 BEGIN
 select topic_key from userdetails where email=email_id;
+END
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `displayTriviaByTopic`(IN emailid varchar(320),topicid int)
+BEGIN
+select trivia_id,trivia_content from triviadetails WHERE topic_id=topicid and not(user_id=(select user_id from userdetails where email=emailid)) order by likes desc;
 END

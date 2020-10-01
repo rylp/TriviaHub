@@ -20,12 +20,13 @@ public class TopicSelection
 	Constants constant=new Constants();
 	
 	ArrayList<String> myTopics=null;
-	HashMap<Integer, String> userTopics=null;
+	HashMap<Integer, Integer> userTopics=null;
 	
 	public TopicSelection() 
 	{
 		myTopics = constant.getFirstList();
-		userTopics=new HashMap<Integer,String>(); 
+		userTopics=new HashMap<Integer,Integer>();
+		userTopics.clear();
 	}
 
 	public boolean SelectTopic()
@@ -45,15 +46,35 @@ public class TopicSelection
 			Scanner t=new Scanner(System.in);
 			System.out.println("Enter Topic index");
 			int topic=t.nextInt();
-			if(topic>=1 && topic<=10)
+			
+			//CHECK repetition Validity
+			if(!userTopics.containsKey(topic))
 			{
-				key+=Integer.toString(topic-1);
-				System.out.println("Topic choosen => "+myTopics.get(topic-1));
+				//Checking RANGE Validity
+				if(topic>=1 && topic<=10)
+				{
+					key+=Integer.toString(topic-1);
+					userTopics.put(topic,1);
+					System.out.println("Topic choosen => "+myTopics.get(topic-1));
+				}
+				else
+				{
+					System.out.println("----------------");
+					System.out.println("Invaid choice");
+					System.out.println("----------------");
+					System.out.println("---*****--------");
+					System.out.println();
+					System.out.println("RE-choose 3 topics of choice");
+					System.out.println();
+					System.out.println("---****---------");
+					
+					return false;
+				}
 			}
 			else
 			{
 				System.out.println("----------------");
-				System.out.println("Invaid choice");
+				System.out.println("Topic Already Selected");
 				System.out.println("----------------");
 				System.out.println("---*****--------");
 				System.out.println();

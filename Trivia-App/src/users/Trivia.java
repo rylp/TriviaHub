@@ -88,7 +88,8 @@ public class Trivia
 		
 		else if(ch==2) //Register
 		{
-			//TODO: fIX ISSUE of choosing same topic like key-> 333 or 223
+			//TODO:hERE DELETE USER currently created if topic selection fails 10 times.
+			
 			RegisterUser newUser = new RegisterUser();
 			
 			boolean Status=newUser.registerUser();
@@ -104,6 +105,7 @@ public class Trivia
 			else //Go into Topic Selection if Register is Successful
 			{
 				boolean result=false;
+				int limit=0;
 				
 				do
 				{
@@ -111,15 +113,20 @@ public class Trivia
 					
 					result=chooseTopics.SelectTopic();
 					
-//					if(!status)
-//					{
-//						System.out.println("");
-//				      	System.out.println("----Exiting!!!---");
-//				      	System.out.println("");
-//				      	return;
-//					}
+					limit++;
 					
-				}while(!result);
+				}while(!result && limit!=10);
+				
+				//TODO:hERE DELETE USER currently created if topic selection fails 10 times.
+				if(limit==10)
+				{
+					System.out.println("Registration Failed");
+
+					System.out.println("");
+			      	System.out.println("----Exiting!!!---");
+			      	System.out.println("");
+			      	return;
+				}
 			}
 		}
 		
@@ -158,6 +165,7 @@ public class Trivia
 				{
 					//TODO: Have to verify whether topic choosen is in TopicsKey.
 					//TODO: Fixing boolean Success for multiple hits.
+					
 					AddTrivia newTrivia=new AddTrivia();
 					boolean Success=newTrivia.InsertTrivia();
 					if(!Success)
@@ -172,6 +180,9 @@ public class Trivia
 				}
 				case 2:
 				{
+					//TODO: vIEW trivia based on likes
+					//TODO: Provide like option while calling trivia
+					
 					ViewTrivia viewTrivia=new ViewTrivia();
 					boolean Success=viewTrivia.DisplayTrivia();
 					if(!Success)
@@ -216,28 +227,42 @@ public class Trivia
 				}
 				case 4:
 				{
-					ChooseTriviaToLike cttl=new ChooseTriviaToLike();
-					int triviaId=cttl.GetTriviaId(sess.getMykey(),sess.getMyid());
+					//TODO: Incorrect Number choosen to Like
+					//TODO: Multiple time choosen same trivia to like.
+					//TODO: vIEW trivia based on likes
+					//TODO: Dont display already liked trivia or msg from database that already liked.
 					
-					if(triviaId!=-1)
+					ChooseTriviaToLike currentUser=new ChooseTriviaToLike();
+					
+					int triviaId=currentUser.viewTrivia();
+					
+					if(triviaId==-1)
 					{
-						CheckIfAlreadyLiked cial=new CheckIfAlreadyLiked();
-						int check=cial.verifyLike(sess.getMyid(),triviaId);
+						System.out.println("No Like Updated");
+					}
+					else if(triviaId==-2)
+					{
+						System.out.println("No Trivia currently for ur topic");
+					}
+					else if(triviaId==-3)
+					{
+						System.out.println("Invalid topic selected");
+					}
+					else
+					{
+						LikeTrivia likeTrivia=new LikeTrivia(triviaId);
 						
-						if(check==1)//can add like
+						boolean answer=likeTrivia.LikeSelectedTrivia();
+						
+						if(answer)
 						{
-							LikeTrivia lt=new LikeTrivia();
-							lt.LikeSelectedTrivia(triviaId);
-							
-							UpdateLike ul=new UpdateLike();
-							ul.updateLikedTrivia(sess.getMyid(),triviaId);
+							System.out.println("Successfully liked");
 						}
 						else
 						{
-							System.out.println("Trivia Already Liked!");
-						}
+							System.out.println("Could not like");
+						}	
 					}
-					
 					break;
 				}
 				case 5:
