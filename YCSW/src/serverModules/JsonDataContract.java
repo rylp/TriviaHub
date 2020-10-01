@@ -19,6 +19,14 @@ public class JsonDataContract {
 	String TriviaData="";//for bulk of trivia seperated by '#'
 	String TriviaIds="";
 	String TriviaIdtoDelete="";
+	String TriviaIdtoLike="";
+	
+	public String getTriviaIdtoLike() {
+		return TriviaIdtoLike;
+	}
+	public void setTriviaIdtoLike(String triviaIdtoLike) {
+		TriviaIdtoLike = triviaIdtoLike;
+	}
 	
 	public String getTriviaIdtoDelete() {
 		return TriviaIdtoDelete;

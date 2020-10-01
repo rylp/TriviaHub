@@ -349,6 +349,79 @@ public class Communication {
 								sendData(responseJSON);
 							}
 							break;
+						case "VIEWNOTMY":
+							ViewNotMyTriviabyTopicServerSide viewNotMyTrivia=new ViewNotMyTriviabyTopicServerSide(jdc);
+							boolean ress=viewNotMyTrivia.displayNotMyTrivia();
+							if(ress)
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.SUCCESS);
+								responseJdc.setMessageType(Constants.VIEWNOTMY);
+								responseJdc.setTriviaData(viewNotMyTrivia.getMyTriviaData());
+								responseJdc.setTriviaIds(viewNotMyTrivia.getMyTriviaIds());
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							else
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.FAILURE);
+								responseJdc.setMessageType(Constants.VIEWNOTMY);
+								responseJdc.setErrorValue(Constants.EMPTY_TOPIC_TRIVIA);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							break;
+						case "LIKE":
+							LikeTriviaServerSide loggedInUser=new LikeTriviaServerSide(jdc);
+							boolean answ=loggedInUser.LikeSelectedTrivia();
+							if(answ)
+							{
+								UpdateLikeServerSide curLike=new UpdateLikeServerSide(jdc);
+								boolean soln=curLike.updateLike();
+								if(soln)
+								{
+									JsonDataContract responseJdc=new JsonDataContract();
+									responseJdc.setEmail(jdc.getEmail());
+									responseJdc.setStatus(Constants.SUCCESS);
+									responseJdc.setMessageType(Constants.LIKE);
+									
+									String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+									
+									sendData(responseJSON);
+								}
+								else
+								{
+									JsonDataContract responseJdc=new JsonDataContract();
+									responseJdc.setEmail(jdc.getEmail());
+									responseJdc.setStatus(Constants.FAILURE);
+									responseJdc.setMessageType(Constants.LIKE);
+									responseJdc.setErrorValue(Constants.ISSUE);
+									
+									String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+									
+									sendData(responseJSON);
+								}
+							}
+							else
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.FAILURE);
+								responseJdc.setMessageType(Constants.LIKE);
+								responseJdc.setErrorValue(Constants.ISSUE);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							break;
 						}
 					}
 				}
