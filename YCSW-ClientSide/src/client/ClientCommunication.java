@@ -178,6 +178,9 @@ public class ClientCommunication {
 						case "LIKE":
 							System.out.println("Client Side LIKE Receiver");
 							break;
+						case "DISLIKE":
+							System.out.println("Client Side DISLIKE Receiver");
+							break;
 						}
 						
 						System.out.println("Closed: "+client.Constants.socket.isClosed());

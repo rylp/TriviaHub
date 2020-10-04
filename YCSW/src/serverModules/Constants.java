@@ -25,6 +25,7 @@ public class Constants {
 	public static final String VIEWNOTMY="VIEWNOTMY";
 	public static final String DELETE="DELETE";
 	public static final String LIKE="LIKE";
+	public static final String DISLIKE="DISLIKE";
 	
 	public static final String WRONG_EMAIL="INCORRECT-EMAIL";
 	public static final String WRONG_PASSWORD="INCORRECT-PASSWORD";

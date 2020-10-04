@@ -20,7 +20,22 @@ public class JsonDataContract {
 	String TriviaIds="";
 	String TriviaIdtoDelete="";
 	String TriviaIdtoLike="";
+	String userId="";
+	String TriviaIdtoDislike="";
 	
+	public String getTriviaIdtoDislike() {
+		return TriviaIdtoDislike;
+	}
+	public void setTriviaIdtoDislike(String triviaIdtoDislike) {
+		TriviaIdtoDislike = triviaIdtoDislike;
+	}
+	
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 	public String getTriviaIdtoLike() {
 		return TriviaIdtoLike;
 	}

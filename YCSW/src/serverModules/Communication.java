@@ -422,6 +422,50 @@ public class Communication {
 								sendData(responseJSON);
 							}
 							break;
+						case "DISLIKE":
+							DislikeTriviaServerSide currentUser=new DislikeTriviaServerSide(jdc);
+							boolean answe=currentUser.disLikeSelectedTrivia();
+							if(answe)
+							{
+								UpdateDislikeServerSide curDislike=new UpdateDislikeServerSide(jdc);
+								boolean soln=curDislike.updateDislike();
+								if(soln)
+								{
+									JsonDataContract responseJdc=new JsonDataContract();
+									responseJdc.setEmail(jdc.getEmail());
+									responseJdc.setStatus(Constants.SUCCESS);
+									responseJdc.setMessageType(Constants.DISLIKE);
+									
+									String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+									
+									sendData(responseJSON);
+								}
+								else
+								{
+									JsonDataContract responseJdc=new JsonDataContract();
+									responseJdc.setEmail(jdc.getEmail());
+									responseJdc.setStatus(Constants.FAILURE);
+									responseJdc.setMessageType(Constants.DISLIKE);
+									responseJdc.setErrorValue(Constants.ISSUE);
+									
+									String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+									
+									sendData(responseJSON);
+								}
+							}
+							else
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.FAILURE);
+								responseJdc.setMessageType(Constants.DISLIKE);
+								responseJdc.setErrorValue(Constants.ISSUE);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							break;
 						}
 					}
 				}
