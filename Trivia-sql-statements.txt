@@ -24,6 +24,14 @@ CREATE TABLE `trivia-db`.`likedetails` (
   `status` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`like_id`));
 
+
+CREATE TABLE `trivia-db`.`dislikedetails` (
+  `dislike_id` INT NOT NULL,
+  `user_id` INT NULL,
+  `trivia_id` INT NULL,
+  `dislike_status` VARCHAR(45) NULL,
+  PRIMARY KEY (`dislike_id`));
+
 CREATE PROCEDURE `addTopicKey` (IN topic_key varchar(45),email_id varchar(50))
 BEGIN
 UPDATE userdetails SET topic_key=topickey WHERE email=email_id;
@@ -104,4 +112,14 @@ END
 CREATE DEFINER=`root`@`localhost` PROCEDURE `displayTriviaByTopic`(IN emailid varchar(320),topicid int)
 BEGIN
 select trivia_id,trivia_content from triviadetails WHERE topic_id=topicid and not(user_id=(select user_id from userdetails where email=emailid)) order by likes desc;
+END
+
+CREATE PROCEDURE `addDislikeByTriviaId` (IN triviaid int)
+BEGIN
+update triviadetails set likes=likes-1 where trivia_id=triviaid;
+END
+
+CREATE PROCEDURE `addDislikeInDB` (IN triviaid int,emailid varchar(320),likestatus varchar(45))
+BEGIN
+INSERT INTO dislikedetails(user_id,trivia_id,dislike_status) VALUES((select user_id from userdetails where email=emailid),triviaid,dislikestatus);
 END

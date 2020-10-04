@@ -26,6 +26,9 @@ public class Trivia
 
 	public static void triviaStarter() {
 		
+		//TODO:Have to bring in userId and setting it up in the Constants along with 
+		//  	myEmail and myKey
+		
 		System.out.println("---------------------------");
 		System.out.println("");
 		System.out.println("---WELCOME TO Trivia-Hub---");
@@ -115,10 +118,10 @@ public class Trivia
 					
 					limit++;
 					
-				}while(!result && limit!=10);
+				}while(!result && limit!=5);
 				
-				//TODO:hERE DELETE USER currently created if topic selection fails 10 times.
-				if(limit==10)
+				//TODO:HERE DELETE USER currently created if topic selection fails 5 times.
+				if(limit==5)
 				{
 					System.out.println("Registration Failed");
 
@@ -143,6 +146,7 @@ public class Trivia
 		{
 			System.out.println("Email: "+users.Constants.myEmail);
 			System.out.println("Topic Key: "+users.Constants.myKey);
+			System.out.println("User Id: "+users.Constants.myUserId);
 			
 			System.out.println("-----------------------");
 			System.out.println("");
@@ -151,8 +155,8 @@ public class Trivia
 			System.out.print("\n\t2.View Trivia");
 			System.out.print("\n\t3.Delete Trivia");
 			System.out.print("\n\t4.Like Trivia");
-//			System.out.println("\n\t5.Unlike Trivia");
-			System.out.print("\n\t5.Add Topic of Choice");
+			System.out.println("\n\t5.Unlike Trivia");
+//			System.out.print("\n\t5.Add Topic of Choice");
 			System.out.print("\n\t6.Log Out");
 			System.out.println("");
 			System.out.println("-------------------------");
@@ -267,6 +271,46 @@ public class Trivia
 				}
 				case 5:
 				{
+					//TODO: Incorrect Number choosen to Like
+					//TODO: Multiple time choosen same trivia to like.
+					//TODO: vIEW trivia based on likes
+					//TODO: Dont display already liked trivia or msg from database that already liked.
+					//TODO: First have to check if it has been liked/disliked or what is up with it.
+					
+					ChooseTriviaToLike currentUser=new ChooseTriviaToLike();
+					
+					int triviaId=currentUser.viewTrivia();
+					
+					if(triviaId==-1)
+					{
+						System.out.println("No Like Updated");
+					}
+					else if(triviaId==-2)
+					{
+						System.out.println("No Trivia currently for ur topic");
+					}
+					else if(triviaId==-3)
+					{
+						System.out.println("Invalid topic selected");
+					}
+					else
+					{
+						DislikeTrivia dislikeTrivia=new DislikeTrivia(triviaId);
+						
+						boolean answer=dislikeTrivia.DislikeSelectedTrivia();
+						
+						if(answer)
+						{
+							System.out.println("Successfully liked");
+						}
+						else
+						{
+							System.out.println("Could not like");
+						}	
+						
+						
+					}
+					
 					break;
 				}
 				case 6:

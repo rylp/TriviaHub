@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
 
 public class TrialScreen {
 
@@ -46,11 +49,22 @@ public class TrialScreen {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setForeground(Color.RED);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		lblNewLabel = new JLabel("username");
+		lblNewLabel.setBounds(101, 35, 47, 14);
+		frame.getContentPane().add(lblNewLabel);
+		
+		username = new JTextField();
+		username.setBounds(158, 32, 86, 20);
+		frame.getContentPane().add(username);
+		username.setColumns(10);
+		
 		JButton btnNewButton = new JButton("Sample");
+		btnNewButton.setBounds(158, 93, 79, 27);
 		
 		btnNewButton.addActionListener(new ActionListener() {
 
@@ -59,20 +73,10 @@ public class TrialScreen {
 				lblNewLabel.setText(username.getText());
 			}
 		});
-
-		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		btnNewButton.setBackground(Color.RED);
-		btnNewButton.setForeground(Color.BLUE);
-		btnNewButton.setBounds(150, 150, 90, 30);
-		frame.getContentPane().add(btnNewButton);
 		
-		username = new JTextField();
-		username.setBounds(154, 85, 96, 20);
-		frame.getContentPane().add(username);
-		username.setColumns(10);
-		
-		lblNewLabel = new JLabel("username");
-		lblNewLabel.setBounds(72, 88, 72, 20);
-		frame.getContentPane().add(lblNewLabel);
+				btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 15));
+				btnNewButton.setBackground(Color.CYAN);
+				btnNewButton.setForeground(Color.BLUE);
+				frame.getContentPane().add(btnNewButton);
 	}
 }

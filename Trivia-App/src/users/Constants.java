@@ -7,6 +7,7 @@ public class Constants {
 	
 	public static String myEmail=null;
 	public static String myKey=null;
+	public static int myUserId;
 	
 	public static final String WRONG_EMAIL="INCORRECT-EMAIL";
 	public static final String WRONG_PASSWORD="INCORRECT-PASSWORD";
