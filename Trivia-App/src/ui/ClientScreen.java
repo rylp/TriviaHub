@@ -17,6 +17,8 @@ import javax.swing.JTextField;
 
 import com.google.gson.Gson;
 
+import json.JsonDataContract;
+
 import javax.swing.JLabel;
 
 public class ClientScreen {

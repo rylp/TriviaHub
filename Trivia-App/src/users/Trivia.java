@@ -91,7 +91,7 @@ public class Trivia
 		
 		else if(ch==2) //Register
 		{
-			//TODO:hERE DELETE USER currently created if topic selection fails 10 times.
+			//TODO:hERE DELETE USER currently created if topic selection fails 5 times.
 			
 			RegisterUser newUser = new RegisterUser();
 			
