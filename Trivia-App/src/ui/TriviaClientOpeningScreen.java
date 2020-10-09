@@ -66,7 +66,7 @@ public class TriviaClientOpeningScreen {
 		frame.getContentPane().add(btnConnect);
 		
 		JLabel lblWelcome = new JLabel("Welcome to TriviaHub");
-		lblWelcome.setForeground(Color.BLUE);
+		lblWelcome.setForeground(Color.RED);
 		lblWelcome.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		lblWelcome.setBounds(200, 200, 320, 50);
 		frame.getContentPane().add(lblWelcome);
