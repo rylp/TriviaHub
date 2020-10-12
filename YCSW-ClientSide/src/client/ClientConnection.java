@@ -3,12 +3,13 @@ import java.net.*;
 
 public class ClientConnection
 {
-	public void connect() {
+	public void connect() throws Exception {
 		
 		Socket socket=null;
 		
 		try
 		{
+			//Should come from GUI.
 			String ip="localhost";
 			int port=9997;
 			
@@ -29,6 +30,7 @@ public class ClientConnection
 		catch(Exception e)
 		{
 			e.printStackTrace();
+			throw e;
 		}
 	}
 

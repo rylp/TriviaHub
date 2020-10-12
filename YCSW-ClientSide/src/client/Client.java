@@ -10,13 +10,21 @@ public class Client {
 		communicationEndpoint();
 	}
 
-	public static void communicationEndpoint() {
+	public static boolean communicationEndpoint() {
 		System.out.println("Client started!");
 		
 		System.out.println("Connecting to Server");
 		
-		ClientConnection clientConn=new ClientConnection();
-		clientConn.connect();
+		try {
+			ClientConnection clientConn=new ClientConnection();
+			clientConn.connect();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
 	}
 
 }
