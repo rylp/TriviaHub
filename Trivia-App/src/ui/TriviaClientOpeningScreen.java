@@ -161,27 +161,26 @@ public class TriviaClientOpeningScreen {
 		btnHomeRegister.setBounds(295, 437, 157, 44);
 		frame.getContentPane().add(btnHomeRegister);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(343, 546, 46, 14);
-		frame.getContentPane().add(lblNewLabel);
-		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(20, 0, 764, 22);
+		menuBar.setBackground(new Color(216, 191, 216));
+		menuBar.setBounds(0, 0, 814, 22);
 		frame.getContentPane().add(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("File");
-		menuBar.add(mnNewMenu);
+		JMenu myMenu = new JMenu("File");
+		myMenu.setHorizontalAlignment(SwingConstants.CENTER);
+		myMenu.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		menuBar.add(myMenu);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Settings");
-		mnNewMenu.add(mntmNewMenuItem_1);
+		JMenuItem myMenuItem_Settings = new JMenuItem("Settings");
+		myMenu.add(myMenuItem_Settings);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Contact Us");
-		mntmNewMenuItem.addActionListener(new ActionListener() {
+		JMenuItem myMenuItem_ContactUs = new JMenuItem("Contact Us");
+		myMenuItem_ContactUs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_contact) 
 			{
 				JOptionPane.showMessageDialog(null, "Email us at: rohanlimaye20@gmail.com");
 			}
 		});
-		mnNewMenu.add(mntmNewMenuItem);
+		myMenu.add(myMenuItem_ContactUs);
 	}
 }

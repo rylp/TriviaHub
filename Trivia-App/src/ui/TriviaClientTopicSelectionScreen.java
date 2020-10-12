@@ -50,6 +50,7 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 				try {
 					TriviaClientTopicSelectionScreen frame = new TriviaClientTopicSelectionScreen();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -64,14 +65,14 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.LIGHT_GRAY);
+		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblSelectTopicsOf = new JLabel("Select Topics of Interest");
-		lblSelectTopicsOf.setFont(new Font("Times New Roman", Font.BOLD, 22));
-		lblSelectTopicsOf.setBounds(230, 44, 240, 60);
+		lblSelectTopicsOf.setFont(new Font("Palatino Linotype", Font.BOLD, 22));
+		lblSelectTopicsOf.setBounds(230, 44, 256, 60);
 		contentPane.add(lblSelectTopicsOf);
 		
 		Constants cons=new Constants();
@@ -149,18 +150,18 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 		contentPane.add(lblTopic3);
 		
 		JLabel lblNewLabel = new JLabel("Select 1st Topic");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setBounds(139, 130, 128, 40);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblNewLabel.setBounds(122, 130, 145, 40);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblSelectSecondTopic = new JLabel("Select 2nd Topic");
-		lblSelectSecondTopic.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblSelectSecondTopic.setBounds(139, 236, 128, 40);
+		lblSelectSecondTopic.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblSelectSecondTopic.setBounds(122, 235, 145, 41);
 		contentPane.add(lblSelectSecondTopic);
 		
 		JLabel lblSelectrdTopic = new JLabel("Select 3rd Topic");
-		lblSelectrdTopic.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblSelectrdTopic.setBounds(139, 341, 128, 40);
+		lblSelectrdTopic.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblSelectrdTopic.setBounds(122, 340, 145, 41);
 		contentPane.add(lblSelectrdTopic);
 		
 		JButton btnNewButton = new JButton("Submit");
@@ -263,9 +264,9 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 				return 1;
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnNewButton.setBackground(Color.WHITE);
-		btnNewButton.setBounds(257, 416, 111, 40);
+		btnNewButton.setBounds(275, 420, 117, 51);
 		contentPane.add(btnNewButton);
 		
 		JSeparator separator = new JSeparator();

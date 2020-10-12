@@ -43,6 +43,7 @@ public class TriviaClientLoginScreen extends JFrame {
 				try {
 					TriviaClientLoginScreen frame = new TriviaClientLoginScreen();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -57,35 +58,35 @@ public class TriviaClientLoginScreen extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.LIGHT_GRAY);
+		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblLoginUserEmail = new JLabel("Enter Email");
-		lblLoginUserEmail.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblLoginUserEmail.setBounds(180, 180, 90, 25);
+		lblLoginUserEmail.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblLoginUserEmail.setBounds(164, 180, 106, 35);
 		contentPane.add(lblLoginUserEmail);
 		
 		JLabel lblLoginUserPass = new JLabel("Password");
-		lblLoginUserPass.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblLoginUserPass.setBounds(180, 226, 90, 25);
+		lblLoginUserPass.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblLoginUserPass.setBounds(164, 236, 106, 39);
 		contentPane.add(lblLoginUserPass);
 		
 		txtLoginEmail = new JTextField();
 		txtLoginEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		txtLoginEmail.setBounds(280, 175, 120, 40);
+		txtLoginEmail.setBounds(280, 178, 173, 40);
 		contentPane.add(txtLoginEmail);
 		txtLoginEmail.setColumns(10);
 		
 		txtLoginPass = new JPasswordField();
 		txtLoginPass.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		txtLoginPass.setBounds(280, 225, 120, 40);
+		txtLoginPass.setBounds(280, 236, 173, 40);
 		contentPane.add(txtLoginPass);
 		
 		JLabel lblLoginEnterInfo = new JLabel("Enter your details");
-		lblLoginEnterInfo.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblLoginEnterInfo.setBounds(250, 80, 175, 60);
+		lblLoginEnterInfo.setFont(new Font("Palatino Linotype", Font.BOLD, 25));
+		lblLoginEnterInfo.setBounds(262, 104, 212, 65);
 		contentPane.add(lblLoginEnterInfo);
 		
 		JButton btnLogin = new JButton("Login");
@@ -197,9 +198,9 @@ public class TriviaClientLoginScreen extends JFrame {
 			}
 		});
 		btnLogin.setForeground(Color.DARK_GRAY);
-		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnLogin.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnLogin.setBackground(Color.WHITE);
-		btnLogin.setBounds(290, 310, 100, 30);
+		btnLogin.setBounds(295, 310, 145, 44);
 		contentPane.add(btnLogin);
 		
 		JLabel lblLoginNotAUser = new JLabel("Not a User? Register");
@@ -213,9 +214,9 @@ public class TriviaClientLoginScreen extends JFrame {
 				reg_user.setVisible(true);
 			}
 		});
-		lblLoginNotAUser.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
+		lblLoginNotAUser.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 17));
 		lblLoginNotAUser.setForeground(Color.BLUE);
-		lblLoginNotAUser.setBounds(260, 360, 140, 20);
+		lblLoginNotAUser.setBounds(288, 371, 165, 35);
 		contentPane.add(lblLoginNotAUser);
 	}
 }
