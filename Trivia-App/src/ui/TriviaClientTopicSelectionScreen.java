@@ -29,6 +29,7 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.awt.event.ItemEvent;
 import javax.swing.JButton;
+import javax.swing.JSeparator;
 
 public class TriviaClientTopicSelectionScreen extends JFrame {
 
@@ -70,7 +71,7 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 		
 		JLabel lblSelectTopicsOf = new JLabel("Select Topics of Interest");
 		lblSelectTopicsOf.setFont(new Font("Times New Roman", Font.BOLD, 22));
-		lblSelectTopicsOf.setBounds(257, 42, 240, 60);
+		lblSelectTopicsOf.setBounds(230, 44, 240, 60);
 		contentPane.add(lblSelectTopicsOf);
 		
 		Constants cons=new Constants();
@@ -78,43 +79,43 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 		String[] topics = cons.getFirstList().toArray(new String[cons.getFirstList().size()]);
 		
 		comboBoxTopic1 = new JComboBox(topics);	
-		comboBoxTopic1.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent eTopicSelected1) 
-			{				
-				if(eTopicSelected1.getStateChange()==ItemEvent.SELECTED)
-				{
-					int selection=comboBoxTopic1.getSelectedIndex();
-					String topic=comboBoxTopic1.getSelectedItem().toString();
-					
-					JOptionPane.showMessageDialog(null, "Selection: "+topic);
-					
-					lblTopic1.setText("Selection: "+ selection+" "+topic);
-				}
-			}
-		});
+//		comboBoxTopic1.addItemListener(new ItemListener() {
+//			public void itemStateChanged(ItemEvent eTopicSelected1) 
+//			{				
+//				if(eTopicSelected1.getStateChange()==ItemEvent.SELECTED)
+//				{
+//					int selection=comboBoxTopic1.getSelectedIndex();
+//					String topic=comboBoxTopic1.getSelectedItem().toString();
+//					
+//					JOptionPane.showMessageDialog(null, "Selection: "+topic);
+//					
+//					lblTopic1.setText("Selection: "+ selection+" "+topic);
+//				}
+//			}
+//		});
 		comboBoxTopic1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		comboBoxTopic1.setBounds(220, 130, 160, 40);
+		comboBoxTopic1.setBounds(291, 129, 160, 40);
 		comboBoxTopic1.setSelectedIndex(0);
 		contentPane.add(comboBoxTopic1);
 		
 		comboBoxTopic2 = new JComboBox(topics);
-		comboBoxTopic2.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent eTopicSelected2) 
-			{
-				if(eTopicSelected2.getStateChange()==ItemEvent.SELECTED)
-				{
-					int selection=comboBoxTopic2.getSelectedIndex();
-					String topic=comboBoxTopic2.getSelectedItem().toString();
-					
-					JOptionPane.showMessageDialog(null, "Selection: "+topic);
-					
-					lblTopic2.setText("Selection: "+ selection+" "+topic);
-				}
-			}
-		});
+//		comboBoxTopic2.addItemListener(new ItemListener() {
+//			public void itemStateChanged(ItemEvent eTopicSelected2) 
+//			{
+//				if(eTopicSelected2.getStateChange()==ItemEvent.SELECTED)
+//				{
+//					int selection=comboBoxTopic2.getSelectedIndex();
+//					String topic=comboBoxTopic2.getSelectedItem().toString();
+//					
+//					JOptionPane.showMessageDialog(null, "Selection: "+topic);
+//					
+//					lblTopic2.setText("Selection: "+ selection+" "+topic);
+//				}
+//			}
+//		});
 		comboBoxTopic2.setSelectedIndex(0);
 		comboBoxTopic2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		comboBoxTopic2.setBounds(220, 235, 160, 40);
+		comboBoxTopic2.setBounds(291, 235, 160, 40);
 		contentPane.add(comboBoxTopic2);
 		
 		lblTopic2 = new JLabel("");
@@ -123,23 +124,23 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 		contentPane.add(lblTopic2);
 		
 		comboBoxTopic3 = new JComboBox(topics);
-		comboBoxTopic3.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent eTopicSelected3) 
-			{
-				if(eTopicSelected3.getStateChange()==ItemEvent.SELECTED)
-				{
-					int selection=comboBoxTopic3.getSelectedIndex();
-					String topic=comboBoxTopic3.getSelectedItem().toString();
-					
-					JOptionPane.showMessageDialog(null, "Selection: "+topic);
-					
-					lblTopic3.setText("Selection: "+ selection+" "+topic);
-				}
-			}
-		});
+//		comboBoxTopic3.addItemListener(new ItemListener() {
+//			public void itemStateChanged(ItemEvent eTopicSelected3) 
+//			{
+//				if(eTopicSelected3.getStateChange()==ItemEvent.SELECTED)
+//				{
+//					int selection=comboBoxTopic3.getSelectedIndex();
+//					String topic=comboBoxTopic3.getSelectedItem().toString();
+//					
+//					JOptionPane.showMessageDialog(null, "Selection: "+topic);
+//					
+//					lblTopic3.setText("Selection: "+ selection+" "+topic);
+//				}
+//			}
+//		});
 		comboBoxTopic3.setSelectedIndex(0);
 		comboBoxTopic3.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		comboBoxTopic3.setBounds(220, 340, 160, 40);
+		comboBoxTopic3.setBounds(291, 340, 160, 40);
 		contentPane.add(comboBoxTopic3);
 		
 		lblTopic3 = new JLabel("");
@@ -149,20 +150,21 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Select 1st Topic");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel.setBounds(69, 130, 128, 40);
+		lblNewLabel.setBounds(139, 130, 128, 40);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblSelectSecondTopic = new JLabel("Select 2nd Topic");
 		lblSelectSecondTopic.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblSelectSecondTopic.setBounds(69, 236, 128, 40);
+		lblSelectSecondTopic.setBounds(139, 236, 128, 40);
 		contentPane.add(lblSelectSecondTopic);
 		
 		JLabel lblSelectrdTopic = new JLabel("Select 3rd Topic");
 		lblSelectrdTopic.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblSelectrdTopic.setBounds(70, 339, 128, 40);
+		lblSelectrdTopic.setBounds(139, 341, 128, 40);
 		contentPane.add(lblSelectrdTopic);
 		
 		JButton btnNewButton = new JButton("Submit");
+		btnNewButton.setForeground(Color.DARK_GRAY);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent eSelect) 
 			{
@@ -262,13 +264,20 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton.setBackground(Color.RED);
-		btnNewButton.setBounds(241, 432, 111, 40);
+		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setBounds(257, 416, 111, 40);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblDefaulthistory = new JLabel("Default:History");
-		lblDefaulthistory.setFont(new Font("Times New Roman", Font.PLAIN, 17));
-		lblDefaulthistory.setBounds(415, 130, 166, 40);
-		contentPane.add(lblDefaulthistory);
+		JSeparator separator = new JSeparator();
+		separator.setBounds(122, 197, 396, 2);
+		contentPane.add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(122, 305, 396, 2);
+		contentPane.add(separator_1);
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setBounds(122, 391, 396, 2);
+		contentPane.add(separator_2);
 	}
 }
