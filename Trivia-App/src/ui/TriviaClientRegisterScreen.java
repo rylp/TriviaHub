@@ -14,6 +14,9 @@ import json.JsonDataContract;
 
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
@@ -67,7 +70,8 @@ public class TriviaClientRegisterScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public TriviaClientRegisterScreen() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.ORANGE);
@@ -106,36 +110,36 @@ public class TriviaClientRegisterScreen extends JFrame {
 		contentPane.add(lblEnterPassword);
 		
 		txtRegEmail = new JTextField();
-		txtRegEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtRegEmail.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtRegEmail.setColumns(10);
 		txtRegEmail.setBounds(300, 100, 200, 40);
 		contentPane.add(txtRegEmail);
 		
 		txtRegFirstName = new JTextField();
-		txtRegFirstName.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtRegFirstName.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtRegFirstName.setColumns(10);
 		txtRegFirstName.setBounds(300, 150, 200, 40);
 		contentPane.add(txtRegFirstName);
 		
 		txtRegLastName = new JTextField();
-		txtRegLastName.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtRegLastName.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtRegLastName.setColumns(10);
 		txtRegLastName.setBounds(300, 200, 200, 40);
 		contentPane.add(txtRegLastName);
 		
 		txtRegAge = new JTextField();
-		txtRegAge.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtRegAge.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtRegAge.setColumns(10);
 		txtRegAge.setBounds(300, 250, 200, 40);
 		contentPane.add(txtRegAge);
 		
 		txtRegPass = new JPasswordField();
-		txtRegPass.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtRegPass.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtRegPass.setBounds(300, 300, 200, 40);
 		contentPane.add(txtRegPass);
 		
 		txtRegVerifyPass = new JPasswordField();
-		txtRegVerifyPass.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtRegVerifyPass.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtRegVerifyPass.setBounds(300, 350, 200, 40);
 		contentPane.add(txtRegVerifyPass);
 		
@@ -165,50 +169,56 @@ public class TriviaClientRegisterScreen extends JFrame {
 					password=String.valueOf(txtRegPass.getPassword());
 					verify_password=String.valueOf(txtRegVerifyPass.getPassword());
 					
-					if(password.equals(verify_password))
+					if(!password.isEmpty()  && !verify_password.isEmpty() && !Email.isEmpty() && !Fname.isEmpty() && !Lname.isEmpty())
 					{
-						Gson gson=new Gson();
-						
-						JsonDataContract jdc=new JsonDataContract();
-						
-						jdc.setMessageType(MSG_TYPE);
-						
-						jdc.setFirstName(Fname);
-						jdc.setLastName(Lname);
-						jdc.setEmail(Email);
-						jdc.setAge(String.valueOf(age));
-						jdc.setPassword(password);
-						
-						jdc.setClientIp(client.Constants.clientIp);
-						jdc.setClientPort(String.valueOf(client.Constants.clientPort));
-						
-						String clientData=gson.toJson(jdc,JsonDataContract.class);
-						
-						int result=sendData(clientData);
-						
-						if(result==1)//Correct Credentials
+						if(password.equals(verify_password))
 						{
-							contentPane.setVisible(false);
-							dispose();
+							Gson gson=new Gson();
 							
-							TriviaClientTopicSelectionScreen select_topics=new TriviaClientTopicSelectionScreen();
-							select_topics.setVisible(true);
+							JsonDataContract jdc=new JsonDataContract();
 							
-						}
-						else if(result==-1)//Email Exists
-						{
-							JOptionPane.showMessageDialog(null, "Email Already Exists");
+							jdc.setMessageType(MSG_TYPE);
+							
+							jdc.setFirstName(Fname);
+							jdc.setLastName(Lname);
+							jdc.setEmail(Email);
+							jdc.setAge(String.valueOf(age));
+							jdc.setPassword(password);
+							
+							jdc.setClientIp(client.Constants.clientIp);
+							jdc.setClientPort(String.valueOf(client.Constants.clientPort));
+							
+							String clientData=gson.toJson(jdc,JsonDataContract.class);
+							
+							int result=sendData(clientData);
+							
+							if(result==1)//Correct Credentials
+							{
+								contentPane.setVisible(false);
+								dispose();
+								
+								TriviaClientTopicSelectionScreen select_topics=new TriviaClientTopicSelectionScreen();
+								select_topics.setVisible(true);
+								
+							}
+							else if(result==-1)//Email Exists
+							{
+								JOptionPane.showMessageDialog(null, "Email Already Exists");
+							}
+							else
+							{
+								JOptionPane.showMessageDialog(null, "Error in Registration!");
+							}
 						}
 						else
 						{
-							JOptionPane.showMessageDialog(null, "Error in Registration!");
+							JOptionPane.showMessageDialog(null, "Passwords don't match!");
 						}
 					}
 					else
 					{
-						JOptionPane.showMessageDialog(null, "Passwords don't match!");
+						JOptionPane.showMessageDialog(null, "Enter all details");
 					}
-					
 				}
 				catch(Exception e)
 				{
@@ -278,5 +288,27 @@ public class TriviaClientRegisterScreen extends JFrame {
 		lblRegAlreadyAUser.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 17));
 		lblRegAlreadyAUser.setBounds(244, 479, 186, 40);
 		contentPane.add(lblRegAlreadyAUser);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(new Color(216, 191, 216));
+		menuBar.setBounds(0, 0, 814, 22);
+		getContentPane().add(menuBar);
+		
+		JMenu myMenu = new JMenu("File");
+		myMenu.setHorizontalAlignment(SwingConstants.CENTER);
+		myMenu.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		menuBar.add(myMenu);
+		
+		JMenuItem myMenuItem_Settings = new JMenuItem("Settings");
+		myMenu.add(myMenuItem_Settings);
+		
+		JMenuItem myMenuItem_ContactUs = new JMenuItem("Contact Us");
+		myMenuItem_ContactUs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e_contact) 
+			{
+				JOptionPane.showMessageDialog(null, "Email us at: rohanlimaye20@gmail.com");
+			}
+		});
+		myMenu.add(myMenuItem_ContactUs);
 	}
 }

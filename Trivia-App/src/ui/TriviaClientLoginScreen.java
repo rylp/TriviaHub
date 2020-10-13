@@ -14,8 +14,12 @@ import json.JsonDataContract;
 
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -55,7 +59,8 @@ public class TriviaClientLoginScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public TriviaClientLoginScreen() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.ORANGE);
@@ -74,13 +79,13 @@ public class TriviaClientLoginScreen extends JFrame {
 		contentPane.add(lblLoginUserPass);
 		
 		txtLoginEmail = new JTextField();
-		txtLoginEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtLoginEmail.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtLoginEmail.setBounds(280, 178, 173, 40);
 		contentPane.add(txtLoginEmail);
 		txtLoginEmail.setColumns(10);
 		
 		txtLoginPass = new JPasswordField();
-		txtLoginPass.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtLoginPass.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtLoginPass.setBounds(280, 236, 173, 40);
 		contentPane.add(txtLoginPass);
 		
@@ -102,42 +107,64 @@ public class TriviaClientLoginScreen extends JFrame {
 					userEmail=txtLoginEmail.getText();
 					userPassword=String.valueOf(txtLoginPass.getPassword());
 					
-					Gson gson=new Gson();
-					
-					JsonDataContract jdc=new JsonDataContract();
-					
-					jdc.setMessageType(MSG_TYPE);
-					
-					jdc.setEmail(userEmail);
-					jdc.setPassword(userPassword);
-					
-					jdc.setClientIp(client.Constants.clientIp);
-					
-					jdc.setClientPort(String.valueOf(client.Constants.clientPort));
-					
-					String clientData=gson.toJson(jdc,JsonDataContract.class);
-					
-					int Result=sendData(clientData);
-					
-					if(Result==1)//Successful
+					if(!userEmail.isEmpty() && !userPassword.isEmpty())
 					{
-						JOptionPane.showMessageDialog(null, "Welcome! "+ui.Constants.myEmail);
+						Gson gson=new Gson();
 						
-						contentPane.setVisible(false);
-						dispose();
-						TriviaClientOpeningScreen.main(null);	
-					}
-					else if(Result==-1)//Incorrect Email
-					{
-						JOptionPane.showMessageDialog(null, "Email DNE");
-					}
-					else if(Result==-2)//Incorrect Password
-					{
-						JOptionPane.showMessageDialog(null, "Password is Wrong!");
+						JsonDataContract jdc=new JsonDataContract();
+						
+						jdc.setMessageType(MSG_TYPE);
+						
+						jdc.setEmail(userEmail);
+						jdc.setPassword(userPassword);
+						
+						jdc.setClientIp(client.Constants.clientIp);
+						
+						jdc.setClientPort(String.valueOf(client.Constants.clientPort));
+						
+						String clientData=gson.toJson(jdc,JsonDataContract.class);
+						
+						int Result=sendData(clientData);
+						
+						if(Result==1)//Successful
+						{
+							//GET TopicsKey
+							ui.GetTopicKey getKey=new ui.GetTopicKey();
+							int result=getKey.extractKey();
+							
+							if(result==1)
+							{
+								JOptionPane.showMessageDialog(null, "Welcome! "+ui.Constants.myEmail);
+								JOptionPane.showMessageDialog(null, "Your Key: "+ui.Constants.myKey);
+								
+								contentPane.setVisible(false);
+								dispose();
+								
+								TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
+								menu_screen.setVisible(true);
+							}
+							else
+							{
+								JOptionPane.showMessageDialog(null, "Topics are not selected");
+								JOptionPane.showMessageDialog(null, "Could not LogIn");
+							}
+						}
+						else if(Result==-1)//Incorrect Email
+						{
+							JOptionPane.showMessageDialog(null, "Email DNE");
+						}
+						else if(Result==-2)//Incorrect Password
+						{
+							JOptionPane.showMessageDialog(null, "Password is Wrong!");
+						}
+						else
+						{
+							JOptionPane.showMessageDialog(null, "Error in Logging in!");
+						}
 					}
 					else
 					{
-						JOptionPane.showMessageDialog(null, "Error in Logging in!");
+						JOptionPane.showMessageDialog(null, "Enter all details");
 					}
 				}
 				catch(Exception e_login)
@@ -148,7 +175,6 @@ public class TriviaClientLoginScreen extends JFrame {
 
 			private int sendData(String clientData) 
 			{
-				
 				client.SocketDetails socketDetails=new client.SocketDetails();
 				
 				try {
@@ -218,5 +244,28 @@ public class TriviaClientLoginScreen extends JFrame {
 		lblLoginNotAUser.setForeground(Color.BLUE);
 		lblLoginNotAUser.setBounds(288, 371, 165, 35);
 		contentPane.add(lblLoginNotAUser);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(new Color(216, 191, 216));
+		menuBar.setBounds(0, 0, 814, 22);
+		getContentPane().add(menuBar);
+		
+		JMenu myMenu = new JMenu("File");
+		myMenu.setHorizontalAlignment(SwingConstants.CENTER);
+		myMenu.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		menuBar.add(myMenu);
+		
+		JMenuItem myMenuItem_Settings = new JMenuItem("Settings");
+		myMenu.add(myMenuItem_Settings);
+		
+		JMenuItem myMenuItem_ContactUs = new JMenuItem("Contact Us");
+		myMenuItem_ContactUs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e_contact) 
+			{
+				JOptionPane.showMessageDialog(null, "Email us at: rohanlimaye20@gmail.com");
+			}
+		});
+		myMenu.add(myMenuItem_ContactUs);
+		
 	}
 }

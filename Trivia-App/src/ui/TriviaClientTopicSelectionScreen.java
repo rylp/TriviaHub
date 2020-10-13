@@ -14,6 +14,9 @@ import json.JsonDataContract;
 
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
@@ -30,6 +33,7 @@ import java.nio.charset.StandardCharsets;
 import java.awt.event.ItemEvent;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 
 public class TriviaClientTopicSelectionScreen extends JFrame {
 
@@ -62,7 +66,8 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public TriviaClientTopicSelectionScreen() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.ORANGE);
@@ -149,10 +154,10 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 		lblTopic3.setBounds(428, 340, 166, 40);
 		contentPane.add(lblTopic3);
 		
-		JLabel lblNewLabel = new JLabel("Select 1st Topic");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		lblNewLabel.setBounds(122, 130, 145, 40);
-		contentPane.add(lblNewLabel);
+		JLabel lblSelectFirstTopic = new JLabel("Select 1st Topic");
+		lblSelectFirstTopic.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblSelectFirstTopic.setBounds(122, 130, 145, 40);
+		contentPane.add(lblSelectFirstTopic);
 		
 		JLabel lblSelectSecondTopic = new JLabel("Select 2nd Topic");
 		lblSelectSecondTopic.setFont(new Font("Times New Roman", Font.BOLD, 18));
@@ -178,7 +183,7 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 					int topic2=comboBoxTopic2.getSelectedIndex();
 					int topic3=comboBoxTopic3.getSelectedIndex();
 					
-					if(topic1==topic2 || topic1==topic2 || topic2==topic3)
+					if(topic1==topic2 || topic1==topic3 || topic2==topic3)
 					{
 						JOptionPane.showMessageDialog(null, "Select Unique Topics");
 					}
@@ -280,5 +285,27 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 		JSeparator separator_2 = new JSeparator();
 		separator_2.setBounds(122, 391, 396, 2);
 		contentPane.add(separator_2);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(new Color(216, 191, 216));
+		menuBar.setBounds(0, 0, 814, 22);
+		getContentPane().add(menuBar);
+		
+		JMenu myMenu = new JMenu("File");
+		myMenu.setHorizontalAlignment(SwingConstants.CENTER);
+		myMenu.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		menuBar.add(myMenu);
+		
+		JMenuItem myMenuItem_Settings = new JMenuItem("Settings");
+		myMenu.add(myMenuItem_Settings);
+		
+		JMenuItem myMenuItem_ContactUs = new JMenuItem("Contact Us");
+		myMenuItem_ContactUs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e_contact) 
+			{
+				JOptionPane.showMessageDialog(null, "Email us at: rohanlimaye20@gmail.com");
+			}
+		});
+		myMenu.add(myMenuItem_ContactUs);
 	}
 }

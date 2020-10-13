@@ -67,7 +67,8 @@ public class TriviaClientOpeningScreen {
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setBounds(100, 100, 800, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnConnect = new JButton("Connect");
