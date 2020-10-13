@@ -227,6 +227,7 @@ public class Communication {
 								responseJdc.setEmail(jdc.getEmail());
 								responseJdc.setStatus(Constants.FAILURE);
 								responseJdc.setMessageType(Constants.ADD);
+								responseJdc.setErrorValue(Constants.ISSUE);
 								
 								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
 								
