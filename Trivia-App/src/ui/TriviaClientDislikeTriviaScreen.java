@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
 
 public class TriviaClientDislikeTriviaScreen extends JFrame {
 
@@ -20,6 +21,7 @@ public class TriviaClientDislikeTriviaScreen extends JFrame {
 				try {
 					TriviaClientDislikeTriviaScreen frame = new TriviaClientDislikeTriviaScreen();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -31,12 +33,14 @@ public class TriviaClientDislikeTriviaScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public TriviaClientDislikeTriviaScreen() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.PINK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 	}
 
 }

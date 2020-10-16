@@ -68,7 +68,7 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 	public TriviaClientTopicSelectionScreen() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -76,8 +76,8 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblSelectTopicsOf = new JLabel("Select Topics of Interest");
-		lblSelectTopicsOf.setFont(new Font("Palatino Linotype", Font.BOLD, 22));
-		lblSelectTopicsOf.setBounds(230, 44, 256, 60);
+		lblSelectTopicsOf.setFont(new Font("Palatino Linotype", Font.BOLD, 25));
+		lblSelectTopicsOf.setBounds(327, 46, 287, 64);
 		contentPane.add(lblSelectTopicsOf);
 		
 		Constants cons=new Constants();
@@ -100,7 +100,7 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 //			}
 //		});
 		comboBoxTopic1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		comboBoxTopic1.setBounds(291, 129, 160, 40);
+		comboBoxTopic1.setBounds(521, 165, 160, 40);
 		comboBoxTopic1.setSelectedIndex(0);
 		contentPane.add(comboBoxTopic1);
 		
@@ -121,7 +121,7 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 //		});
 		comboBoxTopic2.setSelectedIndex(0);
 		comboBoxTopic2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		comboBoxTopic2.setBounds(291, 235, 160, 40);
+		comboBoxTopic2.setBounds(521, 274, 160, 40);
 		contentPane.add(comboBoxTopic2);
 		
 		lblTopic2 = new JLabel("");
@@ -146,27 +146,25 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 //		});
 		comboBoxTopic3.setSelectedIndex(0);
 		comboBoxTopic3.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		comboBoxTopic3.setBounds(291, 340, 160, 40);
+		comboBoxTopic3.setBounds(521, 399, 160, 40);
 		contentPane.add(comboBoxTopic3);
 		
-		lblTopic3 = new JLabel("");
-		lblTopic3.setFont(new Font("Times New Roman", Font.PLAIN, 17));
-		lblTopic3.setBounds(428, 340, 166, 40);
-		contentPane.add(lblTopic3);
-		
 		JLabel lblSelectFirstTopic = new JLabel("Select 1st Topic");
-		lblSelectFirstTopic.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		lblSelectFirstTopic.setBounds(122, 130, 145, 40);
+		lblSelectFirstTopic.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSelectFirstTopic.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblSelectFirstTopic.setBounds(297, 165, 175, 40);
 		contentPane.add(lblSelectFirstTopic);
 		
 		JLabel lblSelectSecondTopic = new JLabel("Select 2nd Topic");
-		lblSelectSecondTopic.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		lblSelectSecondTopic.setBounds(122, 235, 145, 41);
+		lblSelectSecondTopic.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSelectSecondTopic.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblSelectSecondTopic.setBounds(297, 274, 175, 41);
 		contentPane.add(lblSelectSecondTopic);
 		
 		JLabel lblSelectrdTopic = new JLabel("Select 3rd Topic");
-		lblSelectrdTopic.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		lblSelectrdTopic.setBounds(122, 340, 145, 41);
+		lblSelectrdTopic.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSelectrdTopic.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblSelectrdTopic.setBounds(297, 399, 175, 41);
 		contentPane.add(lblSelectrdTopic);
 		
 		JButton btnNewButton = new JButton("Submit");
@@ -271,24 +269,24 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 		});
 		btnNewButton.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnNewButton.setBackground(Color.WHITE);
-		btnNewButton.setBounds(275, 420, 117, 51);
+		btnNewButton.setBounds(449, 522, 117, 51);
 		contentPane.add(btnNewButton);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(122, 197, 396, 2);
+		separator.setBounds(215, 235, 508, 2);
 		contentPane.add(separator);
 		
 		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(122, 305, 396, 2);
+		separator_1.setBounds(215, 348, 508, 2);
 		contentPane.add(separator_1);
 		
 		JSeparator separator_2 = new JSeparator();
-		separator_2.setBounds(122, 391, 396, 2);
+		separator_2.setBounds(215, 493, 515, 2);
 		contentPane.add(separator_2);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBackground(new Color(216, 191, 216));
-		menuBar.setBounds(0, 0, 814, 22);
+		menuBar.setBounds(0, 0, 984, 22);
 		getContentPane().add(menuBar);
 		
 		JMenu myMenu = new JMenu("File");

@@ -61,7 +61,7 @@ public class TriviaClientLoginScreen extends JFrame {
 	public TriviaClientLoginScreen() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -69,29 +69,32 @@ public class TriviaClientLoginScreen extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblLoginUserEmail = new JLabel("Enter Email");
-		lblLoginUserEmail.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		lblLoginUserEmail.setBounds(164, 180, 106, 35);
+		lblLoginUserEmail.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLoginUserEmail.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblLoginUserEmail.setBounds(239, 178, 145, 35);
 		contentPane.add(lblLoginUserEmail);
 		
 		JLabel lblLoginUserPass = new JLabel("Password");
-		lblLoginUserPass.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		lblLoginUserPass.setBounds(164, 236, 106, 39);
+		lblLoginUserPass.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLoginUserPass.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblLoginUserPass.setBounds(239, 238, 145, 39);
 		contentPane.add(lblLoginUserPass);
 		
 		txtLoginEmail = new JTextField();
 		txtLoginEmail.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtLoginEmail.setBounds(280, 178, 173, 40);
+		txtLoginEmail.setBounds(414, 172, 212, 44);
 		contentPane.add(txtLoginEmail);
 		txtLoginEmail.setColumns(10);
 		
 		txtLoginPass = new JPasswordField();
 		txtLoginPass.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtLoginPass.setBounds(280, 236, 173, 40);
+		txtLoginPass.setBounds(414, 234, 212, 44);
 		contentPane.add(txtLoginPass);
 		
 		JLabel lblLoginEnterInfo = new JLabel("Enter your details");
+		lblLoginEnterInfo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLoginEnterInfo.setFont(new Font("Palatino Linotype", Font.BOLD, 25));
-		lblLoginEnterInfo.setBounds(262, 104, 212, 65);
+		lblLoginEnterInfo.setBounds(331, 69, 265, 65);
 		contentPane.add(lblLoginEnterInfo);
 		
 		JButton btnLogin = new JButton("Login");
@@ -226,10 +229,11 @@ public class TriviaClientLoginScreen extends JFrame {
 		btnLogin.setForeground(Color.DARK_GRAY);
 		btnLogin.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnLogin.setBackground(Color.WHITE);
-		btnLogin.setBounds(295, 310, 145, 44);
+		btnLogin.setBounds(384, 318, 145, 44);
 		contentPane.add(btnLogin);
 		
 		JLabel lblLoginNotAUser = new JLabel("Not a User? Register");
+		lblLoginNotAUser.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLoginNotAUser.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e_notauser) 
@@ -240,14 +244,14 @@ public class TriviaClientLoginScreen extends JFrame {
 				reg_user.setVisible(true);
 			}
 		});
-		lblLoginNotAUser.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 17));
+		lblLoginNotAUser.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 20));
 		lblLoginNotAUser.setForeground(Color.BLUE);
-		lblLoginNotAUser.setBounds(288, 371, 165, 35);
+		lblLoginNotAUser.setBounds(357, 398, 218, 35);
 		contentPane.add(lblLoginNotAUser);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBackground(new Color(216, 191, 216));
-		menuBar.setBounds(0, 0, 814, 22);
+		menuBar.setBounds(0, 0, 974, 22);
 		getContentPane().add(menuBar);
 		
 		JMenu myMenu = new JMenu("File");

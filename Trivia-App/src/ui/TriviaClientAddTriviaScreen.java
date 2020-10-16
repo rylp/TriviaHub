@@ -62,7 +62,7 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 	public TriviaClientAddTriviaScreen() {
 //		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setBackground(new Color(102, 153, 255));
@@ -80,12 +80,12 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		lblSelectTopictoAdd.setForeground(new Color(51, 51, 0));
 		lblSelectTopictoAdd.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 22));
 		lblSelectTopictoAdd.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSelectTopictoAdd.setBounds(139, 58, 480, 62);
+		lblSelectTopictoAdd.setBounds(225, 55, 480, 62);
 		contentPane.add(lblSelectTopictoAdd);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBackground(new Color(216, 191, 216));
-		menuBar.setBounds(0, 0, 814, 22);
+		menuBar.setBounds(0, 0, 984, 22);
 		getContentPane().add(menuBar);
 		
 		JMenu myMenu = new JMenu("File");
@@ -107,19 +107,19 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		
 		JRadioButton rdbtnTopic1 = new JRadioButton("");
 		rdbtnTopic1.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		rdbtnTopic1.setBounds(256, 127, 216, 34);
+		rdbtnTopic1.setBounds(375, 124, 216, 34);
 		rdbtnTopic1.setText(firstTopic);
 		contentPane.add(rdbtnTopic1);
 		
 		JRadioButton rdbtnTopic2 = new JRadioButton("");
 		rdbtnTopic2.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		rdbtnTopic2.setBounds(256, 173, 216, 34);
+		rdbtnTopic2.setBounds(375, 171, 216, 34);
 		rdbtnTopic2.setText(secondTopic);
 		contentPane.add(rdbtnTopic2);
 		
 		JRadioButton rdbtnTopic3 = new JRadioButton("");
 		rdbtnTopic3.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		rdbtnTopic3.setBounds(256, 221, 216, 34);
+		rdbtnTopic3.setBounds(375, 218, 216, 34);
 		rdbtnTopic3.setText(thirdTopic);
 		contentPane.add(rdbtnTopic3);
 		
@@ -159,20 +159,20 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		btnTopicForAdd.setForeground(Color.DARK_GRAY);
 		btnTopicForAdd.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnTopicForAdd.setBackground(Color.WHITE);
-		btnTopicForAdd.setBounds(301, 272, 107, 34);
+		btnTopicForAdd.setBounds(416, 269, 107, 34);
 		contentPane.add(btnTopicForAdd);
 		
 		txtTriviaContent = new JTextField();
 		txtTriviaContent.setHorizontalAlignment(SwingConstants.LEFT);
 		txtTriviaContent.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		txtTriviaContent.setBounds(240, 339, 441, 114);
+		txtTriviaContent.setBounds(310, 336, 521, 180);
 		contentPane.add(txtTriviaContent);
 		txtTriviaContent.setColumns(10);
 		
 		JLabel lblAddTriviaContent = new JLabel("Enter Trivia Content");
 		lblAddTriviaContent.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
 		lblAddTriviaContent.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAddTriviaContent.setBounds(24, 353, 193, 62);
+		lblAddTriviaContent.setBounds(98, 367, 193, 62);
 		contentPane.add(lblAddTriviaContent);
 		
 		JButton btnAdd = new JButton("Add");
@@ -281,7 +281,7 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		btnAdd.setForeground(Color.DARK_GRAY);
 		btnAdd.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnAdd.setBackground(Color.WHITE);
-		btnAdd.setBounds(279, 475, 144, 46);
+		btnAdd.setBounds(406, 554, 144, 46);
 		contentPane.add(btnAdd);
 	}
 }
