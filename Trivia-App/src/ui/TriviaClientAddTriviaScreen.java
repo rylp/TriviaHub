@@ -283,5 +283,24 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		btnAdd.setBackground(Color.WHITE);
 		btnAdd.setBounds(406, 554, 144, 46);
 		contentPane.add(btnAdd);
+		
+		JButton btnGoToMenu = new JButton("MENU");
+		btnGoToMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e_goBackToMenu) 
+			{
+				contentPane.setVisible(false);
+				dispose();
+				
+				TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
+				menu_screen.setVisible(true);
+			}
+		});
+		btnGoToMenu.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		btnGoToMenu.setBounds(10, 55, 100, 30);
+		contentPane.add(btnGoToMenu);
 	}
+	
+	
+	
+	
 }
