@@ -118,35 +118,35 @@ public class TriviaClientRegisterScreen extends JFrame {
 		txtRegEmail = new JTextField();
 		txtRegEmail.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtRegEmail.setColumns(10);
-		txtRegEmail.setBounds(420, 120, 220, 40);
+		txtRegEmail.setBounds(420, 120, 250, 40);
 		contentPane.add(txtRegEmail);
 		
 		txtRegFirstName = new JTextField();
 		txtRegFirstName.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtRegFirstName.setColumns(10);
-		txtRegFirstName.setBounds(420, 170, 220, 40);
+		txtRegFirstName.setBounds(420, 170, 250, 40);
 		contentPane.add(txtRegFirstName);
 		
 		txtRegLastName = new JTextField();
 		txtRegLastName.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtRegLastName.setColumns(10);
-		txtRegLastName.setBounds(420, 220, 220, 40);
+		txtRegLastName.setBounds(420, 220, 250, 40);
 		contentPane.add(txtRegLastName);
 		
 		txtRegAge = new JTextField();
 		txtRegAge.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtRegAge.setColumns(10);
-		txtRegAge.setBounds(420, 280, 220, 40);
+		txtRegAge.setBounds(420, 280, 250, 40);
 		contentPane.add(txtRegAge);
 		
 		txtRegPass = new JPasswordField();
 		txtRegPass.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtRegPass.setBounds(420, 340, 220, 40);
+		txtRegPass.setBounds(420, 340, 250, 40);
 		contentPane.add(txtRegPass);
 		
 		txtRegVerifyPass = new JPasswordField();
 		txtRegVerifyPass.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtRegVerifyPass.setBounds(420, 400, 220, 40);
+		txtRegVerifyPass.setBounds(420, 400, 250, 40);
 		contentPane.add(txtRegVerifyPass);
 		
 		JLabel lblReenterPassword = new JLabel("Re-enter Password");

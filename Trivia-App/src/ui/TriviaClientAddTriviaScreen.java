@@ -31,13 +31,16 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
 
 public class TriviaClientAddTriviaScreen extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtTriviaContent;
 	private String myTopic=null;
 	private int myTopicSelectNumber=-1;
+	
+	private JTextField txtTriviaContent;
 
 	/**
 	 * Launch the application.
@@ -162,18 +165,18 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		btnTopicForAdd.setBounds(416, 269, 107, 34);
 		contentPane.add(btnTopicForAdd);
 		
+		JLabel lblAddTriviaContent = new JLabel("Enter Trivia Content");
+		lblAddTriviaContent.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblAddTriviaContent.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAddTriviaContent.setBounds(83, 381, 193, 62);
+		contentPane.add(lblAddTriviaContent);
+		
 		txtTriviaContent = new JTextField();
 		txtTriviaContent.setHorizontalAlignment(SwingConstants.LEFT);
 		txtTriviaContent.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		txtTriviaContent.setBounds(310, 336, 521, 180);
 		contentPane.add(txtTriviaContent);
 		txtTriviaContent.setColumns(10);
-		
-		JLabel lblAddTriviaContent = new JLabel("Enter Trivia Content");
-		lblAddTriviaContent.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
-		lblAddTriviaContent.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAddTriviaContent.setBounds(98, 367, 193, 62);
-		contentPane.add(lblAddTriviaContent);
 		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
@@ -299,8 +302,4 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		btnGoToMenu.setBounds(10, 55, 100, 30);
 		contentPane.add(btnGoToMenu);
 	}
-	
-	
-	
-	
 }
