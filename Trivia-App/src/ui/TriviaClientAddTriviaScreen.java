@@ -40,7 +40,7 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 	private String myTopic=null;
 	private int myTopicSelectNumber=-1;
 	
-	private JTextField txtTriviaContent;
+	JTextArea textAreaTriviaContent;
 
 	/**
 	 * Launch the application.
@@ -171,12 +171,13 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		lblAddTriviaContent.setBounds(83, 381, 193, 62);
 		contentPane.add(lblAddTriviaContent);
 		
-		txtTriviaContent = new JTextField();
-		txtTriviaContent.setHorizontalAlignment(SwingConstants.LEFT);
-		txtTriviaContent.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		txtTriviaContent.setBounds(310, 336, 521, 180);
-		contentPane.add(txtTriviaContent);
-		txtTriviaContent.setColumns(10);
+		textAreaTriviaContent = new JTextArea();
+		textAreaTriviaContent.setWrapStyleWord(true);
+		textAreaTriviaContent.setLineWrap(true);
+		textAreaTriviaContent.setFont(new Font("Candara", Font.BOLD | Font.ITALIC, 20));
+		textAreaTriviaContent.setBounds(298, 330, 512, 207);
+		textAreaTriviaContent.setEditable(true);
+		contentPane.add(textAreaTriviaContent);
 		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
@@ -192,7 +193,7 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 				if(myTopicSelectNumber!=-1)
 				{
 					emailId=ui.Constants.myEmail;
-					triviaContent=txtTriviaContent.getText().toString().trim();
+					triviaContent=textAreaTriviaContent.getText().trim();
 					userKey=ui.Constants.myKey;
 					topic=Integer.parseInt(String.valueOf(ui.Constants.myKey.charAt(myTopicSelectNumber)));
 					likes=0;
@@ -284,7 +285,7 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		btnAdd.setForeground(Color.DARK_GRAY);
 		btnAdd.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnAdd.setBackground(Color.WHITE);
-		btnAdd.setBounds(406, 554, 144, 46);
+		btnAdd.setBounds(403, 638, 144, 46);
 		contentPane.add(btnAdd);
 		
 		JButton btnGoToMenu = new JButton("MENU");
