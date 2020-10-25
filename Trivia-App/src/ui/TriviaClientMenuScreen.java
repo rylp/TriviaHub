@@ -130,8 +130,8 @@ public class TriviaClientMenuScreen extends JFrame {
 		btnViewTrivia.setBounds(353, 235, 174, 51);
 		contentPane.add(btnViewTrivia);
 		
-		JButton btnLikeTrivia = new JButton("Like Trivia");
-		btnLikeTrivia.addActionListener(new ActionListener() {
+		JButton btnLikeDislikeTrivia = new JButton("Like/Dislike Trivia");
+		btnLikeDislikeTrivia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_like) 
 			{
 				contentPane.setVisible(false);
@@ -141,28 +141,11 @@ public class TriviaClientMenuScreen extends JFrame {
 				like_trivia.setVisible(true);
 			}
 		});
-		btnLikeTrivia.setForeground(Color.DARK_GRAY);
-		btnLikeTrivia.setFont(new Font("Georgia", Font.BOLD, 20));
-		btnLikeTrivia.setBackground(Color.WHITE);
-		btnLikeTrivia.setBounds(257, 309, 151, 51);
-		contentPane.add(btnLikeTrivia);
-		
-		JButton btnDislikeTrivia = new JButton("Dislike Trivia");
-		btnDislikeTrivia.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e_dislike) 
-			{
-				contentPane.setVisible(false);
-				dispose();
-				
-				TriviaClientDislikeTriviaScreen dislike_trivia=new TriviaClientDislikeTriviaScreen();
-				dislike_trivia.setVisible(true);				
-			}
-		});
-		btnDislikeTrivia.setForeground(Color.DARK_GRAY);
-		btnDislikeTrivia.setFont(new Font("Georgia", Font.BOLD, 20));
-		btnDislikeTrivia.setBackground(Color.WHITE);
-		btnDislikeTrivia.setBounds(450, 309, 174, 51);
-		contentPane.add(btnDislikeTrivia);
+		btnLikeDislikeTrivia.setForeground(Color.DARK_GRAY);
+		btnLikeDislikeTrivia.setFont(new Font("Georgia", Font.BOLD, 20));
+		btnLikeDislikeTrivia.setBackground(Color.WHITE);
+		btnLikeDislikeTrivia.setBounds(319, 311, 254, 51);
+		contentPane.add(btnLikeDislikeTrivia);
 		
 		JButton btnFeedback = new JButton("Give Us Feedback?");
 		btnFeedback.setForeground(Color.DARK_GRAY);
@@ -175,7 +158,7 @@ public class TriviaClientMenuScreen extends JFrame {
 		btnLogOut.setForeground(Color.DARK_GRAY);
 		btnLogOut.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnLogOut.setBackground(Color.WHITE);
-		btnLogOut.setBounds(353, 386, 151, 51);
+		btnLogOut.setBounds(376, 390, 151, 51);
 		contentPane.add(btnLogOut);
 	}
 }

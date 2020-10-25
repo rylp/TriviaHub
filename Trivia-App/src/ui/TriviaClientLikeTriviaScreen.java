@@ -379,7 +379,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 		btnLikeTrivia.setForeground(Color.DARK_GRAY);
 		btnLikeTrivia.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnLikeTrivia.setBackground(Color.WHITE);
-		btnLikeTrivia.setBounds(352, 704, 216, 46);
+		btnLikeTrivia.setBounds(280, 704, 216, 46);
 		contentPane.add(btnLikeTrivia);
 		
 
@@ -398,5 +398,94 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 		btnGoToMenu.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		btnGoToMenu.setBounds(10, 33, 100, 30);
 		contentPane.add(btnGoToMenu);
+		
+		JButton btnDislikeTrivia = new JButton("Dislike Trivia");
+		btnDislikeTrivia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e_dislike) 
+			{
+				final String MSG_TYPE="DISLIKE";
+				String emailid=ui.Constants.myEmail;
+				String topicKey=ui.Constants.myKey;
+				
+				selectedIndex=likeList.getSelectedIndex();
+				
+				if(selectedIndex!=-1)
+				{
+					String[] receivedIds=triviaIds.split("#");
+					
+					int triviaId=Integer.parseInt(receivedIds[selectedIndex]);
+					
+					try
+					{
+						Gson gson=new Gson();
+						
+						JsonDataContract jdc=new JsonDataContract();
+						
+						jdc.setMessageType(MSG_TYPE);
+						
+						jdc.setEmail(emailid);
+						jdc.setTriviaIdtoDislike(String.valueOf(triviaId));
+						
+						jdc.setClientIp(client.Constants.clientIp);
+						jdc.setClientPort(String.valueOf(client.Constants.clientPort));
+						
+						String clientData=gson.toJson(jdc,JsonDataContract.class);
+						
+						boolean Result=sendData(clientData);
+						
+						if(Result)
+						{
+							JOptionPane.showMessageDialog(null, "Successfully Disliked Selected Trivia");
+							
+							contentPane.setVisible(false);
+							dispose();
+							
+							TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
+							menu_screen.setVisible(true);
+						}
+					}
+					catch(Exception e)
+					{
+						JOptionPane.showMessageDialog(null, "Error in Disliking Trivia");
+					}
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "No Trivia Added Currently!");
+				}	
+			}
+
+			private boolean sendData(String clientData) 
+			{
+				client.SocketDetails socDetails=new client.SocketDetails();
+				
+				try {
+					socDetails.setIn(new DataInputStream(client.Constants.socket.getInputStream()));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				try {
+					socDetails.setOut(new OutputStreamWriter(client.Constants.socket.getOutputStream(),StandardCharsets.UTF_8));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				client.ClientCommunication clComm=new client.ClientCommunication(); 
+				
+				client.ClientCommunication.Transmitter tr=clComm.new Transmitter();//class within class
+				
+				client.JsonDataContract jdc1=tr.sendDataToServer(clientData,socDetails);
+				
+				return true;
+			}
+		});
+		btnDislikeTrivia.setForeground(Color.DARK_GRAY);
+		btnDislikeTrivia.setFont(new Font("Georgia", Font.BOLD, 20));
+		btnDislikeTrivia.setBackground(Color.WHITE);
+		btnDislikeTrivia.setBounds(521, 704, 216, 46);
+		contentPane.add(btnDislikeTrivia);
 	}
 }
