@@ -201,7 +201,7 @@ public class TriviaClientViewTriviaScreen extends JFrame {
 						
 						int Result=sendData(clientData);
 						
-						if(Result==0)
+						if(Result==-1)
 						{
 							JOptionPane.showMessageDialog(null, "No Trivia on this topic currently");
 							
@@ -268,7 +268,7 @@ public class TriviaClientViewTriviaScreen extends JFrame {
 					return 1;
 				}
 
-				return 0;
+				return -1;
 			}
 		});
 		btnShowTrivia.setForeground(Color.DARK_GRAY);

@@ -20,6 +20,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.DataInputStream;
@@ -28,6 +29,7 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 
 import javax.swing.JRadioButton;
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -172,12 +174,15 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		contentPane.add(lblAddTriviaContent);
 		
 		textAreaTriviaContent = new JTextArea();
+		textAreaTriviaContent.setBackground(Color.CYAN);
 		textAreaTriviaContent.setWrapStyleWord(true);
 		textAreaTriviaContent.setLineWrap(true);
 		textAreaTriviaContent.setFont(new Font("Candara", Font.BOLD | Font.ITALIC, 20));
 		textAreaTriviaContent.setBounds(298, 330, 512, 207);
+		textAreaTriviaContent.setMargin(new Insets(2,2,2,2));
 		textAreaTriviaContent.setEditable(true);
 		contentPane.add(textAreaTriviaContent);
+
 		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
@@ -226,7 +231,7 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 							}
 							else
 							{
-								JOptionPane.showMessageDialog(null, "Error in Registration!");
+								JOptionPane.showMessageDialog(null, "Error in Adding Trivia!");
 							}
 							
 							contentPane.setVisible(false);
