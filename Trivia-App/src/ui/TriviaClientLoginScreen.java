@@ -63,7 +63,7 @@ public class TriviaClientLoginScreen extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.ORANGE);
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -137,8 +137,16 @@ public class TriviaClientLoginScreen extends JFrame {
 							
 							if(result==1)
 							{
+								Constants con=new Constants();
+								
+								//declaring 3 topics
+								String firstTopic=con.getFirstList().get(Integer.parseInt(String.valueOf(ui.Constants.myKey.charAt(0))));
+								String secondTopic=con.getFirstList().get(Integer.parseInt(String.valueOf(ui.Constants.myKey.charAt(1))));
+								String thirdTopic=con.getFirstList().get(Integer.parseInt(String.valueOf(ui.Constants.myKey.charAt(2))));
+								
 								JOptionPane.showMessageDialog(null, "Welcome! "+ui.Constants.myEmail);
-								JOptionPane.showMessageDialog(null, "Your Key: "+ui.Constants.myKey);
+								
+								JOptionPane.showMessageDialog(null, "Your Topics of Choice: \n"+"1."+firstTopic+"\n"+"2."+secondTopic+"\n"+"3."+thirdTopic);
 								
 								contentPane.setVisible(false);
 								dispose();
@@ -245,7 +253,7 @@ public class TriviaClientLoginScreen extends JFrame {
 			}
 		});
 		lblLoginNotAUser.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 20));
-		lblLoginNotAUser.setForeground(Color.BLUE);
+		lblLoginNotAUser.setForeground(Color.BLACK);
 		lblLoginNotAUser.setBounds(357, 398, 218, 35);
 		contentPane.add(lblLoginNotAUser);
 		

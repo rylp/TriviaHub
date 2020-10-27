@@ -33,6 +33,7 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.awt.event.ActionEvent;
 import javax.swing.ListSelectionModel;
+import javax.swing.border.LineBorder;
 
 public class TriviaClientLikeTriviaScreen extends JFrame {
 
@@ -73,7 +74,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(102, 204, 51));
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -102,7 +103,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 		
 		JLabel lblSelectTopicFor = new JLabel("Select Topic for which you want to like trivia");
 		lblSelectTopicFor.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSelectTopicFor.setForeground(Color.RED);
+		lblSelectTopicFor.setForeground(Color.BLACK);
 		lblSelectTopicFor.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 22));
 		lblSelectTopicFor.setBounds(190, 11, 480, 54);
 		contentPane.add(lblSelectTopicFor);
@@ -286,9 +287,9 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 		contentPane.add(scrollPane);
 		
 		likeList = new JList();
-		likeList.setBorder(new EmptyBorder(0, 0, 0, 0));
+		likeList.setBorder(new LineBorder(new Color(0, 0, 0)));
 		likeList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		likeList.setBackground(Color.LIGHT_GRAY);
+		likeList.setBackground(Color.CYAN);
 		likeList.setFont(new Font("Georgia", Font.BOLD, 20));
 		scrollPane.setViewportView(likeList);
 		

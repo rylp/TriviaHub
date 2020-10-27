@@ -63,7 +63,7 @@ public class TriviaClientOpeningScreen {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.ORANGE);
+		frame.getContentPane().setBackground(Color.GRAY);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setBounds(100, 100, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);

@@ -23,7 +23,10 @@ import java.awt.Font;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
@@ -32,6 +35,7 @@ import javax.swing.JRadioButton;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
@@ -70,7 +74,7 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		setBounds(100, 100, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setBackground(new Color(102, 153, 255));
+		contentPane.setBackground(Color.GRAY);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -82,7 +86,7 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		String thirdTopic=con.getFirstList().get(Integer.parseInt(String.valueOf(ui.Constants.myKey.charAt(2))));
 		
 		JLabel lblSelectTopictoAdd = new JLabel("Select Topic for which you want to add trivia");
-		lblSelectTopictoAdd.setForeground(new Color(51, 51, 0));
+		lblSelectTopictoAdd.setForeground(Color.BLACK);
 		lblSelectTopictoAdd.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 22));
 		lblSelectTopictoAdd.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSelectTopictoAdd.setBounds(225, 55, 480, 62);
@@ -173,16 +177,64 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		lblAddTriviaContent.setBounds(83, 381, 193, 62);
 		contentPane.add(lblAddTriviaContent);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(298, 330, 512, 207);
+		contentPane.add(scrollPane);
+		
 		textAreaTriviaContent = new JTextArea();
-		textAreaTriviaContent.setBackground(Color.CYAN);
+		scrollPane.setViewportView(textAreaTriviaContent);
+		textAreaTriviaContent.setBackground(Color.WHITE);
 		textAreaTriviaContent.setWrapStyleWord(true);
 		textAreaTriviaContent.setLineWrap(true);
 		textAreaTriviaContent.setFont(new Font("Candara", Font.BOLD | Font.ITALIC, 20));
-		textAreaTriviaContent.setBounds(298, 330, 512, 207);
 		textAreaTriviaContent.setMargin(new Insets(2,2,2,2));
 		textAreaTriviaContent.setEditable(true);
-		contentPane.add(textAreaTriviaContent);
-
+		
+		JButton btnUpload = new JButton("Upload");
+		btnUpload.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e_upload) 
+			{
+				if(myTopicSelectNumber!=-1)
+				{
+					//Uploading text from .txt file
+					JFileChooser fc=new JFileChooser();
+					int a=fc.showOpenDialog(null);
+					
+					if(a==JFileChooser.APPROVE_OPTION)
+					{
+						File myFile=fc.getSelectedFile();
+						String myFilePath=myFile.getPath();
+						
+						try
+						{
+							BufferedReader br=new BufferedReader(new FileReader(myFilePath));
+							
+					        String s1="",s2="";  
+					        
+					        while((s1=br.readLine())!=null)
+					        {    
+					        	s2+=s1;    
+					        }
+					        
+					        textAreaTriviaContent.setText(s2);
+					        
+					        br.close();   
+						}
+						catch(Exception e)
+						{
+							JOptionPane.showMessageDialog(null, "Unable to read Selected File");
+						}
+					}
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Please Select a Topic");
+				}
+			}
+		});
+		btnUpload.setFont(new Font("Times New Roman", Font.PLAIN, 15));
+		btnUpload.setBounds(502, 548, 89, 23);
+		contentPane.add(btnUpload);
 		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {

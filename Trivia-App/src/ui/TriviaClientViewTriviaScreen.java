@@ -68,7 +68,7 @@ public class TriviaClientViewTriviaScreen extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 140, 0));
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -97,7 +97,7 @@ public class TriviaClientViewTriviaScreen extends JFrame {
 		
 		JLabel lblSelectTopicForView = new JLabel("Select Topic for which you want to view trivia");
 		lblSelectTopicForView.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSelectTopicForView.setForeground(Color.YELLOW);
+		lblSelectTopicForView.setForeground(Color.BLACK);
 		lblSelectTopicForView.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 22));
 		lblSelectTopicForView.setBounds(238, 33, 480, 54);
 		contentPane.add(lblSelectTopicForView);
@@ -283,7 +283,7 @@ public class TriviaClientViewTriviaScreen extends JFrame {
 		
 		viewList = new JList();
 		viewList.setBorder(new LineBorder(new Color(0, 0, 0)));
-		viewList.setBackground(Color.GREEN);
+		viewList.setBackground(Color.CYAN);
 		viewList.setFont(new Font("Georgia", Font.BOLD | Font.ITALIC, 20));
 		scrollPane.setViewportView(viewList);
 		

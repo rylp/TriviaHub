@@ -77,7 +77,7 @@ public class TriviaClientDeleteTriviaScreen extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.DARK_GRAY);
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new LineBorder(new Color(0, 0, 0)));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -106,7 +106,7 @@ public class TriviaClientDeleteTriviaScreen extends JFrame {
 		
 		JLabel lblSelectTriviaToDelete = new JLabel("Select Trivia you want to delete");
 		lblSelectTriviaToDelete.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSelectTriviaToDelete.setForeground(Color.YELLOW);
+		lblSelectTriviaToDelete.setForeground(Color.BLACK);
 		lblSelectTriviaToDelete.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 22));
 		lblSelectTriviaToDelete.setBounds(215, 33, 480, 54);
 		contentPane.add(lblSelectTriviaToDelete);
@@ -220,7 +220,7 @@ public class TriviaClientDeleteTriviaScreen extends JFrame {
 		deleteList.setForeground(new Color(0, 0, 0));
 		deleteList.setFont(new Font("Georgia", Font.BOLD | Font.ITALIC, 20));
 		deleteList.setBorder(new LineBorder(new Color(0, 0, 0)));
-		deleteList.setBackground(Color.ORANGE);
+		deleteList.setBackground(Color.CYAN);
 		
 		JButton btnDelTrivia = new JButton("Delete Selected Trivia");
 		btnDelTrivia.addActionListener(new ActionListener() {

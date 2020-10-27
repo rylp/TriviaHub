@@ -74,7 +74,7 @@ public class TriviaClientRegisterScreen extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.ORANGE);
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -291,7 +291,7 @@ public class TriviaClientRegisterScreen extends JFrame {
 				login_user.setVisible(true);
 			}
 		});
-		lblRegAlreadyAUser.setForeground(Color.BLUE);
+		lblRegAlreadyAUser.setForeground(Color.BLACK);
 		lblRegAlreadyAUser.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 17));
 		lblRegAlreadyAUser.setBounds(339, 572, 186, 40);
 		contentPane.add(lblRegAlreadyAUser);
