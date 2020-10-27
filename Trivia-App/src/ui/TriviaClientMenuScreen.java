@@ -74,9 +74,9 @@ public class TriviaClientMenuScreen extends JFrame {
 		});
 		myMenu.add(myMenuItem_ContactUs);
 		
-		JLabel lblChooseTask = new JLabel("What do want to do?");
-		lblChooseTask.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 24));
-		lblChooseTask.setBounds(331, 59, 242, 61);
+		JLabel lblChooseTask = new JLabel("What do you want to do?");
+		lblChooseTask.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 28));
+		lblChooseTask.setBounds(280, 59, 356, 61);
 		contentPane.add(lblChooseTask);
 		
 		JButton btnAddTrivia = new JButton("Add Trivia");
@@ -144,21 +144,37 @@ public class TriviaClientMenuScreen extends JFrame {
 		btnLikeDislikeTrivia.setForeground(Color.DARK_GRAY);
 		btnLikeDislikeTrivia.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnLikeDislikeTrivia.setBackground(Color.WHITE);
-		btnLikeDislikeTrivia.setBounds(319, 311, 254, 51);
+		btnLikeDislikeTrivia.setBounds(311, 312, 254, 51);
 		contentPane.add(btnLikeDislikeTrivia);
 		
 		JButton btnFeedback = new JButton("Give Us Feedback?");
 		btnFeedback.setForeground(Color.DARK_GRAY);
 		btnFeedback.setFont(new Font("Georgia", Font.BOLD, 18));
 		btnFeedback.setBackground(Color.WHITE);
-		btnFeedback.setBounds(639, 506, 212, 42);
+		btnFeedback.setBounds(328, 474, 212, 42);
 		contentPane.add(btnFeedback);
 		
 		JButton btnLogOut = new JButton("Log Out");
+		btnLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e_logout) 
+			{
+				ui.Constants.myEmail=null;
+				ui.Constants.myKey=null;
+				ui.Constants.myUserId=-1;
+				
+				JOptionPane.showMessageDialog(null, "Logged Out!");
+				
+				contentPane.setVisible(false);
+				dispose();
+				
+				TriviaClientLoginScreen screen=new TriviaClientLoginScreen();
+				screen.setVisible(true);
+			}
+		});
 		btnLogOut.setForeground(Color.DARK_GRAY);
 		btnLogOut.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnLogOut.setBackground(Color.WHITE);
-		btnLogOut.setBounds(376, 390, 151, 51);
+		btnLogOut.setBounds(361, 390, 151, 51);
 		contentPane.add(btnLogOut);
 	}
 }

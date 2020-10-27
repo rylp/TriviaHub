@@ -91,43 +91,47 @@ public class TriviaClientOpeningScreen {
 		btnConnect.setBackground(Color.WHITE);
 		btnConnect.setForeground(Color.DARK_GRAY);
 		btnConnect.setFont(new Font("Georgia", Font.BOLD, 20));
-		btnConnect.setBounds(370, 328, 157, 50);
+		btnConnect.setBounds(375, 328, 157, 50);
 		frame.getContentPane().add(btnConnect);
 		
 		JLabel lblWelcome = new JLabel("Welcome to TriviaHub");
 		lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
 		lblWelcome.setForeground(Color.BLACK);
-		lblWelcome.setFont(new Font("SansSerif", Font.BOLD, 30));
-		lblWelcome.setBounds(273, 50, 399, 80);
+		lblWelcome.setFont(new Font("Arial", Font.PLAIN, 35));
+		lblWelcome.setBounds(270, 50, 400, 80);
 		frame.getContentPane().add(lblWelcome);
 		
 		lblHostIP = new JLabel("Host IP");
+		lblHostIP.setForeground(Color.WHITE);
 		lblHostIP.setHorizontalAlignment(SwingConstants.CENTER);
 		lblHostIP.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		lblHostIP.setBounds(328, 159, 110, 45);
 		frame.getContentPane().add(lblHostIP);
-		lblHostIP.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		lblHostIP.setBorder(new LineBorder(Color.WHITE));
 		
 		lblHostPort = new JLabel("Host Port");
+		lblHostPort.setForeground(Color.WHITE);
 		lblHostPort.setHorizontalAlignment(SwingConstants.CENTER);
 		lblHostPort.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		lblHostPort.setBounds(328, 215, 110, 50);
 		frame.getContentPane().add(lblHostPort);
-		lblHostPort.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		lblHostPort.setBorder(new LineBorder(Color.WHITE));
 		
 		lblDisplayHostIP = new JLabel("127.0.0.1");
+		lblDisplayHostIP.setForeground(Color.WHITE);
 		lblDisplayHostIP.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDisplayHostIP.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		lblDisplayHostIP.setBounds(448, 159, 157, 45);
 		frame.getContentPane().add(lblDisplayHostIP);
-		lblDisplayHostIP.setBorder(new LineBorder(Color.BLACK));
+		lblDisplayHostIP.setBorder(new LineBorder(Color.WHITE));
 		
 		lblDisplayHostPort = new JLabel("9997");
+		lblDisplayHostPort.setForeground(Color.WHITE);
 		lblDisplayHostPort.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDisplayHostPort.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		lblDisplayHostPort.setBounds(448, 215, 157, 50);
 		frame.getContentPane().add(lblDisplayHostPort);
-		lblDisplayHostPort.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblDisplayHostPort.setBorder(new LineBorder(Color.WHITE));
 		
 		btnHomeLogin = new JButton("Login");
 		btnHomeLogin.addActionListener(new ActionListener() {
@@ -143,7 +147,7 @@ public class TriviaClientOpeningScreen {
 		btnHomeLogin.setForeground(Color.DARK_GRAY);
 		btnHomeLogin.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnHomeLogin.setBackground(Color.WHITE);
-		btnHomeLogin.setBounds(370, 432, 157, 44);
+		btnHomeLogin.setBounds(375, 432, 157, 44);
 		frame.getContentPane().add(btnHomeLogin);
 		
 		btnHomeRegister = new JButton("Register");
@@ -160,7 +164,7 @@ public class TriviaClientOpeningScreen {
 		btnHomeRegister.setForeground(Color.DARK_GRAY);
 		btnHomeRegister.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnHomeRegister.setBackground(Color.WHITE);
-		btnHomeRegister.setBounds(370, 501, 157, 44);
+		btnHomeRegister.setBounds(375, 501, 157, 44);
 		frame.getContentPane().add(btnHomeRegister);
 		
 		JMenuBar menuBar = new JMenuBar();

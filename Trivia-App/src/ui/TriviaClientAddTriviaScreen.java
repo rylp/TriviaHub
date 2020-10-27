@@ -87,9 +87,9 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		
 		JLabel lblSelectTopictoAdd = new JLabel("Select Topic for which you want to add trivia");
 		lblSelectTopictoAdd.setForeground(Color.BLACK);
-		lblSelectTopictoAdd.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 22));
+		lblSelectTopictoAdd.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 25));
 		lblSelectTopictoAdd.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSelectTopictoAdd.setBounds(225, 55, 480, 62);
+		lblSelectTopictoAdd.setBounds(225, 55, 530, 62);
 		contentPane.add(lblSelectTopictoAdd);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -172,9 +172,9 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		contentPane.add(btnTopicForAdd);
 		
 		JLabel lblAddTriviaContent = new JLabel("Enter Trivia Content");
-		lblAddTriviaContent.setFont(new Font("Palatino Linotype", Font.BOLD, 18));
+		lblAddTriviaContent.setFont(new Font("Palatino Linotype", Font.BOLD, 22));
 		lblAddTriviaContent.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAddTriviaContent.setBounds(83, 381, 193, 62);
+		lblAddTriviaContent.setBounds(39, 381, 237, 62);
 		contentPane.add(lblAddTriviaContent);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -232,8 +232,8 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 				}
 			}
 		});
-		btnUpload.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		btnUpload.setBounds(502, 548, 89, 23);
+		btnUpload.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		btnUpload.setBounds(466, 547, 107, 30);
 		contentPane.add(btnUpload);
 		
 		JButton btnAdd = new JButton("Add");
@@ -342,7 +342,7 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		btnAdd.setForeground(Color.DARK_GRAY);
 		btnAdd.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnAdd.setBackground(Color.WHITE);
-		btnAdd.setBounds(403, 638, 144, 46);
+		btnAdd.setBounds(437, 649, 162, 46);
 		contentPane.add(btnAdd);
 		
 		JButton btnGoToMenu = new JButton("MENU");

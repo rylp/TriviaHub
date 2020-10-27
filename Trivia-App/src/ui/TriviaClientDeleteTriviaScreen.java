@@ -107,7 +107,7 @@ public class TriviaClientDeleteTriviaScreen extends JFrame {
 		JLabel lblSelectTriviaToDelete = new JLabel("Select Trivia you want to delete");
 		lblSelectTriviaToDelete.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSelectTriviaToDelete.setForeground(Color.BLACK);
-		lblSelectTriviaToDelete.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 22));
+		lblSelectTriviaToDelete.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 22));
 		lblSelectTriviaToDelete.setBounds(215, 33, 480, 54);
 		contentPane.add(lblSelectTriviaToDelete);
 		

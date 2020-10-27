@@ -70,30 +70,30 @@ public class TriviaClientLoginScreen extends JFrame {
 		
 		JLabel lblLoginUserEmail = new JLabel("Enter Email");
 		lblLoginUserEmail.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLoginUserEmail.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblLoginUserEmail.setFont(new Font("Times New Roman", Font.BOLD, 23));
 		lblLoginUserEmail.setBounds(239, 178, 145, 35);
 		contentPane.add(lblLoginUserEmail);
 		
 		JLabel lblLoginUserPass = new JLabel("Password");
 		lblLoginUserPass.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLoginUserPass.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblLoginUserPass.setFont(new Font("Times New Roman", Font.BOLD, 23));
 		lblLoginUserPass.setBounds(239, 238, 145, 39);
 		contentPane.add(lblLoginUserPass);
 		
 		txtLoginEmail = new JTextField();
 		txtLoginEmail.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtLoginEmail.setBounds(414, 172, 212, 44);
+		txtLoginEmail.setBounds(414, 174, 230, 44);
 		contentPane.add(txtLoginEmail);
 		txtLoginEmail.setColumns(10);
 		
 		txtLoginPass = new JPasswordField();
 		txtLoginPass.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtLoginPass.setBounds(414, 234, 212, 44);
+		txtLoginPass.setBounds(414, 234, 230, 44);
 		contentPane.add(txtLoginPass);
 		
 		JLabel lblLoginEnterInfo = new JLabel("Enter your details");
 		lblLoginEnterInfo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLoginEnterInfo.setFont(new Font("Palatino Linotype", Font.BOLD, 25));
+		lblLoginEnterInfo.setFont(new Font("Arial", Font.BOLD, 30));
 		lblLoginEnterInfo.setBounds(331, 69, 265, 65);
 		contentPane.add(lblLoginEnterInfo);
 		
@@ -252,9 +252,9 @@ public class TriviaClientLoginScreen extends JFrame {
 				reg_user.setVisible(true);
 			}
 		});
-		lblLoginNotAUser.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 20));
+		lblLoginNotAUser.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 23));
 		lblLoginNotAUser.setForeground(Color.BLACK);
-		lblLoginNotAUser.setBounds(357, 398, 218, 35);
+		lblLoginNotAUser.setBounds(345, 398, 230, 35);
 		contentPane.add(lblLoginNotAUser);
 		
 		JMenuBar menuBar = new JMenuBar();

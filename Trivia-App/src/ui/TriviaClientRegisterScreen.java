@@ -81,77 +81,77 @@ public class TriviaClientRegisterScreen extends JFrame {
 		
 		JLabel lblLoginEnterInfo = new JLabel("Enter your details");
 		lblLoginEnterInfo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLoginEnterInfo.setFont(new Font("Palatino Linotype", Font.BOLD, 23));
+		lblLoginEnterInfo.setFont(new Font("Arial", Font.BOLD, 30));
 		lblLoginEnterInfo.setBounds(290, 30, 268, 61);
 		contentPane.add(lblLoginEnterInfo);
 		
 		JLabel lblLoginUserEmail = new JLabel("Enter Email");
 		lblLoginUserEmail.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLoginUserEmail.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblLoginUserEmail.setFont(new Font("Times New Roman", Font.BOLD, 22));
 		lblLoginUserEmail.setBounds(200, 115, 177, 40);
 		contentPane.add(lblLoginUserEmail);
 		
 		JLabel lblEnterFirstName = new JLabel("Enter First Name");
 		lblEnterFirstName.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEnterFirstName.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblEnterFirstName.setFont(new Font("Times New Roman", Font.BOLD, 22));
 		lblEnterFirstName.setBounds(197, 164, 177, 40);
 		contentPane.add(lblEnterFirstName);
 		
 		JLabel lblEnterLastName = new JLabel("Enter Last Name");
 		lblEnterLastName.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEnterLastName.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblEnterLastName.setFont(new Font("Times New Roman", Font.BOLD, 22));
 		lblEnterLastName.setBounds(197, 225, 177, 40);
 		contentPane.add(lblEnterLastName);
 		
 		JLabel lblEnterAge = new JLabel("Enter Age");
 		lblEnterAge.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEnterAge.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblEnterAge.setFont(new Font("Times New Roman", Font.BOLD, 22));
 		lblEnterAge.setBounds(197, 286, 177, 40);
 		contentPane.add(lblEnterAge);
 		
 		JLabel lblEnterPassword = new JLabel("Enter Password");
 		lblEnterPassword.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEnterPassword.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblEnterPassword.setFont(new Font("Times New Roman", Font.BOLD, 22));
 		lblEnterPassword.setBounds(197, 347, 186, 40);
 		contentPane.add(lblEnterPassword);
 		
 		txtRegEmail = new JTextField();
 		txtRegEmail.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtRegEmail.setColumns(10);
-		txtRegEmail.setBounds(420, 120, 250, 40);
+		txtRegEmail.setBounds(420, 120, 260, 40);
 		contentPane.add(txtRegEmail);
 		
 		txtRegFirstName = new JTextField();
 		txtRegFirstName.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtRegFirstName.setColumns(10);
-		txtRegFirstName.setBounds(420, 170, 250, 40);
+		txtRegFirstName.setBounds(420, 170, 260, 40);
 		contentPane.add(txtRegFirstName);
 		
 		txtRegLastName = new JTextField();
 		txtRegLastName.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtRegLastName.setColumns(10);
-		txtRegLastName.setBounds(420, 220, 250, 40);
+		txtRegLastName.setBounds(420, 220, 260, 40);
 		contentPane.add(txtRegLastName);
 		
 		txtRegAge = new JTextField();
 		txtRegAge.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtRegAge.setColumns(10);
-		txtRegAge.setBounds(420, 280, 250, 40);
+		txtRegAge.setBounds(420, 280, 260, 40);
 		contentPane.add(txtRegAge);
 		
 		txtRegPass = new JPasswordField();
 		txtRegPass.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtRegPass.setBounds(420, 340, 250, 40);
+		txtRegPass.setBounds(420, 340, 260, 40);
 		contentPane.add(txtRegPass);
 		
 		txtRegVerifyPass = new JPasswordField();
 		txtRegVerifyPass.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtRegVerifyPass.setBounds(420, 400, 250, 40);
+		txtRegVerifyPass.setBounds(420, 400, 260, 40);
 		contentPane.add(txtRegVerifyPass);
 		
 		JLabel lblReenterPassword = new JLabel("Re-enter Password");
 		lblReenterPassword.setHorizontalAlignment(SwingConstants.CENTER);
-		lblReenterPassword.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblReenterPassword.setFont(new Font("Times New Roman", Font.BOLD, 22));
 		lblReenterPassword.setBounds(197, 408, 186, 40);
 		contentPane.add(lblReenterPassword);
 		
@@ -292,8 +292,8 @@ public class TriviaClientRegisterScreen extends JFrame {
 			}
 		});
 		lblRegAlreadyAUser.setForeground(Color.BLACK);
-		lblRegAlreadyAUser.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 17));
-		lblRegAlreadyAUser.setBounds(339, 572, 186, 40);
+		lblRegAlreadyAUser.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 20));
+		lblRegAlreadyAUser.setBounds(322, 572, 224, 40);
 		contentPane.add(lblRegAlreadyAUser);
 		
 		JMenuBar menuBar = new JMenuBar();

@@ -85,40 +85,12 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 		String[] topics = cons.getFirstList().toArray(new String[cons.getFirstList().size()]);
 		
 		comboBoxTopic1 = new JComboBox(topics);	
-//		comboBoxTopic1.addItemListener(new ItemListener() {
-//			public void itemStateChanged(ItemEvent eTopicSelected1) 
-//			{				
-//				if(eTopicSelected1.getStateChange()==ItemEvent.SELECTED)
-//				{
-//					int selection=comboBoxTopic1.getSelectedIndex();
-//					String topic=comboBoxTopic1.getSelectedItem().toString();
-//					
-//					JOptionPane.showMessageDialog(null, "Selection: "+topic);
-//					
-//					lblTopic1.setText("Selection: "+ selection+" "+topic);
-//				}
-//			}
-//		});
 		comboBoxTopic1.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		comboBoxTopic1.setBounds(521, 165, 160, 40);
 		comboBoxTopic1.setSelectedIndex(0);
 		contentPane.add(comboBoxTopic1);
 		
 		comboBoxTopic2 = new JComboBox(topics);
-//		comboBoxTopic2.addItemListener(new ItemListener() {
-//			public void itemStateChanged(ItemEvent eTopicSelected2) 
-//			{
-//				if(eTopicSelected2.getStateChange()==ItemEvent.SELECTED)
-//				{
-//					int selection=comboBoxTopic2.getSelectedIndex();
-//					String topic=comboBoxTopic2.getSelectedItem().toString();
-//					
-//					JOptionPane.showMessageDialog(null, "Selection: "+topic);
-//					
-//					lblTopic2.setText("Selection: "+ selection+" "+topic);
-//				}
-//			}
-//		});
 		comboBoxTopic2.setSelectedIndex(0);
 		comboBoxTopic2.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		comboBoxTopic2.setBounds(521, 274, 160, 40);
@@ -130,20 +102,6 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 		contentPane.add(lblTopic2);
 		
 		comboBoxTopic3 = new JComboBox(topics);
-//		comboBoxTopic3.addItemListener(new ItemListener() {
-//			public void itemStateChanged(ItemEvent eTopicSelected3) 
-//			{
-//				if(eTopicSelected3.getStateChange()==ItemEvent.SELECTED)
-//				{
-//					int selection=comboBoxTopic3.getSelectedIndex();
-//					String topic=comboBoxTopic3.getSelectedItem().toString();
-//					
-//					JOptionPane.showMessageDialog(null, "Selection: "+topic);
-//					
-//					lblTopic3.setText("Selection: "+ selection+" "+topic);
-//				}
-//			}
-//		});
 		comboBoxTopic3.setSelectedIndex(0);
 		comboBoxTopic3.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		comboBoxTopic3.setBounds(521, 399, 160, 40);
@@ -190,8 +148,15 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 						userKey+=Integer.toString(topic1);
 						userKey+=Integer.toString(topic2);
 						userKey+=Integer.toString(topic3);
-
-						JOptionPane.showMessageDialog(null, "Your selected topics: "+userKey);
+						
+						Constants con=new Constants();
+						
+						//declaring 3 topics
+						String firstTopic=con.getFirstList().get(Integer.parseInt(String.valueOf(userKey.charAt(0))));
+						String secondTopic=con.getFirstList().get(Integer.parseInt(String.valueOf(userKey.charAt(1))));
+						String thirdTopic=con.getFirstList().get(Integer.parseInt(String.valueOf(userKey.charAt(2))));
+						
+						JOptionPane.showMessageDialog(null, "Your Topics of Choice: \n"+"1."+firstTopic+"\n"+"2."+secondTopic+"\n"+"3."+thirdTopic);
 						
 						Gson gson=new Gson();
 						

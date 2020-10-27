@@ -98,8 +98,8 @@ public class TriviaClientViewTriviaScreen extends JFrame {
 		JLabel lblSelectTopicForView = new JLabel("Select Topic for which you want to view trivia");
 		lblSelectTopicForView.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSelectTopicForView.setForeground(Color.BLACK);
-		lblSelectTopicForView.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 22));
-		lblSelectTopicForView.setBounds(238, 33, 480, 54);
+		lblSelectTopicForView.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 22));
+		lblSelectTopicForView.setBounds(217, 33, 501, 54);
 		contentPane.add(lblSelectTopicForView);
 		
 		Constants con=new Constants();

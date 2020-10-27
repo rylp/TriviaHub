@@ -104,8 +104,8 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 		JLabel lblSelectTopicFor = new JLabel("Select Topic for which you want to like trivia");
 		lblSelectTopicFor.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSelectTopicFor.setForeground(Color.BLACK);
-		lblSelectTopicFor.setFont(new Font("Palatino Linotype", Font.BOLD | Font.ITALIC, 22));
-		lblSelectTopicFor.setBounds(190, 11, 480, 54);
+		lblSelectTopicFor.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 22));
+		lblSelectTopicFor.setBounds(189, 31, 480, 54);
 		contentPane.add(lblSelectTopicFor);
 		
 		Constants con=new Constants();
@@ -117,19 +117,19 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 		
 		JRadioButton rdbtnTopic1 = new JRadioButton();
 		rdbtnTopic1.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		rdbtnTopic1.setBounds(337, 72, 216, 34);
+		rdbtnTopic1.setBounds(337, 92, 216, 34);
 		rdbtnTopic1.setText(firstTopic);
 		contentPane.add(rdbtnTopic1);
 		
 		JRadioButton rdbtnTopic2 = new JRadioButton();
 		rdbtnTopic2.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		rdbtnTopic2.setBounds(337, 121, 216, 34);
+		rdbtnTopic2.setBounds(337, 143, 216, 34);
 		rdbtnTopic2.setText(secondTopic);
 		contentPane.add(rdbtnTopic2);
 		
 		JRadioButton rdbtnTopic3 = new JRadioButton();
 		rdbtnTopic3.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		rdbtnTopic3.setBounds(337, 171, 216, 34);
+		rdbtnTopic3.setBounds(337, 190, 216, 34);
 		rdbtnTopic3.setText(thirdTopic);
 		contentPane.add(rdbtnTopic3);
 		
@@ -169,7 +169,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 		btnTopicForView.setForeground(Color.DARK_GRAY);
 		btnTopicForView.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnTopicForView.setBackground(Color.WHITE);
-		btnTopicForView.setBounds(388, 224, 107, 34);
+		btnTopicForView.setBounds(389, 231, 107, 34);
 		contentPane.add(btnTopicForView);
 		
 		JButton btnShowTrivia = new JButton("Show Trivia");
@@ -279,7 +279,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 		btnShowTrivia.setForeground(Color.DARK_GRAY);
 		btnShowTrivia.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnShowTrivia.setBackground(Color.WHITE);
-		btnShowTrivia.setBounds(337, 288, 216, 46);
+		btnShowTrivia.setBounds(337, 294, 216, 46);
 		contentPane.add(btnShowTrivia);
 		
 		JScrollPane scrollPane = new JScrollPane();
