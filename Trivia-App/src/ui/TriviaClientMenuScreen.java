@@ -76,7 +76,7 @@ public class TriviaClientMenuScreen extends JFrame {
 		
 		JLabel lblChooseTask = new JLabel("What do you want to do?");
 		lblChooseTask.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 28));
-		lblChooseTask.setBounds(280, 59, 356, 61);
+		lblChooseTask.setBounds(308, 59, 356, 61);
 		contentPane.add(lblChooseTask);
 		
 		JButton btnAddTrivia = new JButton("Add Trivia");
@@ -93,7 +93,7 @@ public class TriviaClientMenuScreen extends JFrame {
 		btnAddTrivia.setForeground(Color.DARK_GRAY);
 		btnAddTrivia.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnAddTrivia.setBackground(Color.WHITE);
-		btnAddTrivia.setBounds(257, 160, 151, 51);
+		btnAddTrivia.setBounds(277, 160, 151, 51);
 		contentPane.add(btnAddTrivia);
 		
 		JButton btnDeleteTrivia = new JButton("Delete Trivia");
@@ -110,7 +110,7 @@ public class TriviaClientMenuScreen extends JFrame {
 		btnDeleteTrivia.setForeground(Color.DARK_GRAY);
 		btnDeleteTrivia.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnDeleteTrivia.setBackground(Color.WHITE);
-		btnDeleteTrivia.setBounds(450, 160, 174, 51);
+		btnDeleteTrivia.setBounds(490, 160, 174, 51);
 		contentPane.add(btnDeleteTrivia);
 		
 		JButton btnViewTrivia = new JButton("View Trivia");
@@ -127,7 +127,7 @@ public class TriviaClientMenuScreen extends JFrame {
 		btnViewTrivia.setForeground(Color.DARK_GRAY);
 		btnViewTrivia.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnViewTrivia.setBackground(Color.WHITE);
-		btnViewTrivia.setBounds(353, 235, 174, 51);
+		btnViewTrivia.setBounds(391, 233, 174, 51);
 		contentPane.add(btnViewTrivia);
 		
 		JButton btnLikeDislikeTrivia = new JButton("Like/Dislike Trivia");
@@ -144,14 +144,14 @@ public class TriviaClientMenuScreen extends JFrame {
 		btnLikeDislikeTrivia.setForeground(Color.DARK_GRAY);
 		btnLikeDislikeTrivia.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnLikeDislikeTrivia.setBackground(Color.WHITE);
-		btnLikeDislikeTrivia.setBounds(311, 312, 254, 51);
+		btnLikeDislikeTrivia.setBounds(351, 311, 254, 51);
 		contentPane.add(btnLikeDislikeTrivia);
 		
 		JButton btnFeedback = new JButton("Give Us Feedback?");
 		btnFeedback.setForeground(Color.DARK_GRAY);
 		btnFeedback.setFont(new Font("Georgia", Font.BOLD, 18));
 		btnFeedback.setBackground(Color.WHITE);
-		btnFeedback.setBounds(328, 474, 212, 42);
+		btnFeedback.setBounds(376, 472, 212, 42);
 		contentPane.add(btnFeedback);
 		
 		JButton btnLogOut = new JButton("Log Out");
@@ -174,7 +174,7 @@ public class TriviaClientMenuScreen extends JFrame {
 		btnLogOut.setForeground(Color.DARK_GRAY);
 		btnLogOut.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnLogOut.setBackground(Color.WHITE);
-		btnLogOut.setBounds(361, 390, 151, 51);
+		btnLogOut.setBounds(406, 387, 151, 51);
 		contentPane.add(btnLogOut);
 	}
 }

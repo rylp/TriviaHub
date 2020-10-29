@@ -337,6 +337,10 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 							TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
 							menu_screen.setVisible(true);
 						}
+						else
+						{
+							JOptionPane.showMessageDialog(null, "Already Liked this Trivia");
+						}
 					}
 					catch(Exception e)
 					{
@@ -372,6 +376,20 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 				client.ClientCommunication.Transmitter tr=clComm.new Transmitter();//class within class
 				
 				client.JsonDataContract jdc1=tr.sendDataToServer(clientData,socDetails);
+				
+				if(jdc1.getStatus().equals(ui.Constants.SUCCESS))
+				{
+					return true;
+				}
+				
+				else//FAILURE
+				{
+					//check if already liked.
+					if(jdc1.getErrorValue().equals(ui.Constants.ALREADY_LIKED))
+					{
+						return false;
+					}
+				}
 				
 				return true;
 			}
@@ -444,6 +462,10 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 							TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
 							menu_screen.setVisible(true);
 						}
+						else
+						{
+							JOptionPane.showMessageDialog(null, "Trivia Already Disliked");
+						}
 					}
 					catch(Exception e)
 					{
@@ -479,6 +501,20 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 				client.ClientCommunication.Transmitter tr=clComm.new Transmitter();//class within class
 				
 				client.JsonDataContract jdc1=tr.sendDataToServer(clientData,socDetails);
+				
+				if(jdc1.getStatus().equals(ui.Constants.SUCCESS))
+				{
+					return true;
+				}
+				
+				else//FAILURE
+				{
+					//check if already liked.
+					if(jdc1.getErrorValue().equals(ui.Constants.ALREADY_DISLIKED))
+					{
+						return false;
+					}
+				}
 				
 				return true;
 			}
