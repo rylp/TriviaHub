@@ -380,66 +380,116 @@ public class Communication {
 							}
 							break;
 						case "LIKE":
-							LikeTriviaServerSide loggedInUser=new LikeTriviaServerSide(jdc);
-							boolean answ=loggedInUser.LikeSelectedTrivia();
-							if(answ)
-							{
-								UpdateLikeServerSide curLike=new UpdateLikeServerSide(jdc);
-								boolean soln=curLike.updateLike();
-								if(soln)
-								{
-									JsonDataContract responseJdc=new JsonDataContract();
-									responseJdc.setEmail(jdc.getEmail());
-									responseJdc.setStatus(Constants.SUCCESS);
-									responseJdc.setMessageType(Constants.LIKE);
-									
-									String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
-									
-									sendData(responseJSON);
-								}
-								else
-								{
-									JsonDataContract responseJdc=new JsonDataContract();
-									responseJdc.setEmail(jdc.getEmail());
-									responseJdc.setStatus(Constants.FAILURE);
-									responseJdc.setMessageType(Constants.LIKE);
-									responseJdc.setErrorValue(Constants.ISSUE);
-									
-									String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
-									
-									sendData(responseJSON);
-								}
-							}
-							else
+							CheckIfAlreadyLiked alreadyLiked=new CheckIfAlreadyLiked(jdc);
+							boolean liked=alreadyLiked.checkLike();
+							
+							if(liked)
 							{
 								JsonDataContract responseJdc=new JsonDataContract();
 								responseJdc.setEmail(jdc.getEmail());
 								responseJdc.setStatus(Constants.FAILURE);
 								responseJdc.setMessageType(Constants.LIKE);
-								responseJdc.setErrorValue(Constants.ISSUE);
+								responseJdc.setErrorValue(Constants.ALREADY_LIKED);
 								
 								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
 								
 								sendData(responseJSON);
 							}
-							break;
-						case "DISLIKE":
-							DislikeTriviaServerSide currentUser=new DislikeTriviaServerSide(jdc);
-							boolean answe=currentUser.disLikeSelectedTrivia();
-							if(answe)
+							
+							else//Not Previously Liked.
 							{
-								UpdateDislikeServerSide curDislike=new UpdateDislikeServerSide(jdc);
-								boolean soln=curDislike.updateDislike();
-								if(soln)
+								LikeTriviaServerSide loggedInUser=new LikeTriviaServerSide(jdc);
+								boolean answ=loggedInUser.LikeSelectedTrivia();
+								if(answ)
+								{
+									UpdateLikeServerSide curLike=new UpdateLikeServerSide(jdc);
+									boolean soln=curLike.updateLike();
+									if(soln)
+									{
+										JsonDataContract responseJdc=new JsonDataContract();
+										responseJdc.setEmail(jdc.getEmail());
+										responseJdc.setStatus(Constants.SUCCESS);
+										responseJdc.setMessageType(Constants.LIKE);
+										
+										String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+										
+										sendData(responseJSON);
+									}
+									else
+									{
+										JsonDataContract responseJdc=new JsonDataContract();
+										responseJdc.setEmail(jdc.getEmail());
+										responseJdc.setStatus(Constants.FAILURE);
+										responseJdc.setMessageType(Constants.LIKE);
+										responseJdc.setErrorValue(Constants.ISSUE);
+										
+										String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+										
+										sendData(responseJSON);
+									}
+								}
+								else
 								{
 									JsonDataContract responseJdc=new JsonDataContract();
 									responseJdc.setEmail(jdc.getEmail());
-									responseJdc.setStatus(Constants.SUCCESS);
-									responseJdc.setMessageType(Constants.DISLIKE);
+									responseJdc.setStatus(Constants.FAILURE);
+									responseJdc.setMessageType(Constants.LIKE);
+									responseJdc.setErrorValue(Constants.ISSUE);
 									
 									String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
 									
 									sendData(responseJSON);
+								}
+								
+							}
+							break;
+						case "DISLIKE":
+							CheckIfAlreadyDisliked alreadyDisliked=new CheckIfAlreadyDisliked(jdc);
+							boolean disliked=alreadyDisliked.checkDislike();
+							
+							if(disliked)
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.FAILURE);
+								responseJdc.setMessageType(Constants.DISLIKE);
+								responseJdc.setErrorValue(Constants.ALREADY_DISLIKED);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							else
+							{
+								DislikeTriviaServerSide currentUser=new DislikeTriviaServerSide(jdc);
+								boolean answe=currentUser.disLikeSelectedTrivia();
+								if(answe)
+								{
+									UpdateDislikeServerSide curDislike=new UpdateDislikeServerSide(jdc);
+									boolean soln=curDislike.updateDislike();
+									if(soln)
+									{
+										JsonDataContract responseJdc=new JsonDataContract();
+										responseJdc.setEmail(jdc.getEmail());
+										responseJdc.setStatus(Constants.SUCCESS);
+										responseJdc.setMessageType(Constants.DISLIKE);
+										
+										String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+										
+										sendData(responseJSON);
+									}
+									else
+									{
+										JsonDataContract responseJdc=new JsonDataContract();
+										responseJdc.setEmail(jdc.getEmail());
+										responseJdc.setStatus(Constants.FAILURE);
+										responseJdc.setMessageType(Constants.DISLIKE);
+										responseJdc.setErrorValue(Constants.ISSUE);
+										
+										String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+										
+										sendData(responseJSON);
+									}
 								}
 								else
 								{
@@ -452,19 +502,7 @@ public class Communication {
 									String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
 									
 									sendData(responseJSON);
-								}
-							}
-							else
-							{
-								JsonDataContract responseJdc=new JsonDataContract();
-								responseJdc.setEmail(jdc.getEmail());
-								responseJdc.setStatus(Constants.FAILURE);
-								responseJdc.setMessageType(Constants.DISLIKE);
-								responseJdc.setErrorValue(Constants.ISSUE);
-								
-								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
-								
-								sendData(responseJSON);
+								}	
 							}
 							break;
 						}

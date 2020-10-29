@@ -36,6 +36,9 @@ public class Constants {
 	public static final String EMPTY_MY_TRIVIA="NO-TRIVIA-ADDED-BY-USER-CURRENTLY";
 	public static final String UNABLE_TO_DELETE="UNABLE-TO-DELETE";
 	public static final String EMPTY_TOPIC_TRIVIA="NO-TRIVIA-ADDED-FOR-SELECTED-TOPIC";
+	public static final String ALREADY_LIKED="TRIVIA-ALREADY-LIKED";
+	public static final String ALREADY_DISLIKED="TRIVIA-ALREADY-DISLIKED";
+	
 	
 	public static String generateClientKey(String clientIpAddr,String clientPort)
 	{
