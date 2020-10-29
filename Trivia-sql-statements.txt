@@ -11,7 +11,7 @@ CREATE TABLE `userdetails` (
 
 CREATE TABLE `trivia-db`.`triviadetails` (
   `trivia_id` INT NOT NULL AUTO_INCREMENT,
-  `trivia_content` VARCHAR(720) NOT NULL,
+  `trivia_content` VARCHAR(45) NOT NULL,
   `topic_id` INT NOT NULL,
   `likes` INT NOT NULL,
   `user_id` INT NOT NULL,
@@ -99,7 +99,7 @@ BEGIN
 select user_id from userdetails where email=email_id;
 END
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `addTrivia`(IN email_id VARCHAR(255),trivia_content VARCHAR(720),topic_id INT,likes INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addTrivia`(IN email_id VARCHAR(255),trivia_content VARCHAR(255),topic_id INT,likes INT)
 BEGIN
 INSERT INTO triviadetails(trivia_content,topic_id,likes,user_id) VALUES(trivia_content,topic_id,likes,(select user_id from userdetails where email=email_id));
 END
@@ -122,4 +122,16 @@ END
 CREATE PROCEDURE `addDislikeInDB` (IN triviaid int,emailid varchar(320),likestatus varchar(45))
 BEGIN
 INSERT INTO dislikedetails(user_id,trivia_id,dislike_status) VALUES((select user_id from userdetails where email=emailid),triviaid,dislikestatus);
+END
+
+USE `trivia-db`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `checkIfValidLike`(IN triviaid INT,emailid varchar(300))
+BEGIN
+select like_status from likedetails where (trivia_id=triviaid and user_id=(select user_id from userdetails where email=emailid));
+END
+
+USE `trivia-db`$$
+CREATE PROCEDURE `checkIfValidDislike` (IN triviaid int,emailid varchar(200))
+BEGIN
+select dislike_status from dislikedetails where (trivia_id=triviaid and user_id=(select user_id from userdetails where email=emailid));
 END
