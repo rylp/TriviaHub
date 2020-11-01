@@ -6,4 +6,4 @@ Concepts Used:
 2. MultiThreading.
 3. Java Swing (for GUI)
 4. JDBC 
-5. Gson for JsonDataContracts
+5. Gson
