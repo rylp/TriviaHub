@@ -22,7 +22,28 @@ public class JsonDataContract {
 	String TriviaIdtoLike="";
 	String userId="";
 	String TriviaIdtoDislike="";
+	String FeedbackName="";
+	String FeedbackEmail="";
+	String FeedbackContent="";
 	
+	public String getFeedbackName() {
+		return FeedbackName;
+	}
+	public void setFeedbackName(String feedbackName) {
+		FeedbackName = feedbackName;
+	}
+	public String getFeedbackEmail() {
+		return FeedbackEmail;
+	}
+	public void setFeedbackEmail(String feedbackEmail) {
+		FeedbackEmail = feedbackEmail;
+	}
+	public String getFeedbackContent() {
+		return FeedbackContent;
+	}
+	public void setFeedbackContent(String feedbackContent) {
+		FeedbackContent = feedbackContent;
+	}
 	public String getTriviaIdtoDislike() {
 		return TriviaIdtoDislike;
 	}

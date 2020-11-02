@@ -148,6 +148,17 @@ public class TriviaClientMenuScreen extends JFrame {
 		contentPane.add(btnLikeDislikeTrivia);
 		
 		JButton btnFeedback = new JButton("Give Us Feedback?");
+		btnFeedback.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e_feedback) 
+			{
+				contentPane.setVisible(false);
+				dispose();
+				
+				TriviaClientFeedbackScreen feedback=new TriviaClientFeedbackScreen();
+				feedback.setVisible(true);
+				
+			}
+		});
 		btnFeedback.setForeground(Color.DARK_GRAY);
 		btnFeedback.setFont(new Font("Georgia", Font.BOLD, 18));
 		btnFeedback.setBackground(Color.WHITE);
