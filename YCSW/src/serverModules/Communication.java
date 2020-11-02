@@ -505,6 +505,35 @@ public class Communication {
 								}	
 							}
 							break;
+						case "FEEDBACK":
+							AddFeedbackServerSide add_feedback=new AddFeedbackServerSide(jdc);
+							
+							boolean Resu=add_feedback.insertFeedback();
+							
+							if(Resu)//Success
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getFeedbackEmail());
+								responseJdc.setStatus(Constants.SUCCESS);
+								responseJdc.setMessageType(Constants.FEEDBACK);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							else//Failure
+							{
+								JsonDataContract responseJdc=new JsonDataContract();
+								responseJdc.setEmail(jdc.getEmail());
+								responseJdc.setStatus(Constants.FAILURE);
+								responseJdc.setMessageType(Constants.FEEDBACK);
+								responseJdc.setErrorValue(Constants.ISSUE);
+								
+								String responseJSON=gson.toJson(responseJdc,JsonDataContract.class);
+								
+								sendData(responseJSON);
+							}
+							break;
 						}
 					}
 				}
