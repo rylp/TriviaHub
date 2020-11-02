@@ -135,3 +135,9 @@ CREATE PROCEDURE `checkIfValidDislike` (IN triviaid int,emailid varchar(200))
 BEGIN
 select dislike_status from dislikedetails where (trivia_id=triviaid and user_id=(select user_id from userdetails where email=emailid));
 END
+
+USE `trivia-db`$$
+CREATE PROCEDURE `addFeedback` (IN emailid varchar(200),username varchar(200),feedback varchar(520),feeddate varchar(200))
+BEGIN
+insert into feedbackdetails(email,name,feedbackcontent,feedbackdate) values(emailid,username,feedback,feeddate);
+END
