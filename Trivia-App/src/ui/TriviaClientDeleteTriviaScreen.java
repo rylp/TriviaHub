@@ -220,7 +220,7 @@ public class TriviaClientDeleteTriviaScreen extends JFrame {
 		deleteList.setForeground(new Color(0, 0, 0));
 		deleteList.setFont(new Font("Georgia", Font.BOLD | Font.ITALIC, 20));
 		deleteList.setBorder(new LineBorder(new Color(0, 0, 0)));
-		deleteList.setBackground(Color.CYAN);
+		deleteList.setBackground(Color.WHITE);
 		
 		JButton btnDelTrivia = new JButton("Delete Selected Trivia");
 		btnDelTrivia.addActionListener(new ActionListener() {
@@ -243,31 +243,38 @@ public class TriviaClientDeleteTriviaScreen extends JFrame {
 					
 					try
 					{
-						Gson gson=new Gson();
 						
-						JsonDataContract jdc=new JsonDataContract();
+						int resp=JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this trivia?","Delete Trivia",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 						
-						jdc.setMessageType(MSG_TYPE);
-						
-						jdc.setEmail(ui.Constants.myEmail);
-						jdc.setTriviaIdtoDelete(String.valueOf(triviaId));
-						
-						jdc.setClientIp(client.Constants.clientIp);
-						jdc.setClientPort(String.valueOf(client.Constants.clientPort));
-						
-						String clientData=gson.toJson(jdc,JsonDataContract.class);
-						
-						boolean Result=sendData(clientData);
-						
-						if(Result)
+						if(resp==JOptionPane.YES_OPTION)
 						{
-							JOptionPane.showMessageDialog(null, "Successfully Deleted Selected Trivia");
+
+							Gson gson=new Gson();
 							
-							contentPane.setVisible(false);
-							dispose();
+							JsonDataContract jdc=new JsonDataContract();
 							
-							TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
-							menu_screen.setVisible(true);
+							jdc.setMessageType(MSG_TYPE);
+							
+							jdc.setEmail(ui.Constants.myEmail);
+							jdc.setTriviaIdtoDelete(String.valueOf(triviaId));
+							
+							jdc.setClientIp(client.Constants.clientIp);
+							jdc.setClientPort(String.valueOf(client.Constants.clientPort));
+							
+							String clientData=gson.toJson(jdc,JsonDataContract.class);
+							
+							boolean Result=sendData(clientData);
+							
+							if(Result)
+							{
+								JOptionPane.showMessageDialog(null, "Successfully Deleted Selected Trivia");
+								
+								contentPane.setVisible(false);
+								dispose();
+								
+								TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
+								menu_screen.setVisible(true);
+							}
 						}
 					}
 					catch(Exception e)

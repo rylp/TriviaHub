@@ -144,48 +144,59 @@ public class TriviaClientFeedbackScreen extends JFrame {
 				String Name=null;
 				String Feedback=null;
 				
-				try
+				Email=textFieldEmail.getText().toString().trim();
+				Name=textFieldName.getText().toString().trim();
+				Feedback=textAreaFeedback.getText().trim();
+				
+				if(!Email.isEmpty() && !Name.isEmpty() && !Feedback.isEmpty())
 				{
-					Email=textFieldEmail.getText().toString().trim();
-					Name=textFieldName.getText().toString().trim();
-					Feedback=textAreaFeedback.getText().trim();
-					
-					Gson gson=new Gson();
-					
-					JsonDataContract jdc=new JsonDataContract();
-					
-					jdc.setMessageType(MSG_TYPE);
-					
-					jdc.setFeedbackEmail(Email);
-					jdc.setFeedbackName(Name);
-					jdc.setFeedbackContent(Feedback);
-					
-					jdc.setClientIp(client.Constants.clientIp);
-					jdc.setClientPort(String.valueOf(client.Constants.clientPort));
-					
-					String clientData=gson.toJson(jdc,JsonDataContract.class);
-					
-					int result=sendData(clientData);
-					
-					if(result==1)
+					try
 					{
-						JOptionPane.showMessageDialog(null, "Thank you for ur feedback");
+						int response=JOptionPane.showConfirmDialog(null, "Confirm Feedback Submission?","Submit Feedback",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 						
-						contentPane.setVisible(false);
-						dispose();
-						
-						TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
-						menu_screen.setVisible(true);
+						if(response==JOptionPane.YES_OPTION)
+						{	
+							Gson gson=new Gson();
+							
+							JsonDataContract jdc=new JsonDataContract();
+							
+							jdc.setMessageType(MSG_TYPE);
+							
+							jdc.setFeedbackEmail(Email);
+							jdc.setFeedbackName(Name);
+							jdc.setFeedbackContent(Feedback);
+							
+							jdc.setClientIp(client.Constants.clientIp);
+							jdc.setClientPort(String.valueOf(client.Constants.clientPort));
+							
+							String clientData=gson.toJson(jdc,JsonDataContract.class);
+							
+							int result=sendData(clientData);
+							
+							if(result==1)
+							{
+								JOptionPane.showMessageDialog(null, "Thank you for ur feedback");
+								
+								contentPane.setVisible(false);
+								dispose();
+								
+								TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
+								menu_screen.setVisible(true);
+							}
+							else
+							{
+								JOptionPane.showMessageDialog(null, "Unable to submit feedback");
+							}
+						}
 					}
-					else
+					catch(Exception e)
 					{
-						JOptionPane.showMessageDialog(null, "Unable to submit feedback");
+						JOptionPane.showMessageDialog(null, "Error in Adding Feedback");
 					}
-					
 				}
-				catch(Exception e)
+				else
 				{
-					JOptionPane.showMessageDialog(null, "Error in Adding Feedback");
+					JOptionPane.showMessageDialog(null, "Fill up all the fields");
 				}
 			}
 

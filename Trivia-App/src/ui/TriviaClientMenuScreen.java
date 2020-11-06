@@ -169,17 +169,24 @@ public class TriviaClientMenuScreen extends JFrame {
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_logout) 
 			{
-				ui.Constants.myEmail=null;
-				ui.Constants.myKey=null;
-				ui.Constants.myUserId=-1;
 				
-				JOptionPane.showMessageDialog(null, "Logged Out!");
+				int sure=JOptionPane.showConfirmDialog(contentPane,"Do you really want to log out?", "Confirm Log Out",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 				
-				contentPane.setVisible(false);
-				dispose();
-				
-				TriviaClientLoginScreen screen=new TriviaClientLoginScreen();
-				screen.setVisible(true);
+				if(sure==JOptionPane.YES_OPTION)
+				{
+					//Logging Out
+					ui.Constants.myEmail=null;
+					ui.Constants.myKey=null;
+					ui.Constants.myUserId=-1;
+					
+					JOptionPane.showMessageDialog(null, "Logged Out!");
+					
+					contentPane.setVisible(false);
+					dispose();
+					
+					TriviaClientLoginScreen screen=new TriviaClientLoginScreen();
+					screen.setVisible(true);
+				}
 			}
 		});
 		btnLogOut.setForeground(Color.DARK_GRAY);

@@ -259,38 +259,43 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 					{
 						try
 						{
-							Gson gson=new Gson();
+							int response=JOptionPane.showConfirmDialog(null, "Confirm Adding Trivia","Add Trivia",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 							
-							JsonDataContract jdc=new JsonDataContract();
-							
-							jdc.setMessageType(MSG_TYPE);
-							
-							jdc.setEmail(emailId);
-							jdc.setTriviaContent(triviaContent);
-							jdc.setTopic(String.valueOf(topic));
-							jdc.setLikes(String.valueOf(likes));
-							
-							jdc.setClientIp(client.Constants.clientIp);
-							jdc.setClientPort(String.valueOf(client.Constants.clientPort));
-							
-							String clientData=gson.toJson(jdc,JsonDataContract.class);
-							
-							int result=sendData(clientData);
-							
-							if(result==1)//Correctly Added
+							if(response==JOptionPane.YES_OPTION)
 							{
-								JOptionPane.showMessageDialog(null, "Successfully added Trivia");
+								Gson gson=new Gson();
+								
+								JsonDataContract jdc=new JsonDataContract();
+								
+								jdc.setMessageType(MSG_TYPE);
+								
+								jdc.setEmail(emailId);
+								jdc.setTriviaContent(triviaContent);
+								jdc.setTopic(String.valueOf(topic));
+								jdc.setLikes(String.valueOf(likes));
+								
+								jdc.setClientIp(client.Constants.clientIp);
+								jdc.setClientPort(String.valueOf(client.Constants.clientPort));
+								
+								String clientData=gson.toJson(jdc,JsonDataContract.class);
+								
+								int result=sendData(clientData);
+								
+								if(result==1)//Correctly Added
+								{
+									JOptionPane.showMessageDialog(null, "Successfully added Trivia");
+								}
+								else
+								{
+									JOptionPane.showMessageDialog(null, "Error in Adding Trivia!");
+								}
+								
+								contentPane.setVisible(false);
+								dispose();
+								
+								TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
+								menu_screen.setVisible(true);
 							}
-							else
-							{
-								JOptionPane.showMessageDialog(null, "Error in Adding Trivia!");
-							}
-							
-							contentPane.setVisible(false);
-							dispose();
-							
-							TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
-							menu_screen.setVisible(true);
 						}
 						catch(Exception e)
 						{

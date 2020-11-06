@@ -311,36 +311,43 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 					
 					try
 					{
-						Gson gson=new Gson();
+						int resp=JOptionPane.showConfirmDialog(null, "Do u want to like this trivia?","Like Trivia",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 						
-						JsonDataContract jdc=new JsonDataContract();
-						
-						jdc.setMessageType(MSG_TYPE);
-						
-						jdc.setEmail(emailid);
-						jdc.setTriviaIdtoLike(String.valueOf(triviaId));
-						
-						jdc.setClientIp(client.Constants.clientIp);
-						jdc.setClientPort(String.valueOf(client.Constants.clientPort));
-						
-						String clientData=gson.toJson(jdc,JsonDataContract.class);
-						
-						boolean Result=sendData(clientData);
-						
-						if(Result)
+						if(resp==JOptionPane.YES_OPTION)
 						{
-							JOptionPane.showMessageDialog(null, "Successfully Liked Selected Trivia");
+
+							Gson gson=new Gson();
 							
-							contentPane.setVisible(false);
-							dispose();
+							JsonDataContract jdc=new JsonDataContract();
 							
-							TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
-							menu_screen.setVisible(true);
+							jdc.setMessageType(MSG_TYPE);
+							
+							jdc.setEmail(emailid);
+							jdc.setTriviaIdtoLike(String.valueOf(triviaId));
+							
+							jdc.setClientIp(client.Constants.clientIp);
+							jdc.setClientPort(String.valueOf(client.Constants.clientPort));
+							
+							String clientData=gson.toJson(jdc,JsonDataContract.class);
+							
+							boolean Result=sendData(clientData);
+							
+							if(Result)
+							{
+								JOptionPane.showMessageDialog(null, "Successfully Liked Selected Trivia");
+								
+								contentPane.setVisible(false);
+								dispose();
+								
+								TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
+								menu_screen.setVisible(true);
+							}
+							else
+							{
+								JOptionPane.showMessageDialog(null, "Already Liked this Trivia");
+							}
 						}
-						else
-						{
-							JOptionPane.showMessageDialog(null, "Already Liked this Trivia");
-						}
+						
 					}
 					catch(Exception e)
 					{
@@ -436,35 +443,42 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 					
 					try
 					{
-						Gson gson=new Gson();
 						
-						JsonDataContract jdc=new JsonDataContract();
+						int resp2=JOptionPane.showConfirmDialog(null, "Are you sure to Dislike selected trivia","Dislike Trivia",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 						
-						jdc.setMessageType(MSG_TYPE);
-						
-						jdc.setEmail(emailid);
-						jdc.setTriviaIdtoDislike(String.valueOf(triviaId));
-						
-						jdc.setClientIp(client.Constants.clientIp);
-						jdc.setClientPort(String.valueOf(client.Constants.clientPort));
-						
-						String clientData=gson.toJson(jdc,JsonDataContract.class);
-						
-						boolean Result=sendData(clientData);
-						
-						if(Result)
+						if(resp2==JOptionPane.YES_OPTION)
 						{
-							JOptionPane.showMessageDialog(null, "Successfully Disliked Selected Trivia");
+
+							Gson gson=new Gson();
 							
-							contentPane.setVisible(false);
-							dispose();
+							JsonDataContract jdc=new JsonDataContract();
 							
-							TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
-							menu_screen.setVisible(true);
-						}
-						else
-						{
-							JOptionPane.showMessageDialog(null, "Trivia Already Disliked");
+							jdc.setMessageType(MSG_TYPE);
+							
+							jdc.setEmail(emailid);
+							jdc.setTriviaIdtoDislike(String.valueOf(triviaId));
+							
+							jdc.setClientIp(client.Constants.clientIp);
+							jdc.setClientPort(String.valueOf(client.Constants.clientPort));
+							
+							String clientData=gson.toJson(jdc,JsonDataContract.class);
+							
+							boolean Result=sendData(clientData);
+							
+							if(Result)
+							{
+								JOptionPane.showMessageDialog(null, "Successfully Disliked Selected Trivia");
+								
+								contentPane.setVisible(false);
+								dispose();
+								
+								TriviaClientMenuScreen menu_screen=new TriviaClientMenuScreen();
+								menu_screen.setVisible(true);
+							}
+							else
+							{
+								JOptionPane.showMessageDialog(null, "Trivia Already Disliked");
+							}
 						}
 					}
 					catch(Exception e)

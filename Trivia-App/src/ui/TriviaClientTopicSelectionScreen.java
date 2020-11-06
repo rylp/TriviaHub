@@ -130,6 +130,7 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent eSelect) 
 			{
+				
 				String userKey="";
 				String MSG_TYPE="SELECT";
 				
@@ -158,33 +159,38 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 						
 						JOptionPane.showMessageDialog(null, "Your Topics of Choice: \n"+"1."+firstTopic+"\n"+"2."+secondTopic+"\n"+"3."+thirdTopic);
 						
-						Gson gson=new Gson();
+						int res = JOptionPane.showConfirmDialog(null,"Sure? Confirm Topics?", "Topics of Choice",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 						
-						JsonDataContract jdc=new JsonDataContract();
-						
-						jdc.setMessageType(MSG_TYPE);
-						
-						jdc.setEmail(ui.Constants.myEmail);
-						jdc.setTopicsKey(userKey);
-						
-						jdc.setClientIp(client.Constants.clientIp);
-						jdc.setClientPort(String.valueOf(client.Constants.clientPort));
-						
-						jdc.setClientPort(String.valueOf(client.Constants.clientPort));
-						
-						String clientData=gson.toJson(jdc,JsonDataContract.class);
-						
-						int Result=sendData(clientData);
-						
-						if(Result==1)
+						if(res==JOptionPane.YES_OPTION)
 						{
-							JOptionPane.showMessageDialog(null, "Successfully Updated Topics");
+							Gson gson=new Gson();
 							
-							contentPane.setVisible(false);
-							dispose();
+							JsonDataContract jdc=new JsonDataContract();
 							
-							TriviaClientMenuScreen reg_user=new TriviaClientMenuScreen();
-							reg_user.setVisible(true);
+							jdc.setMessageType(MSG_TYPE);
+							
+							jdc.setEmail(ui.Constants.myEmail);
+							jdc.setTopicsKey(userKey);
+							
+							jdc.setClientIp(client.Constants.clientIp);
+							jdc.setClientPort(String.valueOf(client.Constants.clientPort));
+							
+							jdc.setClientPort(String.valueOf(client.Constants.clientPort));
+							
+							String clientData=gson.toJson(jdc,JsonDataContract.class);
+							
+							int Result=sendData(clientData);
+							
+							if(Result==1)
+							{
+								JOptionPane.showMessageDialog(null, "Successfully Updated Topics");
+								
+								contentPane.setVisible(false);
+								dispose();
+								
+								TriviaClientMenuScreen reg_user=new TriviaClientMenuScreen();
+								reg_user.setVisible(true);
+							}
 						}
 					}
 				}
