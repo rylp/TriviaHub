@@ -289,7 +289,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 		likeList = new JList();
 		likeList.setBorder(new LineBorder(new Color(0, 0, 0)));
 		likeList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		likeList.setBackground(Color.CYAN);
+		likeList.setBackground(Color.WHITE);
 		likeList.setFont(new Font("Georgia", Font.BOLD, 20));
 		scrollPane.setViewportView(likeList);
 		
