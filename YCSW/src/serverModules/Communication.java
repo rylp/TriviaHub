@@ -152,16 +152,16 @@ public class Communication {
 								
 								//Issue in another system so this is not essential to run the system.
 								//SET CLIENT DETAILS
-//								ClientDetails client=Constants.clientQueue.get(Constants.generateClientKey(jdc.getClientIp(), jdc.getClientPort()));
-//								
-//								if(client==null)
-//								{
-//									System.out.println("Client Not Found!");
-//									break;
-//								}
-//								
-//								client.setEmail(jdc.getEmail());
-//								client.setPassword(jdc.getPassword());
+								ClientDetails client=Constants.clientQueue.get(Constants.generateClientKey(jdc.getClientIp(), jdc.getClientPort()));
+								
+								if(client==null)
+								{
+									System.out.println("Client Not Found!");
+									break;
+								}
+								
+								client.setEmail(jdc.getEmail());
+								client.setPassword(jdc.getPassword());
 								
 								System.out.println("Response Json sent to Client"+responseJSON);
 								sendData(responseJSON);
