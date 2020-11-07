@@ -75,10 +75,14 @@ public class TriviaClientOpeningScreen {
 		btnConnect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_connect) {
 				
+				JOptionPane.showMessageDialog(frame, "Connecting... to server");
+				
 				boolean result=Client.communicationEndpoint();
 				
 				if(result)
 				{
+					JOptionPane.showMessageDialog(frame, "Connected to server!");
+					
 					btnHomeLogin.setEnabled(true);
 					btnHomeRegister.setEnabled(true);
 				}
