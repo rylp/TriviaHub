@@ -22,6 +22,9 @@ public class Connection implements Runnable
 				String clientIpAddr=s.getInetAddress().getHostAddress();
 				String clientPort= String.valueOf(s.getPort());
 				
+				System.out.println("Client IP:"+clientIpAddr);
+				System.out.println("Client port:"+clientPort);
+				
 				ClientDetails newClient=new ClientDetails();
 				newClient.setSoc(s);
 				
