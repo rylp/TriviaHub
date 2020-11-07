@@ -23,9 +23,7 @@ public class ClientConnection
 			
 			Constants.socket=socket;
 			
-			Constants.clientIp=socket.getInetAddress().getHostAddress();
-			
-//			Constants.clientIp=String.valueOf(socket.getLocalAddress());
+			Constants.clientIp=String.valueOf(socket.getLocalAddress()).replace("/","");
 			Constants.clientPort=socket.getLocalPort();
 			
 			System.out.println("Client IP:"+Constants.clientIp);
