@@ -83,7 +83,7 @@ public class TriviaClientFeedbackScreen extends JFrame {
 		myMenuItem_ContactUs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_contact) 
 			{
-				JOptionPane.showMessageDialog(null, "Email us at: rohanlimaye20@gmail.com");
+				JOptionPane.showMessageDialog(contentPane, "Email us at: rohanlimaye20@gmail.com");
 			}
 		});
 		myMenu.add(myMenuItem_ContactUs);
@@ -152,7 +152,7 @@ public class TriviaClientFeedbackScreen extends JFrame {
 				{
 					try
 					{
-						int response=JOptionPane.showConfirmDialog(null, "Confirm Feedback Submission?","Submit Feedback",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+						int response=JOptionPane.showConfirmDialog(contentPane, "Confirm Feedback Submission?","Submit Feedback",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 						
 						if(response==JOptionPane.YES_OPTION)
 						{	
@@ -175,7 +175,7 @@ public class TriviaClientFeedbackScreen extends JFrame {
 							
 							if(result==1)
 							{
-								JOptionPane.showMessageDialog(null, "Thank you for ur feedback");
+								JOptionPane.showMessageDialog(contentPane, "Thank you for ur feedback");
 								
 								contentPane.setVisible(false);
 								dispose();
@@ -185,18 +185,18 @@ public class TriviaClientFeedbackScreen extends JFrame {
 							}
 							else
 							{
-								JOptionPane.showMessageDialog(null, "Unable to submit feedback");
+								JOptionPane.showMessageDialog(contentPane, "Unable to submit feedback");
 							}
 						}
 					}
 					catch(Exception e)
 					{
-						JOptionPane.showMessageDialog(null, "Error in Adding Feedback");
+						JOptionPane.showMessageDialog(contentPane, "Error in Adding Feedback");
 					}
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "Fill up all the fields");
+					JOptionPane.showMessageDialog(contentPane, "Fill up all the fields");
 				}
 			}
 

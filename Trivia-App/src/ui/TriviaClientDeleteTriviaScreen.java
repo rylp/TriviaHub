@@ -99,7 +99,7 @@ public class TriviaClientDeleteTriviaScreen extends JFrame {
 		myMenuItem_ContactUs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_contact) 
 			{
-				JOptionPane.showMessageDialog(null, "Email us at: rohanlimaye20@gmail.com");
+				JOptionPane.showMessageDialog(contentPane, "Email us at: rohanlimaye20@gmail.com");
 			}
 		});
 		myMenu.add(myMenuItem_ContactUs);
@@ -139,7 +139,7 @@ public class TriviaClientDeleteTriviaScreen extends JFrame {
 					
 					if(result==-1)
 					{
-						JOptionPane.showMessageDialog(null, "You haven't added any trivia");
+						JOptionPane.showMessageDialog(contentPane, "You haven't added any trivia");
 						
 						contentPane.setVisible(false);
 						dispose();
@@ -150,7 +150,7 @@ public class TriviaClientDeleteTriviaScreen extends JFrame {
 				}
 				catch(Exception e)
 				{
-					JOptionPane.showMessageDialog(null, "Error in adding trivia");
+					JOptionPane.showMessageDialog(contentPane, "Error in adding trivia");
 				}	
 			}
 
@@ -232,7 +232,7 @@ public class TriviaClientDeleteTriviaScreen extends JFrame {
 				
 				if(selectedIndex==-1)
 				{
-					JOptionPane.showMessageDialog(null, "Please Select a Trivia from the list");
+					JOptionPane.showMessageDialog(contentPane, "Please Select a Trivia from the list");
 				}
 				
 				else
@@ -244,7 +244,7 @@ public class TriviaClientDeleteTriviaScreen extends JFrame {
 					try
 					{
 						
-						int resp=JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this trivia?","Delete Trivia",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+						int resp=JOptionPane.showConfirmDialog(contentPane, "Are you sure you want to delete this trivia?","Delete Trivia",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 						
 						if(resp==JOptionPane.YES_OPTION)
 						{
@@ -267,7 +267,7 @@ public class TriviaClientDeleteTriviaScreen extends JFrame {
 							
 							if(Result)
 							{
-								JOptionPane.showMessageDialog(null, "Successfully Deleted Selected Trivia");
+								JOptionPane.showMessageDialog(contentPane, "Successfully Deleted Selected Trivia");
 								
 								contentPane.setVisible(false);
 								dispose();
@@ -279,7 +279,7 @@ public class TriviaClientDeleteTriviaScreen extends JFrame {
 					}
 					catch(Exception e)
 					{
-						JOptionPane.showMessageDialog(null, "Error in Deleting Trivia");
+						JOptionPane.showMessageDialog(contentPane, "Error in Deleting Trivia");
 					}	
 				}
 			}

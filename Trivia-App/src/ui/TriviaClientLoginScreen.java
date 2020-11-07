@@ -144,9 +144,9 @@ public class TriviaClientLoginScreen extends JFrame {
 								String secondTopic=con.getFirstList().get(Integer.parseInt(String.valueOf(ui.Constants.myKey.charAt(1))));
 								String thirdTopic=con.getFirstList().get(Integer.parseInt(String.valueOf(ui.Constants.myKey.charAt(2))));
 								
-								JOptionPane.showMessageDialog(null, "Welcome! "+ui.Constants.myEmail);
+								JOptionPane.showMessageDialog(contentPane, "Welcome! "+ui.Constants.myEmail);
 								
-								JOptionPane.showMessageDialog(null, "Your Topics of Choice: \n"+"1."+firstTopic+"\n"+"2."+secondTopic+"\n"+"3."+thirdTopic);
+								JOptionPane.showMessageDialog(contentPane, "Your Topics of Choice: \n"+"1."+firstTopic+"\n"+"2."+secondTopic+"\n"+"3."+thirdTopic);
 								
 								contentPane.setVisible(false);
 								dispose();
@@ -156,31 +156,31 @@ public class TriviaClientLoginScreen extends JFrame {
 							}
 							else
 							{
-								JOptionPane.showMessageDialog(null, "Topics are not selected");
-								JOptionPane.showMessageDialog(null, "Could not LogIn");
+								JOptionPane.showMessageDialog(contentPane, "Topics are not selected");
+								JOptionPane.showMessageDialog(contentPane, "Could not LogIn");
 							}
 						}
 						else if(Result==-1)//Incorrect Email
 						{
-							JOptionPane.showMessageDialog(null, "Email DNE");
+							JOptionPane.showMessageDialog(contentPane, "Email DNE");
 						}
 						else if(Result==-2)//Incorrect Password
 						{
-							JOptionPane.showMessageDialog(null, "Password is Wrong!");
+							JOptionPane.showMessageDialog(contentPane, "Password is Wrong!");
 						}
 						else
 						{
-							JOptionPane.showMessageDialog(null, "Error in Logging in!");
+							JOptionPane.showMessageDialog(contentPane, "Error in Logging in!");
 						}
 					}
 					else
 					{
-						JOptionPane.showMessageDialog(null, "Enter all details");
+						JOptionPane.showMessageDialog(contentPane, "Enter all details");
 					}
 				}
 				catch(Exception e_login)
 				{
-					JOptionPane.showMessageDialog(null, "Enter valid details");
+					JOptionPane.showMessageDialog(contentPane, "Enter valid details");
 				}
 			}
 
@@ -248,6 +248,7 @@ public class TriviaClientLoginScreen extends JFrame {
 			{
 				contentPane.setVisible(false);
 				dispose();
+				
 				TriviaClientRegisterScreen reg_user=new TriviaClientRegisterScreen();
 				reg_user.setVisible(true);
 			}
@@ -274,7 +275,7 @@ public class TriviaClientLoginScreen extends JFrame {
 		myMenuItem_ContactUs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_contact) 
 			{
-				JOptionPane.showMessageDialog(null, "Email us at: rohanlimaye20@gmail.com");
+				JOptionPane.showMessageDialog(contentPane, "Email us at: rohanlimaye20@gmail.com");
 			}
 		});
 		myMenu.add(myMenuItem_ContactUs);

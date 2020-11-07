@@ -142,7 +142,7 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 					
 					if(topic1==topic2 || topic1==topic3 || topic2==topic3)
 					{
-						JOptionPane.showMessageDialog(null, "Select Unique Topics");
+						JOptionPane.showMessageDialog(contentPane, "Select Unique Topics");
 					}
 					else
 					{
@@ -157,9 +157,9 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 						String secondTopic=con.getFirstList().get(Integer.parseInt(String.valueOf(userKey.charAt(1))));
 						String thirdTopic=con.getFirstList().get(Integer.parseInt(String.valueOf(userKey.charAt(2))));
 						
-						JOptionPane.showMessageDialog(null, "Your Topics of Choice: \n"+"1."+firstTopic+"\n"+"2."+secondTopic+"\n"+"3."+thirdTopic);
+						JOptionPane.showMessageDialog(contentPane, "Your Topics of Choice: \n"+"1."+firstTopic+"\n"+"2."+secondTopic+"\n"+"3."+thirdTopic);
 						
-						int res = JOptionPane.showConfirmDialog(null,"Sure? Confirm Topics?", "Topics of Choice",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+						int res = JOptionPane.showConfirmDialog(contentPane,"Sure? Confirm Topics?", "Topics of Choice",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 						
 						if(res==JOptionPane.YES_OPTION)
 						{
@@ -183,7 +183,7 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 							
 							if(Result==1)
 							{
-								JOptionPane.showMessageDialog(null, "Successfully Updated Topics");
+								JOptionPane.showMessageDialog(contentPane, "Successfully Updated Topics");
 								
 								contentPane.setVisible(false);
 								dispose();
@@ -196,7 +196,7 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 				}
 				catch(Exception e)
 				{
-					JOptionPane.showMessageDialog(null, "Enter valid details");
+					JOptionPane.showMessageDialog(contentPane, "Enter valid details");
 				}
 			}
 
@@ -272,7 +272,7 @@ public class TriviaClientTopicSelectionScreen extends JFrame {
 		myMenuItem_ContactUs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_contact) 
 			{
-				JOptionPane.showMessageDialog(null, "Email us at: rohanlimaye20@gmail.com");
+				JOptionPane.showMessageDialog(contentPane, "Email us at: rohanlimaye20@gmail.com");
 			}
 		});
 		myMenu.add(myMenuItem_ContactUs);

@@ -84,7 +84,7 @@ public class TriviaClientOpeningScreen {
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "Can't Connect to Server! "+"IP: "+lblDisplayHostIP.getText()+" Port: "+lblDisplayHostPort.getText());
+					JOptionPane.showMessageDialog(frame, "Can't Connect to Server! "+"IP: "+lblDisplayHostIP.getText()+" Port: "+lblDisplayHostPort.getText());
 				}
 			}
 		});
@@ -184,7 +184,7 @@ public class TriviaClientOpeningScreen {
 		myMenuItem_ContactUs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_contact) 
 			{
-				JOptionPane.showMessageDialog(null, "Email us at: rohanlimaye20@gmail.com");
+				JOptionPane.showMessageDialog(frame, "Email us at: rohanlimaye20@gmail.com");
 			}
 		});
 		myMenu.add(myMenuItem_ContactUs);

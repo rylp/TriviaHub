@@ -96,7 +96,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 		myMenuItem_ContactUs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_contact) 
 			{
-				JOptionPane.showMessageDialog(null, "Email us at: rohanlimaye20@gmail.com");
+				JOptionPane.showMessageDialog(contentPane, "Email us at: rohanlimaye20@gmail.com");
 			}
 		});
 		myMenu.add(myMenuItem_ContactUs);
@@ -146,23 +146,23 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 				{
 					myTopic=firstTopic;
 					myTopicSelectNumber=0;
-					JOptionPane.showMessageDialog(null, "Selected: "+firstTopic);
+					JOptionPane.showMessageDialog(contentPane, "Selected: "+firstTopic);
 				}
 				else if(rdbtnTopic2.isSelected())
 				{
 					myTopic=secondTopic;
 					myTopicSelectNumber=1;
-					JOptionPane.showMessageDialog(null,  "Selected: "+secondTopic);
+					JOptionPane.showMessageDialog(contentPane,  "Selected: "+secondTopic);
 				}
 				else if(rdbtnTopic3.isSelected())
 				{
 					myTopic=thirdTopic;
 					myTopicSelectNumber=2;
-					JOptionPane.showMessageDialog(null,  "Selected: "+thirdTopic);
+					JOptionPane.showMessageDialog(contentPane,  "Selected: "+thirdTopic);
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "Please Select a topic!");
+					JOptionPane.showMessageDialog(contentPane, "Please Select a topic!");
 				}
 			}
 		});
@@ -205,7 +205,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 						
 						if(result==-1)
 						{
-							JOptionPane.showMessageDialog(null, "There is no trivia currently added for this topic!");
+							JOptionPane.showMessageDialog(contentPane, "There is no trivia currently added for this topic!");
 							
 							contentPane.setVisible(false);
 							dispose();
@@ -216,12 +216,12 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 					}
 					catch(Exception e)
 					{
-						JOptionPane.showMessageDialog(null, "Error in liking trivia");
+						JOptionPane.showMessageDialog(contentPane, "Error in liking trivia");
 					}	
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "Please Select a Topic");
+					JOptionPane.showMessageDialog(contentPane, "Please Select a Topic");
 				}
 			}
 
@@ -311,7 +311,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 					
 					try
 					{
-						int resp=JOptionPane.showConfirmDialog(null, "Do u want to like this trivia?","Like Trivia",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+						int resp=JOptionPane.showConfirmDialog(contentPane, "Do u want to like this trivia?","Like Trivia",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 						
 						if(resp==JOptionPane.YES_OPTION)
 						{
@@ -334,7 +334,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 							
 							if(Result)
 							{
-								JOptionPane.showMessageDialog(null, "Successfully Liked Selected Trivia");
+								JOptionPane.showMessageDialog(contentPane, "Successfully Liked Selected Trivia");
 								
 								contentPane.setVisible(false);
 								dispose();
@@ -344,19 +344,19 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 							}
 							else
 							{
-								JOptionPane.showMessageDialog(null, "Already Liked this Trivia");
+								JOptionPane.showMessageDialog(contentPane, "Already Liked this Trivia");
 							}
 						}
 						
 					}
 					catch(Exception e)
 					{
-						JOptionPane.showMessageDialog(null, "Error in Liking Trivia");
+						JOptionPane.showMessageDialog(contentPane, "Error in Liking Trivia");
 					}
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "No Trivia Selected Currently!");
+					JOptionPane.showMessageDialog(contentPane, "No Trivia Selected Currently!");
 				}
 			}
 
@@ -444,7 +444,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 					try
 					{
 						
-						int resp2=JOptionPane.showConfirmDialog(null, "Are you sure to Dislike selected trivia","Dislike Trivia",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+						int resp2=JOptionPane.showConfirmDialog(contentPane, "Are you sure to Dislike selected trivia","Dislike Trivia",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 						
 						if(resp2==JOptionPane.YES_OPTION)
 						{
@@ -467,7 +467,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 							
 							if(Result)
 							{
-								JOptionPane.showMessageDialog(null, "Successfully Disliked Selected Trivia");
+								JOptionPane.showMessageDialog(contentPane, "Successfully Disliked Selected Trivia");
 								
 								contentPane.setVisible(false);
 								dispose();
@@ -477,18 +477,18 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 							}
 							else
 							{
-								JOptionPane.showMessageDialog(null, "Trivia Already Disliked");
+								JOptionPane.showMessageDialog(contentPane, "Trivia Already Disliked");
 							}
 						}
 					}
 					catch(Exception e)
 					{
-						JOptionPane.showMessageDialog(null, "Error in Disliking Trivia");
+						JOptionPane.showMessageDialog(contentPane, "Error in Disliking Trivia");
 					}
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "No Trivia Added Currently!");
+					JOptionPane.showMessageDialog(contentPane, "No Trivia Added Currently!");
 				}	
 			}
 

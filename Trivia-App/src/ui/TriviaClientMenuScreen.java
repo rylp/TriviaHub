@@ -69,7 +69,7 @@ public class TriviaClientMenuScreen extends JFrame {
 		myMenuItem_ContactUs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_contact) 
 			{
-				JOptionPane.showMessageDialog(null, "Email us at: rohanlimaye20@gmail.com");
+				JOptionPane.showMessageDialog(contentPane, "Email us at: rohanlimaye20@gmail.com");
 			}
 		});
 		myMenu.add(myMenuItem_ContactUs);
@@ -179,7 +179,7 @@ public class TriviaClientMenuScreen extends JFrame {
 					ui.Constants.myKey=null;
 					ui.Constants.myUserId=-1;
 					
-					JOptionPane.showMessageDialog(null, "Logged Out!");
+					JOptionPane.showMessageDialog(contentPane, "Logged Out!");
 					
 					contentPane.setVisible(false);
 					dispose();

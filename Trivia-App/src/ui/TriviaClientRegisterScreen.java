@@ -210,26 +210,26 @@ public class TriviaClientRegisterScreen extends JFrame {
 							}
 							else if(result==-1)//Email Exists
 							{
-								JOptionPane.showMessageDialog(null, "Email Already Exists");
+								JOptionPane.showMessageDialog(contentPane, "Email Already Exists");
 							}
 							else
 							{
-								JOptionPane.showMessageDialog(null, "Error in Registration!");
+								JOptionPane.showMessageDialog(contentPane, "Error in Registration!");
 							}
 						}
 						else
 						{
-							JOptionPane.showMessageDialog(null, "Passwords don't match!");
+							JOptionPane.showMessageDialog(contentPane, "Passwords don't match!");
 						}
 					}
 					else
 					{
-						JOptionPane.showMessageDialog(null, "Enter all details");
+						JOptionPane.showMessageDialog(contentPane, "Enter all details");
 					}
 				}
 				catch(Exception e)
 				{
-					JOptionPane.showMessageDialog(null, "Enter valid details");
+					JOptionPane.showMessageDialog(contentPane, "Enter valid details");
 				}
 			}
 
@@ -313,7 +313,7 @@ public class TriviaClientRegisterScreen extends JFrame {
 		myMenuItem_ContactUs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_contact) 
 			{
-				JOptionPane.showMessageDialog(null, "Email us at: rohanlimaye20@gmail.com");
+				JOptionPane.showMessageDialog(contentPane, "Email us at: rohanlimaye20@gmail.com");
 			}
 		});
 		myMenu.add(myMenuItem_ContactUs);

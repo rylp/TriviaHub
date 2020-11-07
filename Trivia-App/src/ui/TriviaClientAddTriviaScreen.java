@@ -109,7 +109,7 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		myMenuItem_ContactUs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_contact) 
 			{
-				JOptionPane.showMessageDialog(null, "Email us at: rohanlimaye20@gmail.com");
+				JOptionPane.showMessageDialog(contentPane, "Email us at: rohanlimaye20@gmail.com");
 			}
 		});
 		myMenu.add(myMenuItem_ContactUs);
@@ -145,23 +145,23 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 				{
 					myTopic=firstTopic;
 					myTopicSelectNumber=0;
-					JOptionPane.showMessageDialog(null, "Selected: "+firstTopic);
+					JOptionPane.showMessageDialog(contentPane, "Selected: "+firstTopic);
 				}
 				else if(rdbtnTopic2.isSelected())
 				{
 					myTopic=secondTopic;
 					myTopicSelectNumber=1;
-					JOptionPane.showMessageDialog(null,  "Selected: "+secondTopic);
+					JOptionPane.showMessageDialog(contentPane,  "Selected: "+secondTopic);
 				}
 				else if(rdbtnTopic3.isSelected())
 				{
 					myTopic=thirdTopic;
 					myTopicSelectNumber=2;
-					JOptionPane.showMessageDialog(null,  "Selected: "+thirdTopic);
+					JOptionPane.showMessageDialog(contentPane,  "Selected: "+thirdTopic);
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "Please Select a topic!");
+					JOptionPane.showMessageDialog(contentPane, "Please Select a topic!");
 				}
 			}
 		});
@@ -222,13 +222,13 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 						}
 						catch(Exception e)
 						{
-							JOptionPane.showMessageDialog(null, "Unable to read Selected File");
+							JOptionPane.showMessageDialog(contentPane, "Unable to read Selected File");
 						}
 					}
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "Please Select a Topic");
+					JOptionPane.showMessageDialog(contentPane, "Please Select a Topic");
 				}
 			}
 		});
@@ -259,7 +259,7 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 					{
 						try
 						{
-							int response=JOptionPane.showConfirmDialog(null, "Confirm Adding Trivia","Add Trivia",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+							int response=JOptionPane.showConfirmDialog(contentPane, "Confirm Adding Trivia","Add Trivia",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 							
 							if(response==JOptionPane.YES_OPTION)
 							{
@@ -283,11 +283,11 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 								
 								if(result==1)//Correctly Added
 								{
-									JOptionPane.showMessageDialog(null, "Successfully added Trivia");
+									JOptionPane.showMessageDialog(contentPane, "Successfully added Trivia");
 								}
 								else
 								{
-									JOptionPane.showMessageDialog(null, "Error in Adding Trivia!");
+									JOptionPane.showMessageDialog(contentPane, "Error in Adding Trivia!");
 								}
 								
 								contentPane.setVisible(false);
@@ -299,17 +299,17 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 						}
 						catch(Exception e)
 						{
-							JOptionPane.showMessageDialog(null, "Error in adding trivia");
+							JOptionPane.showMessageDialog(contentPane, "Error in adding trivia");
 						}
 					}
 					else
 					{
-						JOptionPane.showMessageDialog(null, "PLease enter trivia content");
+						JOptionPane.showMessageDialog(contentPane, "Please enter trivia content");
 					}
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "Please select topic");
+					JOptionPane.showMessageDialog(contentPane, "Please select topic");
 				}
 			}
 

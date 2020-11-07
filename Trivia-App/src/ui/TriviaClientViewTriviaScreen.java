@@ -90,7 +90,7 @@ public class TriviaClientViewTriviaScreen extends JFrame {
 		myMenuItem_ContactUs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_contact) 
 			{
-				JOptionPane.showMessageDialog(null, "Email us at: rohanlimaye20@gmail.com");
+				JOptionPane.showMessageDialog(contentPane, "Email us at: rohanlimaye20@gmail.com");
 			}
 		});
 		myMenu.add(myMenuItem_ContactUs);
@@ -140,23 +140,23 @@ public class TriviaClientViewTriviaScreen extends JFrame {
 				{
 					myTopic=firstTopic;
 					myTopicSelectNumber=0;
-					JOptionPane.showMessageDialog(null, "Selected: "+firstTopic);
+					JOptionPane.showMessageDialog(contentPane, "Selected: "+firstTopic);
 				}
 				else if(rdbtnTopic2.isSelected())
 				{
 					myTopic=secondTopic;
 					myTopicSelectNumber=1;
-					JOptionPane.showMessageDialog(null,  "Selected: "+secondTopic);
+					JOptionPane.showMessageDialog(contentPane,  "Selected: "+secondTopic);
 				}
 				else if(rdbtnTopic3.isSelected())
 				{
 					myTopic=thirdTopic;
 					myTopicSelectNumber=2;
-					JOptionPane.showMessageDialog(null,  "Selected: "+thirdTopic);
+					JOptionPane.showMessageDialog(contentPane,  "Selected: "+thirdTopic);
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "Please Select a topic!");
+					JOptionPane.showMessageDialog(contentPane, "Please Select a topic!");
 				}
 			}
 		});
@@ -203,7 +203,7 @@ public class TriviaClientViewTriviaScreen extends JFrame {
 						
 						if(Result==-1)
 						{
-							JOptionPane.showMessageDialog(null, "No Trivia on this topic currently");
+							JOptionPane.showMessageDialog(contentPane, "No Trivia on this topic currently");
 							
 							contentPane.setVisible(false);
 							dispose();
@@ -214,12 +214,12 @@ public class TriviaClientViewTriviaScreen extends JFrame {
 					}
 					catch(Exception e)
 					{
-						JOptionPane.showMessageDialog(null, "Error in adding trivia");
+						JOptionPane.showMessageDialog(contentPane, "Error in adding trivia");
 					}
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null, "Please select topic");
+					JOptionPane.showMessageDialog(contentPane, "Please select topic");
 				}
 			}
 
