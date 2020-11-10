@@ -283,7 +283,7 @@ public class TriviaClientViewTriviaScreen extends JFrame {
 		
 		viewList = new JList();
 		viewList.setBorder(new LineBorder(new Color(0, 0, 0)));
-		viewList.setBackground(Color.CYAN);
+		viewList.setBackground(Color.WHITE);
 		viewList.setFont(new Font("Georgia", Font.BOLD | Font.ITALIC, 20));
 		scrollPane.setViewportView(viewList);
 		

@@ -283,7 +283,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 		contentPane.add(btnShowTrivia);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(154, 351, 636, 325);
+		scrollPane.setBounds(100, 375, 625, 325);
 		contentPane.add(scrollPane);
 		
 		likeList = new JList();
@@ -405,7 +405,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 		btnLikeTrivia.setForeground(Color.DARK_GRAY);
 		btnLikeTrivia.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnLikeTrivia.setBackground(Color.WHITE);
-		btnLikeTrivia.setBounds(280, 704, 216, 46);
+		btnLikeTrivia.setBounds(744, 498, 216, 46);
 		contentPane.add(btnLikeTrivia);
 		
 
@@ -536,7 +536,7 @@ public class TriviaClientLikeTriviaScreen extends JFrame {
 		btnDislikeTrivia.setForeground(Color.DARK_GRAY);
 		btnDislikeTrivia.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnDislikeTrivia.setBackground(Color.WHITE);
-		btnDislikeTrivia.setBounds(521, 704, 216, 46);
+		btnDislikeTrivia.setBounds(744, 581, 216, 46);
 		contentPane.add(btnDislikeTrivia);
 	}
 }

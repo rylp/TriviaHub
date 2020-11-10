@@ -347,7 +347,7 @@ public class TriviaClientAddTriviaScreen extends JFrame {
 		btnAdd.setForeground(Color.DARK_GRAY);
 		btnAdd.setFont(new Font("Georgia", Font.BOLD, 20));
 		btnAdd.setBackground(Color.WHITE);
-		btnAdd.setBounds(437, 649, 162, 46);
+		btnAdd.setBounds(435, 610, 162, 46);
 		contentPane.add(btnAdd);
 		
 		JButton btnGoToMenu = new JButton("MENU");

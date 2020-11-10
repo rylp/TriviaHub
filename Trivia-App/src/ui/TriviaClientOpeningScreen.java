@@ -24,6 +24,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JTextField;
 
 public class TriviaClientOpeningScreen {
 
@@ -34,6 +35,8 @@ public class TriviaClientOpeningScreen {
 	JLabel lblHostPort=null;
 	JLabel lblDisplayHostIP=null;
 	JLabel lblDisplayHostPort=null;
+	private JTextField textFieldHostIP;
+	private JTextField textFieldHostPort;
 	
 	/**
 	 * Launch the application.
@@ -75,13 +78,16 @@ public class TriviaClientOpeningScreen {
 		btnConnect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e_connect) {
 				
-//				JOptionPane.showMessageDialog(frame, "Connecting... to server");
+				JOptionPane.showMessageDialog(frame, "Connecting... to server");
+				
+				client.Constants.serverPort=textFieldHostPort.getText();
+				client.Constants.serverIp=textFieldHostIP.getText();
 				
 				boolean result=Client.communicationEndpoint();
 				
 				if(result)
 				{
-//					JOptionPane.showMessageDialog(frame, "Connected to server!");
+					JOptionPane.showMessageDialog(frame, "Connected to server!");
 					
 					btnHomeLogin.setEnabled(true);
 					btnHomeRegister.setEnabled(true);
@@ -120,22 +126,6 @@ public class TriviaClientOpeningScreen {
 		lblHostPort.setBounds(328, 215, 110, 50);
 		frame.getContentPane().add(lblHostPort);
 		lblHostPort.setBorder(new LineBorder(Color.WHITE));
-		
-		lblDisplayHostIP = new JLabel("127.0.0.1");
-		lblDisplayHostIP.setForeground(Color.WHITE);
-		lblDisplayHostIP.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDisplayHostIP.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblDisplayHostIP.setBounds(448, 159, 157, 45);
-		frame.getContentPane().add(lblDisplayHostIP);
-		lblDisplayHostIP.setBorder(new LineBorder(Color.WHITE));
-		
-		lblDisplayHostPort = new JLabel("9997");
-		lblDisplayHostPort.setForeground(Color.WHITE);
-		lblDisplayHostPort.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDisplayHostPort.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblDisplayHostPort.setBounds(448, 215, 157, 50);
-		frame.getContentPane().add(lblDisplayHostPort);
-		lblDisplayHostPort.setBorder(new LineBorder(Color.WHITE));
 		
 		btnHomeLogin = new JButton("Login");
 		btnHomeLogin.addActionListener(new ActionListener() {
@@ -192,5 +182,17 @@ public class TriviaClientOpeningScreen {
 			}
 		});
 		myMenu.add(myMenuItem_ContactUs);
+		
+		textFieldHostIP = new JTextField("192.168.0.28");
+		textFieldHostIP.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		textFieldHostIP.setBounds(475, 160, 160, 45);
+		frame.getContentPane().add(textFieldHostIP);
+		textFieldHostIP.setColumns(10);
+		
+		textFieldHostPort = new JTextField("9997");
+		textFieldHostPort.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		textFieldHostPort.setBounds(475, 220, 160, 42);
+		frame.getContentPane().add(textFieldHostPort);
+		textFieldHostPort.setColumns(10);
 	}
 }
