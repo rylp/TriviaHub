@@ -9,13 +9,6 @@ public class ClientConnection
 		
 		try
 		{
-			//Should come from GUI.
-//			String ip="localhost";
-			
-//			String ip="192.168.0.28";
-
-//			String ip=String.valueOf(Inet4Address.getLocalHost()).split("/")[1];
-//			int port=9997;
 			
 			String ip=client.Constants.serverIp;
 			int port=Integer.parseInt(client.Constants.serverPort);
